@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Upgrade
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Upgrade</h1>
+Upgrade utility.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static Driver</td><td class="method">
+<a id="loadH2_int" href="#loadH2_int">loadH2</a>(int version)
+<div class="methodText">Loads the specified version of H2 in a separate class loader.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static Driver</td><td>
+<a id="loadH2_int" href="#loadH2_int">loadH2</a>(int version) throws IOException, ReflectiveOperationException
+<div class="methodText">Loads the specified version of H2 in a separate class loader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">version - the version to load</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the driver of the specified version</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">IOException - on I/O exception</div>
+<div class="item">ReflectiveOperationException - on exception during initialization of the driver</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static void</td><td class="method">
+<a id="unloadH2_Driver" href="#unloadH2_Driver">unloadH2</a>(Driver driver)
+<div class="methodText">Unloads the specified driver of H2.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static void</td><td>
+<a id="unloadH2_Driver" href="#unloadH2_Driver">unloadH2</a>(Driver driver) throws ReflectiveOperationException
+<div class="methodText">Unloads the specified driver of H2.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">driver - the driver to unload</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">ReflectiveOperationException - on exception</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">static boolean</td><td class="method">
+<a id="upgrade_String_Properties_int" href="#upgrade_String_Properties_int">upgrade</a>(String url, Properties info, int version)
+<div class="methodText">Performs database upgrade from an older version of H2.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">static boolean</td><td>
+<a id="upgrade_String_Properties_int" href="#upgrade_String_Properties_int">upgrade</a>(String url, Properties info, int version) throws Exception
+<div class="methodText">Performs database upgrade from an older version of H2.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">url - the JDBC connection URL</div>
+<div class="item">info - the connection properties ("user", "password", etc).</div>
+<div class="item">version - the old version of H2</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">{@code true} on success, {@code false} if URL is a remote or
+         in-memory URL</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">Exception - on failure</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

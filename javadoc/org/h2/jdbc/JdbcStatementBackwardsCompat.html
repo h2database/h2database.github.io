@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+StatementBackwardsCompat
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>StatementBackwardsCompat</h1>
+Allows us to compile on older platforms, while still implementing the methods
+ from the newer JDBC API.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">String</td><td class="method">
+<a id="enquoteIdentifier_String_boolean" href="#enquoteIdentifier_String_boolean">enquoteIdentifier</a>(String identifier, boolean alwaysQuote)
+<div class="methodText">Enquotes the specified identifier.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">String</td><td>
+<a id="enquoteIdentifier_String_boolean" href="#enquoteIdentifier_String_boolean">enquoteIdentifier</a>(String identifier, boolean alwaysQuote) throws SQLException
+<div class="methodText">Enquotes the specified identifier.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">identifier - identifier to quote if required</div>
+<div class="item">alwaysQuote - if {@code true} identifier will be quoted unconditionally</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">specified identifier quoted if required or explicitly requested</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - on failure</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">boolean</td><td class="method">
+<a id="isSimpleIdentifier_String" href="#isSimpleIdentifier_String">isSimpleIdentifier</a>(String identifier)
+<div class="methodText">Checks if specified identifier may be used without quotes.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">boolean</td><td>
+<a id="isSimpleIdentifier_String" href="#isSimpleIdentifier_String">isSimpleIdentifier</a>(String identifier) throws SQLException
+<div class="methodText">Checks if specified identifier may be used without quotes.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">identifier - identifier to check</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">is specified identifier may be used without quotes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - on failure</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

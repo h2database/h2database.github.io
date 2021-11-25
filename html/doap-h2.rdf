@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://usefulinc.com/ns/doap#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xml:lang="en">
+<Project rdf:about="https://h2database.com">
+    <name>H2 Database Engine</name>
+    <homepage rdf:resource="https://h2database.com"/>
+    <programming-language>Java</programming-language>
+    <category rdf:resource="http://projects.apache.org/category/database"/>
+    <category rdf:resource="http://projects.apache.org/category/library"/>
+    <category rdf:resource="http://projects.apache.org/category/network-server"/>
+    <license rdf:resource="http://usefulinc.com/doap/licenses/mpl"/>
+    <bug-database rdf:resource="https://github.com/h2database/h2database/issues"/>
+    <download-page rdf:resource="https://h2database.com/html/download.html"/>
+    <shortdesc xml:lang="en">H2 Database Engine</shortdesc>
+    <description xml:lang="en">
+    H2 is a relational database management system written in Java.
+    It can be embedded in Java applications or run in the client-server mode.
+    The disk footprint is about 1 MB. The main programming APIs are SQL and JDBC,
+    however the database also supports using the PostgreSQL ODBC driver by acting like a PostgreSQL server.
+    It is possible to create both in-memory tables, as well as disk-based tables.
+    Tables can be persistent or temporary. Index types are hash table and tree for in-memory tables,
+    and b-tree for disk-based tables.
+    All data manipulation operations are transactional. (from Wikipedia)
+    </description>
+    <repository>
+        <SVNRepository>
+            <browse rdf:resource="https://github.com/h2database/h2database"/>
+            <location rdf:resource="https://github.com/h2database/h2database"/>
+        </SVNRepository>
+    </repository>
+    <mailing-list rdf:resource="https://groups.google.com/g/h2-database"/>
+<release>
+    <Version>
+        <name>H2 2.0.202</name>
+        <created>2021-11-25</created>
+        <revision>2.0.202</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.200</name>
+        <created>2019-10-14</created>
+        <revision>1.4.200</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.199</name>
+        <created>2019-03-13</created>
+        <revision>1.4.199</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.198</name>
+        <created>2019-02-22</created>
+        <revision>1.4.198</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.197</name>
+        <created>2018-03-18</created>
+        <revision>1.4.197</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.196</name>
+        <created>2017-06-10</created>
+        <revision>1.4.196</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.195</name>
+        <created>2017-04-23</created>
+        <revision>1.4.195</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.194</name>
+        <created>2017-03-10</created>
+        <revision>1.4.194</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.193</name>
+        <created>2016-10-31</created>
+        <revision>1.4.193</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.192</name>
+        <created>2016-05-26</created>
+        <revision>1.4.192</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.191</name>
+        <created>2016-01-21</created>
+        <revision>1.4.191</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.190</name>
+        <created>2015-10-11</created>
+        <revision>1.4.190</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.189</name>
+        <created>2015-09-13</created>
+        <revision>1.4.189</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.188</name>
+        <created>2015-08-01</created>
+        <revision>1.4.188</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.187</name>
+        <created>2015-04-10</created>
+        <revision>1.4.187</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.186</name>
+        <created>2015-03-02</created>
+        <revision>1.4.186</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.185</name>
+        <created>2015-01-16</created>
+        <revision>1.4.185</revision>
+    </Version>
+</release>
+<release>
+    <Version>
+        <name>H2 1.4.184</name>
+        <created>2014-12-19</created>
+        <revision>1.4.184</revision>
+    </Version>
+</release>
+    </Project>
+</rdf:RDF>

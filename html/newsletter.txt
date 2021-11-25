@@ -1,0 +1,6 @@
+A new version of H2 is available for
+( https://h2database.com ) download.
+(You may have to click 'Refresh').
+
+For details, see the
+( https://h2database.com/html/changelog.html ) change log.
