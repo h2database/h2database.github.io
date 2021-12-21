@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.0.202/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.0.204/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -2906,7 +2906,7 @@ syntax-end -->
 [ , <a href="grammar.html#string">localeString</a> [ , <a href="grammar.html#string">timeZoneString</a> ] ] )</span>
 </pre>
 syntax-end -->
-<p>Formats a date, time or timestamp as a string. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.text.SimpleDateFormat</code>. timeZoneString may be specified if dateAndTime is a <code class="notranslate">DATE, TIME</code> or <code class="notranslate">TIMESTAMP</code>. timeZoneString is ignored if dateAndTime is <code class="notranslate">TIMESTAMP WITH TIME ZONE</code>. This method returns a string.</p>
+<p>Formats a date, time or timestamp as a string. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.time.format.DateTimeFormatter</code>.</p><p>If timeZoneString is specified, it is used in formatted string if formatString has time zone. If <code class="notranslate">TIMESTAMP WITH TIME ZONE</code> is passed and timeZoneString is specified, the timestamp is converted to the specified time zone and its <code class="notranslate">UTC</code> value is preserved.</p><p>This method returns a string.</p>
 <p>Example:</p>
 <p class="notranslate">CALL FORMATDATETIME(TIMESTAMP &#39;2001-02-03 04:05:06&#39;,<br />&nbsp;&nbsp;&nbsp;&nbsp;&#39;EEE, d MMM yyyy HH:mm:ss z&#39;, &#39;en&#39;, &#39;GMT&#39;)</p>
 
@@ -2998,7 +2998,7 @@ syntax-end -->
 [, <a href="grammar.html#string">localeString</a> [, <a href="grammar.html#string">timeZoneString</a>]])</span>
 </pre>
 syntax-end -->
-<p>Parses a string and returns a timestamp. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.text.SimpleDateFormat</code>.</p>
+<p>Parses a string and returns a <code class="notranslate">TIMESTAMP WITH TIME ZONE</code> value. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.time.format.DateTimeFormatter</code>.</p><p>If timeZoneString is specified, it is used as default.</p>
 <p>Example:</p>
 <p class="notranslate">CALL PARSEDATETIME(&#39;Sat, 3 Feb 2001 03:05:06 GMT&#39;,<br />&nbsp;&nbsp;&nbsp;&nbsp;&#39;EEE, d MMM yyyy HH:mm:ss z&#39;, &#39;en&#39;, &#39;GMT&#39;)</p>
 
@@ -3144,7 +3144,7 @@ syntax-end -->
 <span class="ruleCompat">ARRAY_GET(<a href="grammar.html#expression">arrayExpression</a>, <a href="grammar.html#expression">indexExpression</a>)</span>
 </pre>
 syntax-end -->
-<p>Returns element at the specified 1-based index from an array.</p><p>This function is deprecated, use <code class="notranslate">arrayExpression[indexExpression]</code> instead of it.</p><p>Returns <code class="notranslate">NULL</code> if there is no such element or array is <code class="notranslate">NULL</code>.</p>
+<p>Returns element at the specified 1-based index from an array.</p><p>This function is deprecated, use [array element reference](<a href="https://www.h2database.com/html/grammar.html#array_element_reference)">https://www.h2database.com/html/grammar.html#array_element_reference)</a> instead of it.</p><p>Returns <code class="notranslate">NULL</code> if array or index is <code class="notranslate">NULL</code>.</p>
 <p>Example:</p>
 <p class="notranslate">CALL ARRAY_GET(ARRAY[&#39;Hello&#39;, &#39;World&#39;], 2)</p>
 

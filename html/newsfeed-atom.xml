@@ -6,12 +6,27 @@
         <name>Thomas Mueller</name>
     </author>
     <link rel="self" href="https://h2database.com/html/newsfeed-atom.xml"/>
-    <updated>2021-11-26T13:43:49Z</updated>
+    <updated>2021-12-21T11:37:19Z</updated>
+    <entry>
+        <title type="text">New version available: 2.0.204 (2021-12-21)</title>
+        <link rel="alternate" type="text/html" href="https://h2database.com/"/>
+        <id>https://h2database.com//152</id>
+        <updated>2021-12-21T12:00:00Z</updated>
+        <content type="html">
+            <![CDATA[A new version of H2 is available for
+            <a href="https://h2database.com">download</a>.
+            (You may have to click 'Refresh').
+            <br />
+            For details, see the
+            <a href="https://h2database.com/html/changelog.html">change log</a>.
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title type="text">New version available: 2.0.202 (2021-11-25)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//151</id>
-        <updated>2021-11-25T17:00:00Z</updated>
+        <updated>2021-11-25T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -26,7 +41,7 @@
         <title type="text">New version available: 1.4.200 (2019-10-14)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//150</id>
-        <updated>2019-10-14T16:00:00Z</updated>
+        <updated>2019-10-14T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -41,7 +56,7 @@
         <title type="text">New version available: 1.4.199 (2019-03-13)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//149</id>
-        <updated>2019-03-13T16:00:00Z</updated>
+        <updated>2019-03-13T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -56,7 +71,7 @@
         <title type="text">New version available: 1.4.198 (2019-02-22)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//148</id>
-        <updated>2019-02-22T17:00:00Z</updated>
+        <updated>2019-02-22T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -71,7 +86,7 @@
         <title type="text">New version available: 1.4.197 (2018-03-18)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//147</id>
-        <updated>2018-03-18T16:00:00Z</updated>
+        <updated>2018-03-18T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -86,7 +101,7 @@
         <title type="text">New version available: 1.4.196 (2017-06-10)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//146</id>
-        <updated>2017-06-10T16:00:00Z</updated>
+        <updated>2017-06-10T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -101,7 +116,7 @@
         <title type="text">New version available: 1.4.195 (2017-04-23)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//145</id>
-        <updated>2017-04-23T16:00:00Z</updated>
+        <updated>2017-04-23T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -116,7 +131,7 @@
         <title type="text">New version available: 1.4.194 (2017-03-10)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//144</id>
-        <updated>2017-03-10T17:00:00Z</updated>
+        <updated>2017-03-10T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -131,7 +146,7 @@
         <title type="text">New version available: 1.4.193 (2016-10-31)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//143</id>
-        <updated>2016-10-31T16:00:00Z</updated>
+        <updated>2016-10-31T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -146,7 +161,7 @@
         <title type="text">New version available: 1.4.192 (2016-05-26)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//142</id>
-        <updated>2016-05-26T16:00:00Z</updated>
+        <updated>2016-05-26T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -161,7 +176,7 @@
         <title type="text">New version available: 1.4.191 (2016-01-21)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//141</id>
-        <updated>2016-01-21T17:00:00Z</updated>
+        <updated>2016-01-21T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -176,7 +191,7 @@
         <title type="text">New version available: 1.4.190 (2015-10-11)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//140</id>
-        <updated>2015-10-11T16:00:00Z</updated>
+        <updated>2015-10-11T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -191,7 +206,7 @@
         <title type="text">New version available: 1.4.189 (2015-09-13)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//139</id>
-        <updated>2015-09-13T16:00:00Z</updated>
+        <updated>2015-09-13T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -206,7 +221,7 @@
         <title type="text">New version available: 1.4.188 (2015-08-01)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//138</id>
-        <updated>2015-08-01T16:00:00Z</updated>
+        <updated>2015-08-01T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -221,7 +236,7 @@
         <title type="text">New version available: 1.4.187 (2015-04-10)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//137</id>
-        <updated>2015-04-10T16:00:00Z</updated>
+        <updated>2015-04-10T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -236,7 +251,7 @@
         <title type="text">New version available: 1.4.186 (2015-03-02)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//136</id>
-        <updated>2015-03-02T17:00:00Z</updated>
+        <updated>2015-03-02T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.
@@ -251,22 +266,7 @@
         <title type="text">New version available: 1.4.185 (2015-01-16)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//135</id>
-        <updated>2015-01-16T17:00:00Z</updated>
-        <content type="html">
-            <![CDATA[A new version of H2 is available for
-            <a href="https://h2database.com">download</a>.
-            (You may have to click 'Refresh').
-            <br />
-            For details, see the
-            <a href="https://h2database.com/html/changelog.html">change log</a>.
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="text">New version available: 1.4.184 (2014-12-19)</title>
-        <link rel="alternate" type="text/html" href="https://h2database.com/"/>
-        <id>https://h2database.com//134</id>
-        <updated>2014-12-19T17:00:00Z</updated>
+        <updated>2015-01-16T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.

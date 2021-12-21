@@ -88,7 +88,7 @@ SQL Grammar
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.0.202/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.0.204/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -3254,7 +3254,7 @@ INCREMENT BY <a href="grammar.html#long">long</a>
 | <span class="ruleH2">{ CACHE <a href="grammar.html#long">long</a> }</span> | <span class="ruleH2">{ NO CACHE }</span> | <span class="ruleCompat">{ NOCACHE }</span>
 </pre>
 syntax-end -->
-<p>Basic option of a sequence.</p><p><code class="notranslate">INCREMENT BY</code> specifies the step of the sequence, may be positive or negative, but may not be zero. The default is 1.</p><p><code class="notranslate">MINVALUE</code> and <code class="notranslate">MAXVALUE</code> specify the bounds of the sequence.</p><p>Sequences with <code class="notranslate">CYCLE</code> option start the generation again from <code class="notranslate">MINVALUE</code> (incrementing sequences) or <code class="notranslate">MAXVALUE</code> (decrementing sequences) instead of exhausting with an error. Sequences with <code class="notranslate">EXHAUSTED</code> option can&#39;t return values until they will be restarted.</p><p>The <code class="notranslate">CACHE</code> option sets the number of pre-allocated numbers. If the system crashes without closing the database, at most this many numbers are lost. The default cache size is 32 if sequence has enough range of values. <code class="notranslate">NO CACHE</code> option or the cache size 1 or lower disable the cache.</p>
+<p>Basic option of a sequence.</p><p><code class="notranslate">INCREMENT BY</code> specifies the step of the sequence, may be positive or negative, but may not be zero. The default is 1.</p><p><code class="notranslate">MINVALUE</code> and <code class="notranslate">MAXVALUE</code> specify the bounds of the sequence.</p><p>Sequences with <code class="notranslate">CYCLE</code> option start the generation again from <code class="notranslate">MINVALUE</code> (incrementing sequences) or <code class="notranslate">MAXVALUE</code> (decrementing sequences) instead of exhausting with an error. Sequences with <code class="notranslate">EXHAUSTED</code> option can&#39;t return values until they will be restarted.</p><p>The <code class="notranslate">CACHE</code> option sets the number of pre-allocated numbers. If the system crashes without closing the database, at most this many numbers are lost. The default cache size is 32 if sequence has enough range of values. <code class="notranslate">NO CACHE</code> option or the cache size 1 or lower disable the cache. If <code class="notranslate">CACHE</code> option is specified, it cannot be larger than the total number of values that sequence can produce within a cycle.</p>
 <p>Example:</p>
 <p class="notranslate">MAXVALUE 100000<br />CYCLE<br />NO CACHE</p>
 

@@ -13,33 +13,11 @@ An adapter for the trigger interface that allows to use the ResultSet
 <tr id="__0" onclick="return on(0)">
 <td class="return">void</td><td class="method">
 <a id="fire_Connection_Object-_Object-" href="#fire_Connection_Object-_Object-">fire</a>(Connection conn, Object[] oldRow, Object[] newRow)
-<div class="methodText">This method is called for each triggered action.</div>
 </td></tr>
 <tr onclick="return off(0)" class="detail" id="_0">
 <td class="return">void</td><td>
 <a id="fire_Connection_Object-_Object-" href="#fire_Connection_Object-_Object-">fire</a>(Connection conn, Object[] oldRow, Object[] newRow) throws SQLException
-<div class="methodText">This method is called for each triggered action. The method is called
- immediately when the operation occurred (before it is committed). A
- transaction rollback will also rollback the operations that were done
- within the trigger, if the operations occurred within the same database.
- If the trigger changes state outside the database, a rollback trigger
- should be used.
- <p>
- The row arrays contain all columns of the table, in the same order
- as defined in the table.
- </p>
- <p>
- The default implementation calls the fire method with the ResultSet
- parameters.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">conn - a connection to the database</div>
-<div class="item">oldRow - the old row, or null if no old row is available (for
-            INSERT)</div>
-<div class="item">newRow - the new row, or null if no new row is available (for
-            DELETE)</div>
-<div class="itemTitle">Throws:</div>
-<div class="item">SQLException - if the operation must be undone</div>
+<div class="methodText"></div>
 </td></tr>
 <tr id="__1" onclick="return on(1)">
 <td class="return">void</td><td class="method">
@@ -52,8 +30,6 @@ An adapter for the trigger interface that allows to use the ResultSet
 <a id="fire_Connection_ResultSet_ResultSet" href="#fire_Connection_ResultSet_ResultSet">fire</a>(Connection conn, ResultSet oldRow, ResultSet newRow) throws SQLException
 <div class="methodText">This method is called for each triggered action by the default
  fire(Connection conn, Object[] oldRow, Object[] newRow) method.
- ResultSet.next does not need to be called (and calling it has no effect;
- it will always return true).
  <p>
  For "before" triggers, the new values of the new row may be changed
  using the ResultSet.updateX methods.

@@ -94,6 +94,9 @@ This class contains various database-level settings. To override the
 <a href="#OPTIMIZE_OR">optimizeOr</a>
 </td></tr>
 <tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_SIMPLE_SINGLE_ROW_SUBQUERIES">optimizeSimpleSingleRowSubqueries</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
 <a href="#OPTIMIZE_TWO_EQUALS">optimizeTwoEquals</a>
 </td></tr>
 <tr><td class="return">static int</td><td class="method">
@@ -312,6 +315,12 @@ This class contains various database-level settings. To override the
 </span></h4>
 <div class="item">Database setting <code class="notranslate">OPTIMIZE_OR</code> (default: true).
  Convert (C=? OR C=?) to (C IN(?, ?)).</div>
+<hr />
+<h4 id="OPTIMIZE_SIMPLE_SINGLE_ROW_SUBQUERIES"><span class="methodName">optimizeSimpleSingleRowSubqueries
+
+</span></h4>
+<div class="item">Database setting <code class="notranslate">OPTIMIZE_SIMPLE_SINGLE_ROW_SUBQUERIES</code> (default: true).
+ Optimize expressions of the form (SELECT A) to A.</div>
 <hr />
 <h4 id="OPTIMIZE_TWO_EQUALS"><span class="methodName">optimizeTwoEquals
 
