@@ -5,185 +5,251 @@ and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-Migration to 2.0
-</title>
-<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-<!-- [search] { -->
-<script type="text/javascript" src="navigation.js"></script>
-</head><body onload="highlight()" onscroll="scroll()">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        Migration to 2.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <!-- [search] { -->
+    <script type="text/javascript" src="navigation.js"></script>
+</head>
 
-<table class="nav" onmousemove="return mouseMove(event)"><tr class="nav"><td class="nav" valign="top">
-<div id = "searchMenu" style="width: 180px; overflow: hidden;">
-<div class="menu" style="white-space:nowrap;">
-<img src="images/h2-logo-2.png"
-    alt="H2 database logo"
-    onclick="document.location='main.html'"
-    width="136" height="74"/>
-&nbsp;&nbsp;<span id = "goTop" onclick="window.scrollTo(0,0)" style="color: #fff; position:fixed; font-size: 20px; cursor: pointer;">&#x25b2;</span>
-</div>
+<body onload="highlight()" onscroll="scroll()">
 
-<form action="submit" onsubmit="return goFirst();">
-<table width="100%" class="search">
-    <tr class="search">
-        <td class="search" colspan="2">
+    <table class="nav" onmousemove="return mouseMove(event)">
+        <tr class="nav">
+            <td class="nav" valign="top">
+                <div id="searchMenu" style="width: 180px; overflow: hidden;">
+                    <div class="menu" style="white-space:nowrap;">
+                        <img src="images/h2-logo-2.png" alt="H2 database logo" onclick="document.location='main.html'"
+                            width="136" height="74" />
+                        &nbsp;&nbsp;<span id="goTop" onclick="window.scrollTo(0,0)"
+                            style="color: #fff; position:fixed; font-size: 20px; cursor: pointer;">&#x25b2;</span>
+                    </div>
 
-<a href="https://translate.google.com/translate?u=https%3A%2F%2Fh2database.com"
-    onclick="javascript:startTranslate();return false;">Translate</a>
-<div id = "translate" style="display:none"><div id = "google_translate_element"></div></div>
+                    <form action="submit" onsubmit="return goFirst();">
+                        <table width="100%" class="search">
+                            <tr class="search">
+                                <td class="search" colspan="2">
 
-        </td>
-    </tr>
-    <tr class="search">
-        <td class="search" colspan="2">
-        <b><label for="search">Search:</label></b>
-        </td>
-    </tr>
-    <tr class="search">
-        <td class="search" colspan="2">
-            <input id = "search" name="search" type="text" size="16" maxlength="100" onkeyup="listWords(this.value, '')" /><br />
-            <input type="reset" id = "clear" style="display:none;" value="Clear" onclick="listWords('', '');" />
-        </td>
-    </tr>
-    <tr class="search" style="display:none;" >
-        <td class="search" style="width: 1%; vertical-align: middle;">
-            <input id = "highlight" type="checkbox" checked="checked" onclick="highlightCurrent(this.checked, search.value)" />
-        </td>
-        <td class="search" style="width: 99%; padding: 0px; vertical-align: middle;">
-            <label for="highlight">Highlight keyword(s)</label>
-        </td>
-    </tr>
-    <tr class="search">
-        <td class="search" colspan="2">
-            <table id = "result" style="border: 0px;">
-                <tr style="display:none"><td></td></tr>
-            </table>
-        </td>
-    </tr>
-</table>
-</form>
-<div class="menu">
-<b><a href="main.html">Home</a></b><br />
-<a href="download.html">Download</a><br />
-<a href="cheatSheet.html">Cheat Sheet</a><br />
-<br />
-<b>Documentation</b><br />
-<a href="quickstart.html">Quickstart</a><br />
-<a href="installation.html">Installation</a><br />
-<a href="tutorial.html">Tutorial</a><br />
-<a href="features.html">Features</a><br />
-<a href="security.html">Security</a><br />
-<a href="performance.html">Performance</a><br />
-<a href="advanced.html">Advanced</a><br />
-<br />
-<b>Reference</b><br />
-<a href="commands.html">Commands</a><br />
-<a href="functions.html">Functions</a><br />
-&#8226;&nbsp;<a href="functions-aggregate.html">Aggregate</a>
-&#8226;&nbsp;<a href="functions-window.html">Window</a>
-<br /><br />
-<a href="datatypes.html">Data Types</a><br />
-<a href="grammar.html">SQL Grammar</a><br />
-<a href="systemtables.html">System Tables</a><br />
-<a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.0.206/h2.pdf">PDF (2 MB)</a><br />
-<br />
-<b>Support</b><br />
-<a href="faq.html">FAQ</a><br />
-<a href="sourceError.html">Error Analyzer</a><br />
-<a href="https://groups.google.com/g/h2-database">Google Group</a><br />
-<br />
-<b>Appendix</b><br />
-<a href="history.html">History</a><br />
-<a href="license.html">License</a><br />
-<a href="build.html">Build</a><br />
-<a href="links.html">Links</a><br />
-<a href="mvstore.html">MVStore</a><br />
-<a href="architecture.html">Architecture</a><br />
-<br />
+                                    <a href="https://translate.google.com/translate?u=https%3A%2F%2Fh2database.com"
+                                        onclick="javascript:startTranslate();return false;">Translate</a>
+                                    <div id="translate" style="display:none">
+                                        <div id="google_translate_element"></div>
+                                    </div>
 
-</div>
-</div>
-</td>
+                                </td>
+                            </tr>
+                            <tr class="search">
+                                <td class="search" colspan="2">
+                                    <b><label for="search">Search:</label></b>
+                                </td>
+                            </tr>
+                            <tr class="search">
+                                <td class="search" colspan="2">
+                                    <input id="search" name="search" type="text" size="16" maxlength="100"
+                                        onkeyup="listWords(this.value, '')" /><br />
+                                    <input type="reset" id="clear" style="display:none;" value="Clear"
+                                        onclick="listWords('', '');" />
+                                </td>
+                            </tr>
+                            <tr class="search" style="display:none;">
+                                <td class="search" style="width: 1%; vertical-align: middle;">
+                                    <input id="highlight" type="checkbox" checked="checked"
+                                        onclick="highlightCurrent(this.checked, search.value)" />
+                                </td>
+                                <td class="search" style="width: 99%; padding: 0px; vertical-align: middle;">
+                                    <label for="highlight">Highlight keyword(s)</label>
+                                </td>
+                            </tr>
+                            <tr class="search">
+                                <td class="search" colspan="2">
+                                    <table id="result" style="border: 0px;">
+                                        <tr style="display:none">
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div class="menu">
+                        <b><a href="main.html">Home</a></b><br />
+                        <a href="download.html">Download</a><br />
+                        <a href="cheatSheet.html">Cheat Sheet</a><br />
+                        <br />
+                        <b>Documentation</b><br />
+                        <a href="quickstart.html">Quickstart</a><br />
+                        <a href="installation.html">Installation</a><br />
+                        <a href="tutorial.html">Tutorial</a><br />
+                        <a href="features.html">Features</a><br />
+                        <a href="security.html">Security</a><br />
+                        <a href="performance.html">Performance</a><br />
+                        <a href="advanced.html">Advanced</a><br />
+                        <br />
+                        <b>Reference</b><br />
+                        <a href="commands.html">Commands</a><br />
+                        <a href="functions.html">Functions</a><br />
+                        &#8226;&nbsp;<a href="functions-aggregate.html">Aggregate</a>
+                        &#8226;&nbsp;<a href="functions-window.html">Window</a>
+                        <br /><br />
+                        <a href="datatypes.html">Data Types</a><br />
+                        <a href="grammar.html">SQL Grammar</a><br />
+                        <a href="systemtables.html">System Tables</a><br />
+                        <a href="../javadoc/index.html">Javadoc</a><br />
+                        <a href="https://github.com/h2database/h2database/releases/download/version-2.0.206/h2.pdf">PDF
+                            (2 MB)</a><br />
+                        <br />
+                        <b>Support</b><br />
+                        <a href="faq.html">FAQ</a><br />
+                        <a href="sourceError.html">Error Analyzer</a><br />
+                        <a href="https://groups.google.com/g/h2-database">Google Group</a><br />
+                        <br />
+                        <b>Appendix</b><br />
+                        <a href="history.html">History</a><br />
+                        <a href="license.html">License</a><br />
+                        <a href="build.html">Build</a><br />
+                        <a href="links.html">Links</a><br />
+                        <a href="mvstore.html">MVStore</a><br />
+                        <a href="architecture.html">Architecture</a><br />
+                        <br />
 
-<td class="nav" style="cursor: e-resize;" onmousedown="return mouseDown(event)" onmouseup="return mouseUp(event)">&nbsp;</td>
-<td class="nav"><div class="content">
+                    </div>
+                </div>
+            </td>
 
-<!-- } -->
+            <td class="nav" style="cursor: e-resize;" onmousedown="return mouseDown(event)"
+                onmouseup="return mouseUp(event)">&nbsp;</td>
+            <td class="nav">
+                <div class="content">
 
-<h1>Contents</h1>
-<a href="#intro">
-    Introduction</a><br />
-<a href="#upgrade">
-    Upgrading</a><br />
-<a href="#format">
-    File Format</a><br />
-<a href="#datetime">
-    Date / Time / Timestamp</a><br />
-<a href="#general">
-    General</a><br />
+                    <!-- } -->
 
-<h2 id="intro">Introduction</h2>
+                    <h1>Contents</h1>
+                    <a href="#intro">
+                        Introduction</a><br />
+                    <a href="#upgrade">
+                        Upgrading</a><br />
+                    <a href="#format">
+                        File Format</a><br />
+                    <a href="#datetime">
+                        Date / Time / Timestamp</a><br />
+                    <a href="#general">
+                        General</a><br />
 
-<p>
-Between version 1.4.198 and version 2.0.0 there have been considerable changes, such that a simple update is
-not possible.
-</p>
+                    <h2 id="intro">Introduction</h2>
 
-<p>
-It would have been nice to write some kind of migration tool, or auto-detect the file and upgrade. Unfortunately, this
-is purely a volunteer-run project, so this is just the way it has to be.
-</p>
+                    <p>
+                        Between version 1.4.198 and version 2.0.0 there have been considerable changes, such that a
+                        simple update is
+                        not possible.
+                    </p>
 
-<h2 id="upgrade">Upgrading</h2>
+                    <p>
+                        It would have been nice to write some kind of migration tool, or auto-detect the file and
+                        upgrade. Unfortunately, this
+                        is purely a volunteer-run project, so this is just the way it has to be.
+                        There exists a migration tool <a
+                            href="https://github.com/manticore-projects/H2MigrationTool">H2MigrationTool</a> available
+                        in GitHub, but it hasn't been tested by our team. Use at
+                        your own risk.
+                    </p>
 
-<p>
-The official way to upgrade is to do a BACKUP of your existing database <bold>USING YOUR CURRENT VERSION OF H2.</bold>
-</p>
+                    <h2 id="upgrade">Upgrading</h2>
 
-<p>
-Then create a fresh database <bold>USING THE NEW VERSION OF H2</bold>, then perform a SCRIPT to load your data.
-</p>
+                    <p>
+                        The official way to upgrade is to do a BACKUP of your existing database <bold>USING YOUR CURRENT
+                            VERSION OF H2.</bold>
+                    </p>
 
-<h2 id="format">MVStore file format</h2>
+                    <p>
+                        Then create a fresh database <bold>USING THE NEW VERSION OF H2</bold>, then perform a SCRIPT to
+                        load your data.
+                    </p>
 
-<p>
-The MVStore file format we use (i.e. the default) is still mostly the same, but some subtle changes have been made
-to the undo logs,
-for the purposes of improving crash safety and also read/write performance.
-</p>
+                    <h2 id="format">MVStore file format</h2>
 
-<h2 id="datetime">Date / Time / Timestamp</h2>
+                    <p>
+                        The MVStore file format we use (i.e. the default) is still mostly the same, but some subtle
+                        changes have been made
+                        to the undo logs,
+                        for the purposes of improving crash safety and also read/write performance.
+                    </p>
 
-<p>
-TODO - Correctness.
-</p>
+                    <h2 id="datetime">Date / Time / Timestamp</h2>
 
-<h2 id="general">General</h2>
+                    <p>
+                        TODO - Correctness.
+                    </p>
 
-<p>
-There are a lot more SQL keywords now. Many SQL statements feature far better support of SQL-Standard behaviour.
-Some old non-standard SQL syntax support has been removed.
-</p>
+                    <h2 id="general">General</h2>
 
-<!-- [close] { -->
-</div></td></tr></table>
-<script type="text/javascript" src="index.js"></script>
-<script type="text/javascript" src="search.js"></script>
-<script type="text/javascript">
-function startTranslate() {
-    document.getElementById('translate').style.display='';
-    var script=document.createElement('script');
-    script.setAttribute("type","text/javascript");
-    script.setAttribute("src", "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
-    document.getElementsByTagName("head")[0].appendChild(script);
-}
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-}
-</script>
+                    <p>
+                        There are a lot more SQL keywords now. Many SQL statements feature far better support of
+                        SQL-Standard behaviour.
+                        Some old non-standard SQL syntax support has been removed.
+                    </p>
 
-<!-- } --></body></html>
+                    <p>
+                        Migrating an old database to the new version works most of the times. However, there are a
+                        couple of important changes in the new version to keep in mind:
+                    </p>
+                    <ul>
+                        <li>
+                            <b>Restricted maximum allowed length limits:</b> there are new length limits for for
+                            non-LOB data types. For example, for the VARBINARY type the maximum allowed size is now
+                            1048576 (1MB)
+                            instead of the previous 16777216 (16MB). Adjust the tables before migration.
+                        </li>
+                        <li>
+                            <b>VARCHAR length changes unit syntax:</b> The length of the VARCHAR datatype cannot
+                            be more specified using CHAR but CHARACTERS or OCTETS.
+                        </li>
+                        <li>
+                            <b>IDENTITY syntax changed when type is specified:</b> if the type for IDENTITY is
+                            specified, then the clause needs to be expanded as INTEGER GENERATED ALWAYS AS IDENTITY.
+                            Using just INTEGER IDENTITY is no more working.
+                        </li>
+                        <li>
+                            <b>Usage of statement.setTimestamp() is discouraged:</b> use setObject(parameterIndex,
+                            value) with java.time.LocalDateTime parameter instead. For example: stmt.setTimestamp(2,
+                            timestamp, this.utcCalendar); becomes stmt.setObject(2, timestamp.toLocalDateTime());.
+                        </li>
+                        <li>
+                            <b>IDENTITY() function is removed:</b> statements like CALL IDENTITY(); aren't working
+                            anymore, use another method like SELECT MAX(ID) FROM test;.
+                        </li>
+                        <li>
+                            <b>LOG connection setting removed:</b> the "LOG=0" setting at the end of the URL (like
+                            "jdbc:h2:file:/tmp/test;LOG=0") that disables the transaction log on persisted databases has
+                            been removed.
+                        </li>
+                    </ul>
+
+                    <!-- [close] { -->
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="search.js"></script>
+    <script type="text/javascript">
+        function startTranslate() {
+            document.getElementById('translate').style.display = '';
+            var script = document.createElement('script');
+            script.setAttribute("type", "text/javascript");
+            script.setAttribute("src", "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+    <!-- } -->
+</body>
+
+</html>
