@@ -1,523 +1,1068 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
-Interval
-</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
-<script type="text/javascript" src="../../../animate.js"></script>
-</head><body onload="openLink();">
-<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
-<h1>Interval</h1>
-INTERVAL representation for result sets.<br /><br />
-<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
-<tr id="__0" onclick="return on(0)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofDays_long" href="#ofDays_long">ofDays</a>(long days)
-<div class="methodText">Creates a new INTERVAL DAY.</div>
-</td></tr>
-<tr onclick="return off(0)" class="detail" id="_0">
-<td class="return">static Interval</td><td>
-<a id="ofDays_long" href="#ofDays_long">ofDays</a>(long days)
-<div class="methodText">Creates a new INTERVAL DAY.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">days - days, |days|&lt;10<sup>18</sup></div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL DAY</div>
-</td></tr>
-<tr id="__1" onclick="return on(1)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofDaysHours_long_int" href="#ofDaysHours_long_int">ofDaysHours</a>(long days, int hours)
-<div class="methodText">Creates a new INTERVAL DAY TO HOUR.</div>
-</td></tr>
-<tr onclick="return off(1)" class="detail" id="_1">
-<td class="return">static Interval</td><td>
-<a id="ofDaysHours_long_int" href="#ofDaysHours_long_int">ofDaysHours</a>(long days, int hours)
-<div class="methodText">Creates a new INTERVAL DAY TO HOUR.
-
- <p>
- If both arguments are not equal to zero they should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">days - days, |days|&lt;10<sup>18</sup></div>
-<div class="item">hours - hours, |hours|&lt;24</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL DAY TO HOUR</div>
-</td></tr>
-<tr id="__2" onclick="return on(2)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofDaysHoursMinutes_long_int_int" href="#ofDaysHoursMinutes_long_int_int">ofDaysHoursMinutes</a>(long days, int hours, int minutes)
-<div class="methodText">Creates a new INTERVAL DAY TO MINUTE.</div>
-</td></tr>
-<tr onclick="return off(2)" class="detail" id="_2">
-<td class="return">static Interval</td><td>
-<a id="ofDaysHoursMinutes_long_int_int" href="#ofDaysHoursMinutes_long_int_int">ofDaysHoursMinutes</a>(long days, int hours, int minutes)
-<div class="methodText">Creates a new INTERVAL DAY TO MINUTE.
-
- <p>
- Non-zero arguments should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">days - days, |days|&lt;10<sup>18</sup></div>
-<div class="item">hours - hours, |hours|&lt;24</div>
-<div class="item">minutes - minutes, |minutes|&lt;60</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL DAY TO MINUTE</div>
-</td></tr>
-<tr id="__3" onclick="return on(3)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofDaysHoursMinutesNanos_long_int_int_long" href="#ofDaysHoursMinutesNanos_long_int_int_long">ofDaysHoursMinutesNanos</a>(long days, int hours, int minutes, long nanos)
-<div class="methodText">Creates a new INTERVAL DAY TO SECOND.</div>
-</td></tr>
-<tr onclick="return off(3)" class="detail" id="_3">
-<td class="return">static Interval</td><td>
-<a id="ofDaysHoursMinutesNanos_long_int_int_long" href="#ofDaysHoursMinutesNanos_long_int_int_long">ofDaysHoursMinutesNanos</a>(long days, int hours, int minutes, long nanos)
-<div class="methodText">Creates a new INTERVAL DAY TO SECOND.
-
- <p>
- Non-zero arguments should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">days - days, |days|&lt;10<sup>18</sup></div>
-<div class="item">hours - hours, |hours|&lt;24</div>
-<div class="item">minutes - minutes, |minutes|&lt;60</div>
-<div class="item">nanos - nanoseconds, |nanos|&lt;60,000,000,000</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL DAY TO SECOND</div>
-</td></tr>
-<tr id="__4" onclick="return on(4)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofDaysHoursMinutesSeconds_long_int_int_int" href="#ofDaysHoursMinutesSeconds_long_int_int_int">ofDaysHoursMinutesSeconds</a>(long days, int hours, int minutes, int seconds)
-<div class="methodText">Creates a new INTERVAL DAY TO SECOND.</div>
-</td></tr>
-<tr onclick="return off(4)" class="detail" id="_4">
-<td class="return">static Interval</td><td>
-<a id="ofDaysHoursMinutesSeconds_long_int_int_int" href="#ofDaysHoursMinutesSeconds_long_int_int_int">ofDaysHoursMinutesSeconds</a>(long days, int hours, int minutes, int seconds)
-<div class="methodText">Creates a new INTERVAL DAY TO SECOND.
-
- <p>
- Non-zero arguments should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">days - days, |days|&lt;10<sup>18</sup></div>
-<div class="item">hours - hours, |hours|&lt;24</div>
-<div class="item">minutes - minutes, |minutes|&lt;60</div>
-<div class="item">seconds - seconds, |seconds|&lt;60</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL DAY TO SECOND</div>
-</td></tr>
-<tr id="__5" onclick="return on(5)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofHours_long" href="#ofHours_long">ofHours</a>(long hours)
-<div class="methodText">Creates a new INTERVAL HOUR.</div>
-</td></tr>
-<tr onclick="return off(5)" class="detail" id="_5">
-<td class="return">static Interval</td><td>
-<a id="ofHours_long" href="#ofHours_long">ofHours</a>(long hours)
-<div class="methodText">Creates a new INTERVAL HOUR.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">hours - hours, |hours|&lt;10<sup>18</sup></div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL HOUR</div>
-</td></tr>
-<tr id="__6" onclick="return on(6)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofHoursMinutes_long_int" href="#ofHoursMinutes_long_int">ofHoursMinutes</a>(long hours, int minutes)
-<div class="methodText">Creates a new INTERVAL HOUR TO MINUTE.</div>
-</td></tr>
-<tr onclick="return off(6)" class="detail" id="_6">
-<td class="return">static Interval</td><td>
-<a id="ofHoursMinutes_long_int" href="#ofHoursMinutes_long_int">ofHoursMinutes</a>(long hours, int minutes)
-<div class="methodText">Creates a new INTERVAL HOUR TO MINUTE.
-
- <p>
- If both arguments are not equal to zero they should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">hours - hours, |hours|&lt;10<sup>18</sup></div>
-<div class="item">minutes - minutes, |minutes|&lt;60</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL HOUR TO MINUTE</div>
-</td></tr>
-<tr id="__7" onclick="return on(7)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofHoursMinutesNanos_long_int_long" href="#ofHoursMinutesNanos_long_int_long">ofHoursMinutesNanos</a>(long hours, int minutes, long nanos)
-<div class="methodText">Creates a new INTERVAL HOUR TO SECOND.</div>
-</td></tr>
-<tr onclick="return off(7)" class="detail" id="_7">
-<td class="return">static Interval</td><td>
-<a id="ofHoursMinutesNanos_long_int_long" href="#ofHoursMinutesNanos_long_int_long">ofHoursMinutesNanos</a>(long hours, int minutes, long nanos)
-<div class="methodText">Creates a new INTERVAL HOUR TO SECOND.
-
- <p>
- Non-zero arguments should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">hours - hours, |hours|&lt;10<sup>18</sup></div>
-<div class="item">minutes - minutes, |minutes|&lt;60</div>
-<div class="item">nanos - nanoseconds, |seconds|&lt;60,000,000,000</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL HOUR TO SECOND</div>
-</td></tr>
-<tr id="__8" onclick="return on(8)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofHoursMinutesSeconds_long_int_int" href="#ofHoursMinutesSeconds_long_int_int">ofHoursMinutesSeconds</a>(long hours, int minutes, int seconds)
-<div class="methodText">Creates a new INTERVAL HOUR TO SECOND.</div>
-</td></tr>
-<tr onclick="return off(8)" class="detail" id="_8">
-<td class="return">static Interval</td><td>
-<a id="ofHoursMinutesSeconds_long_int_int" href="#ofHoursMinutesSeconds_long_int_int">ofHoursMinutesSeconds</a>(long hours, int minutes, int seconds)
-<div class="methodText">Creates a new INTERVAL HOUR TO SECOND.
-
- <p>
- Non-zero arguments should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">hours - hours, |hours|&lt;10<sup>18</sup></div>
-<div class="item">minutes - minutes, |minutes|&lt;60</div>
-<div class="item">seconds - seconds, |seconds|&lt;60</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL HOUR TO SECOND</div>
-</td></tr>
-<tr id="__9" onclick="return on(9)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofMinutes_long" href="#ofMinutes_long">ofMinutes</a>(long minutes)
-<div class="methodText">Creates a new INTERVAL MINUTE.</div>
-</td></tr>
-<tr onclick="return off(9)" class="detail" id="_9">
-<td class="return">static Interval</td><td>
-<a id="ofMinutes_long" href="#ofMinutes_long">ofMinutes</a>(long minutes)
-<div class="methodText">Creates a new INTERVAL MINUTE.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">minutes - minutes, |minutes|&lt;10<sup>18</sup></div>
-<div class="itemTitle">Returns:</div>
-<div class="item">interval</div>
-</td></tr>
-<tr id="__10" onclick="return on(10)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofMinutesNanos_long_long" href="#ofMinutesNanos_long_long">ofMinutesNanos</a>(long minutes, long nanos)
-<div class="methodText">Creates a new INTERVAL MINUTE TO SECOND.</div>
-</td></tr>
-<tr onclick="return off(10)" class="detail" id="_10">
-<td class="return">static Interval</td><td>
-<a id="ofMinutesNanos_long_long" href="#ofMinutesNanos_long_long">ofMinutesNanos</a>(long minutes, long nanos)
-<div class="methodText">Creates a new INTERVAL MINUTE TO SECOND.
-
- <p>
- If both arguments are not equal to zero they should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">minutes - minutes, |minutes|&lt;10<sup>18</sup></div>
-<div class="item">nanos - nanoseconds, |nanos|&lt;60,000,000,000</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL MINUTE TO SECOND</div>
-</td></tr>
-<tr id="__11" onclick="return on(11)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofMinutesSeconds_long_int" href="#ofMinutesSeconds_long_int">ofMinutesSeconds</a>(long minutes, int seconds)
-<div class="methodText">Creates a new INTERVAL MINUTE TO SECOND.</div>
-</td></tr>
-<tr onclick="return off(11)" class="detail" id="_11">
-<td class="return">static Interval</td><td>
-<a id="ofMinutesSeconds_long_int" href="#ofMinutesSeconds_long_int">ofMinutesSeconds</a>(long minutes, int seconds)
-<div class="methodText">Creates a new INTERVAL MINUTE TO SECOND.
-
- <p>
- If both arguments are not equal to zero they should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">minutes - minutes, |minutes|&lt;10<sup>18</sup></div>
-<div class="item">seconds - seconds, |seconds|&lt;60</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL MINUTE TO SECOND</div>
-</td></tr>
-<tr id="__12" onclick="return on(12)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofMonths_long" href="#ofMonths_long">ofMonths</a>(long months)
-<div class="methodText">Creates a new INTERVAL MONTH.</div>
-</td></tr>
-<tr onclick="return off(12)" class="detail" id="_12">
-<td class="return">static Interval</td><td>
-<a id="ofMonths_long" href="#ofMonths_long">ofMonths</a>(long months)
-<div class="methodText">Creates a new INTERVAL MONTH.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">months - months, |months|&lt;10<sup>18</sup></div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL MONTH</div>
-</td></tr>
-<tr id="__13" onclick="return on(13)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofNanos_long" href="#ofNanos_long">ofNanos</a>(long nanos)
-<div class="methodText">Creates a new INTERVAL SECOND.</div>
-</td></tr>
-<tr onclick="return off(13)" class="detail" id="_13">
-<td class="return">static Interval</td><td>
-<a id="ofNanos_long" href="#ofNanos_long">ofNanos</a>(long nanos)
-<div class="methodText">Creates a new INTERVAL SECOND.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">nanos - nanoseconds (including seconds)</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL SECOND</div>
-</td></tr>
-<tr id="__14" onclick="return on(14)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofSeconds_long" href="#ofSeconds_long">ofSeconds</a>(long seconds)
-<div class="methodText">Creates a new INTERVAL SECOND.</div>
-</td></tr>
-<tr onclick="return off(14)" class="detail" id="_14">
-<td class="return">static Interval</td><td>
-<a id="ofSeconds_long" href="#ofSeconds_long">ofSeconds</a>(long seconds)
-<div class="methodText">Creates a new INTERVAL SECOND.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">seconds - seconds, |seconds|&lt;10<sup>18</sup></div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL SECOND</div>
-</td></tr>
-<tr id="__15" onclick="return on(15)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofSeconds_long_int" href="#ofSeconds_long_int">ofSeconds</a>(long seconds, int nanos)
-<div class="methodText">Creates a new INTERVAL SECOND.</div>
-</td></tr>
-<tr onclick="return off(15)" class="detail" id="_15">
-<td class="return">static Interval</td><td>
-<a id="ofSeconds_long_int" href="#ofSeconds_long_int">ofSeconds</a>(long seconds, int nanos)
-<div class="methodText">Creates a new INTERVAL SECOND.
-
- <p>
- If both arguments are not equal to zero they should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">seconds - seconds, |seconds|&lt;10<sup>18</sup></div>
-<div class="item">nanos - nanoseconds, |nanos|&lt;1,000,000,000</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL SECOND</div>
-</td></tr>
-<tr id="__16" onclick="return on(16)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofYears_long" href="#ofYears_long">ofYears</a>(long years)
-<div class="methodText">Creates a new INTERVAL YEAR.</div>
-</td></tr>
-<tr onclick="return off(16)" class="detail" id="_16">
-<td class="return">static Interval</td><td>
-<a id="ofYears_long" href="#ofYears_long">ofYears</a>(long years)
-<div class="methodText">Creates a new INTERVAL YEAR.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">years - years, |years|&lt;10<sup>18</sup></div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL YEAR</div>
-</td></tr>
-<tr id="__17" onclick="return on(17)">
-<td class="return">static Interval</td><td class="method">
-<a id="ofYearsMonths_long_int" href="#ofYearsMonths_long_int">ofYearsMonths</a>(long years, int months)
-<div class="methodText">Creates a new INTERVAL YEAR TO MONTH.</div>
-</td></tr>
-<tr onclick="return off(17)" class="detail" id="_17">
-<td class="return">static Interval</td><td>
-<a id="ofYearsMonths_long_int" href="#ofYearsMonths_long_int">ofYearsMonths</a>(long years, int months)
-<div class="methodText">Creates a new INTERVAL YEAR TO MONTH.
-
- <p>
- If both arguments are not equal to zero they should have the same sign.
- </p></div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">years - years, |years|&lt;10<sup>18</sup></div>
-<div class="item">months - months, |months|&lt;12</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">INTERVAL YEAR TO MONTH</div>
-</td></tr>
-<tr id="__18" onclick="return on(18)">
-<td class="return"></td><td class="method">
-<a id="Interval_IntervalQualifier_boolean_long_long" href="#Interval_IntervalQualifier_boolean_long_long">Interval</a>(IntervalQualifier qualifier, boolean negative, long leading, long remaining)
-<div class="methodText">Creates a new interval.</div>
-</td></tr>
-<tr onclick="return off(18)" class="detail" id="_18">
-<td class="return"></td><td>
-<a id="Interval_IntervalQualifier_boolean_long_long" href="#Interval_IntervalQualifier_boolean_long_long">Interval</a>(IntervalQualifier qualifier, boolean negative, long leading, long remaining)
-<div class="methodText">Creates a new interval. Do not use this constructor, use static methods
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- NewPage -->
+<html lang="en">
+<head>
+<!-- Generated by javadoc (1.8.0_281) on Mon Jan 17 10:12:26 EST 2022 -->
+<title>Interval</title>
+<meta name="date" content="2022-01-17">
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+<script type="text/javascript" src="../../../script.js"></script>
+</head>
+<body>
+<script type="text/javascript"><!--
+    try {
+        if (location.href.indexOf('is-external=true') == -1) {
+            parent.document.title="Interval";
+        }
+    }
+    catch(err) {
+    }
+//-->
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":10};
+var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
+</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="topNav"><a name="navbar.top">
+<!--   -->
+</a>
+<div class="skipNav"><a href="#skip.navbar.top" title="Skip navigation links">Skip navigation links</a></div>
+<a name="navbar.top.firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../org/h2/api/H2Type.html" title="class in org.h2.api"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/h2/api/IntervalQualifier.html" title="enum in org.h2.api"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../index.html?org/h2/api/Interval.html" target="_top">Frames</a></li>
+<li><a href="Interval.html" target="_top">No&nbsp;Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_top">
+<li><a href="../../../allclasses-noframe.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_top");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<a name="skip.navbar.top">
+<!--   -->
+</a></div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<div class="subTitle">org.h2.api</div>
+<h2 title="Class Interval" class="title">Class Interval</h2>
+</div>
+<div class="contentContainer">
+<ul class="inheritance">
+<li>java.lang.Object</li>
+<li>
+<ul class="inheritance">
+<li>org.h2.api.Interval</li>
+</ul>
+</li>
+</ul>
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<hr>
+<br>
+<pre class="notranslate">public final class <span class="typeNameLabel">Interval</span>
+extends java.lang.Object</pre>
+<div class="block">INTERVAL representation for result sets.</div>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#Interval-org.h2.api.IntervalQualifier-boolean-long-long-">Interval</a></span>(<a href="../../../org/h2/api/IntervalQualifier.html" title="enum in org.h2.api">IntervalQualifier</a>&nbsp;qualifier,
+        boolean&nbsp;negative,
+        long&nbsp;leading,
+        long&nbsp;remaining)</code>
+<div class="block">Creates a new interval.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr id="i0" class="altColor">
+<td class="colFirst"><code class="notranslate">boolean</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#equals-java.lang.Object-">equals</a></span>(java.lang.Object&nbsp;obj)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getDays--">getDays</a></span>()</code>
+<div class="block">Returns days value, if any.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getHours--">getHours</a></span>()</code>
+<div class="block">Returns hours value, if any.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getLeading--">getLeading</a></span>()</code>
+<div class="block">Returns value of leading field of this interval.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getMinutes--">getMinutes</a></span>()</code>
+<div class="block">Returns minutes value, if any.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getMonths--">getMonths</a></span>()</code>
+<div class="block">Returns months value, if any.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getNanosOfSecond--">getNanosOfSecond</a></span>()</code>
+<div class="block">Returns value of fractional part of seconds (in nanoseconds), if any.</div>
+</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code class="notranslate"><a href="../../../org/h2/api/IntervalQualifier.html" title="enum in org.h2.api">IntervalQualifier</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getQualifier--">getQualifier</a></span>()</code>
+<div class="block">Returns qualifier of this interval.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getRemaining--">getRemaining</a></span>()</code>
+<div class="block">Returns combined value of remaining fields of this interval.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getSeconds--">getSeconds</a></span>()</code>
+<div class="block">Returns value of integer part of seconds, if any.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getSecondsAndNanos--">getSecondsAndNanos</a></span>()</code>
+<div class="block">Returns seconds value measured in nanoseconds, if any.</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code class="notranslate">long</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#getYears--">getYears</a></span>()</code>
+<div class="block">Returns years value, if any.</div>
+</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code class="notranslate">int</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#hashCode--">hashCode</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
+<td class="colFirst"><code class="notranslate">boolean</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#isNegative--">isNegative</a></span>()</code>
+<div class="block">Returns where the interval is negative.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofDays-long-">ofDays</a></span>(long&nbsp;days)</code>
+<div class="block">Creates a new INTERVAL DAY.</div>
+</td>
+</tr>
+<tr id="i15" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofDaysHours-long-int-">ofDaysHours</a></span>(long&nbsp;days,
+           int&nbsp;hours)</code>
+<div class="block">Creates a new INTERVAL DAY TO HOUR.</div>
+</td>
+</tr>
+<tr id="i16" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofDaysHoursMinutes-long-int-int-">ofDaysHoursMinutes</a></span>(long&nbsp;days,
+                  int&nbsp;hours,
+                  int&nbsp;minutes)</code>
+<div class="block">Creates a new INTERVAL DAY TO MINUTE.</div>
+</td>
+</tr>
+<tr id="i17" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofDaysHoursMinutesNanos-long-int-int-long-">ofDaysHoursMinutesNanos</a></span>(long&nbsp;days,
+                       int&nbsp;hours,
+                       int&nbsp;minutes,
+                       long&nbsp;nanos)</code>
+<div class="block">Creates a new INTERVAL DAY TO SECOND.</div>
+</td>
+</tr>
+<tr id="i18" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofDaysHoursMinutesSeconds-long-int-int-int-">ofDaysHoursMinutesSeconds</a></span>(long&nbsp;days,
+                         int&nbsp;hours,
+                         int&nbsp;minutes,
+                         int&nbsp;seconds)</code>
+<div class="block">Creates a new INTERVAL DAY TO SECOND.</div>
+</td>
+</tr>
+<tr id="i19" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofHours-long-">ofHours</a></span>(long&nbsp;hours)</code>
+<div class="block">Creates a new INTERVAL HOUR.</div>
+</td>
+</tr>
+<tr id="i20" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofHoursMinutes-long-int-">ofHoursMinutes</a></span>(long&nbsp;hours,
+              int&nbsp;minutes)</code>
+<div class="block">Creates a new INTERVAL HOUR TO MINUTE.</div>
+</td>
+</tr>
+<tr id="i21" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofHoursMinutesNanos-long-int-long-">ofHoursMinutesNanos</a></span>(long&nbsp;hours,
+                   int&nbsp;minutes,
+                   long&nbsp;nanos)</code>
+<div class="block">Creates a new INTERVAL HOUR TO SECOND.</div>
+</td>
+</tr>
+<tr id="i22" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofHoursMinutesSeconds-long-int-int-">ofHoursMinutesSeconds</a></span>(long&nbsp;hours,
+                     int&nbsp;minutes,
+                     int&nbsp;seconds)</code>
+<div class="block">Creates a new INTERVAL HOUR TO SECOND.</div>
+</td>
+</tr>
+<tr id="i23" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofMinutes-long-">ofMinutes</a></span>(long&nbsp;minutes)</code>
+<div class="block">Creates a new INTERVAL MINUTE.</div>
+</td>
+</tr>
+<tr id="i24" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofMinutesNanos-long-long-">ofMinutesNanos</a></span>(long&nbsp;minutes,
+              long&nbsp;nanos)</code>
+<div class="block">Creates a new INTERVAL MINUTE TO SECOND.</div>
+</td>
+</tr>
+<tr id="i25" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofMinutesSeconds-long-int-">ofMinutesSeconds</a></span>(long&nbsp;minutes,
+                int&nbsp;seconds)</code>
+<div class="block">Creates a new INTERVAL MINUTE TO SECOND.</div>
+</td>
+</tr>
+<tr id="i26" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofMonths-long-">ofMonths</a></span>(long&nbsp;months)</code>
+<div class="block">Creates a new INTERVAL MONTH.</div>
+</td>
+</tr>
+<tr id="i27" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofNanos-long-">ofNanos</a></span>(long&nbsp;nanos)</code>
+<div class="block">Creates a new INTERVAL SECOND.</div>
+</td>
+</tr>
+<tr id="i28" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofSeconds-long-">ofSeconds</a></span>(long&nbsp;seconds)</code>
+<div class="block">Creates a new INTERVAL SECOND.</div>
+</td>
+</tr>
+<tr id="i29" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofSeconds-long-int-">ofSeconds</a></span>(long&nbsp;seconds,
+         int&nbsp;nanos)</code>
+<div class="block">Creates a new INTERVAL SECOND.</div>
+</td>
+</tr>
+<tr id="i30" class="altColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofYears-long-">ofYears</a></span>(long&nbsp;years)</code>
+<div class="block">Creates a new INTERVAL YEAR.</div>
+</td>
+</tr>
+<tr id="i31" class="rowColor">
+<td class="colFirst"><code class="notranslate">static <a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a></code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#ofYearsMonths-long-int-">ofYearsMonths</a></span>(long&nbsp;years,
+             int&nbsp;months)</code>
+<div class="block">Creates a new INTERVAL YEAR TO MONTH.</div>
+</td>
+</tr>
+<tr id="i32" class="altColor">
+<td class="colFirst"><code class="notranslate">java.lang.String</code></td>
+<td class="colLast"><code class="notranslate"><span class="memberNameLink"><a href="../../../org/h2/api/Interval.html#toString--">toString</a></span>()</code>&nbsp;</td>
+</tr>
+</table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code class="notranslate">clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="Interval-org.h2.api.IntervalQualifier-boolean-long-long-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Interval</h4>
+<pre class="notranslate">public&nbsp;Interval(<a href="../../../org/h2/api/IntervalQualifier.html" title="enum in org.h2.api">IntervalQualifier</a>&nbsp;qualifier,
+                boolean&nbsp;negative,
+                long&nbsp;leading,
+                long&nbsp;remaining)</pre>
+<div class="block">Creates a new interval. Do not use this constructor, use static methods
  instead.</div>
-<div class="itemTitle">Parameters:</div>
-<div class="item">qualifier - qualifier</div>
-<div class="item">negative - whether interval is negative</div>
-<div class="item">leading - value of leading field</div>
-<div class="item">remaining - combined value of all remaining fields</div>
-</td></tr>
-<tr id="__19" onclick="return on(19)">
-<td class="return">boolean</td><td class="method">
-<a id="equals_Object" href="#equals_Object">equals</a>(Object obj)
-</td></tr>
-<tr onclick="return off(19)" class="detail" id="_19">
-<td class="return">boolean</td><td>
-<a id="equals_Object" href="#equals_Object">equals</a>(Object obj)
-<div class="methodText"></div>
-</td></tr>
-<tr id="__20" onclick="return on(20)">
-<td class="return">long</td><td class="method">
-<a id="getDays" href="#getDays">getDays</a>()
-<div class="methodText">Returns days value, if any.</div>
-</td></tr>
-<tr onclick="return off(20)" class="detail" id="_20">
-<td class="return">long</td><td>
-<a id="getDays" href="#getDays">getDays</a>()
-<div class="methodText">Returns days value, if any.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">days, or 0</div>
-</td></tr>
-<tr id="__21" onclick="return on(21)">
-<td class="return">long</td><td class="method">
-<a id="getHours" href="#getHours">getHours</a>()
-<div class="methodText">Returns hours value, if any.</div>
-</td></tr>
-<tr onclick="return off(21)" class="detail" id="_21">
-<td class="return">long</td><td>
-<a id="getHours" href="#getHours">getHours</a>()
-<div class="methodText">Returns hours value, if any.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">hours, or 0</div>
-</td></tr>
-<tr id="__22" onclick="return on(22)">
-<td class="return">long</td><td class="method">
-<a id="getLeading" href="#getLeading">getLeading</a>()
-<div class="methodText">Returns value of leading field of this interval.</div>
-</td></tr>
-<tr onclick="return off(22)" class="detail" id="_22">
-<td class="return">long</td><td>
-<a id="getLeading" href="#getLeading">getLeading</a>()
-<div class="methodText">Returns value of leading field of this interval. For {@code SECOND}
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">qualifier</code> - qualifier</dd>
+<dd><code class="notranslate">negative</code> - whether interval is negative</dd>
+<dd><code class="notranslate">leading</code> - value of leading field</dd>
+<dd><code class="notranslate">remaining</code> - combined value of all remaining fields</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="ofYears-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofYears</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofYears(long&nbsp;years)</pre>
+<div class="block">Creates a new INTERVAL YEAR.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">years</code> - years, |years|&lt;10<sup>18</sup></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL YEAR</dd>
+</dl>
+</li>
+</ul>
+<a name="ofMonths-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofMonths</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofMonths(long&nbsp;months)</pre>
+<div class="block">Creates a new INTERVAL MONTH.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">months</code> - months, |months|&lt;10<sup>18</sup></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL MONTH</dd>
+</dl>
+</li>
+</ul>
+<a name="ofDays-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofDays</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofDays(long&nbsp;days)</pre>
+<div class="block">Creates a new INTERVAL DAY.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">days</code> - days, |days|&lt;10<sup>18</sup></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL DAY</dd>
+</dl>
+</li>
+</ul>
+<a name="ofHours-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofHours</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofHours(long&nbsp;hours)</pre>
+<div class="block">Creates a new INTERVAL HOUR.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;10<sup>18</sup></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL HOUR</dd>
+</dl>
+</li>
+</ul>
+<a name="ofMinutes-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofMinutes</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofMinutes(long&nbsp;minutes)</pre>
+<div class="block">Creates a new INTERVAL MINUTE.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;10<sup>18</sup></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>interval</dd>
+</dl>
+</li>
+</ul>
+<a name="ofSeconds-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofSeconds</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofSeconds(long&nbsp;seconds)</pre>
+<div class="block">Creates a new INTERVAL SECOND.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">seconds</code> - seconds, |seconds|&lt;10<sup>18</sup></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofSeconds-long-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofSeconds</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofSeconds(long&nbsp;seconds,
+                                 int&nbsp;nanos)</pre>
+<div class="block">Creates a new INTERVAL SECOND.
+
+ <p>
+ If both arguments are not equal to zero they should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">seconds</code> - seconds, |seconds|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">nanos</code> - nanoseconds, |nanos|&lt;1,000,000,000</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofNanos-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofNanos</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofNanos(long&nbsp;nanos)</pre>
+<div class="block">Creates a new INTERVAL SECOND.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">nanos</code> - nanoseconds (including seconds)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofYearsMonths-long-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofYearsMonths</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofYearsMonths(long&nbsp;years,
+                                     int&nbsp;months)</pre>
+<div class="block">Creates a new INTERVAL YEAR TO MONTH.
+
+ <p>
+ If both arguments are not equal to zero they should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">years</code> - years, |years|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">months</code> - months, |months|&lt;12</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL YEAR TO MONTH</dd>
+</dl>
+</li>
+</ul>
+<a name="ofDaysHours-long-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofDaysHours</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofDaysHours(long&nbsp;days,
+                                   int&nbsp;hours)</pre>
+<div class="block">Creates a new INTERVAL DAY TO HOUR.
+
+ <p>
+ If both arguments are not equal to zero they should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">days</code> - days, |days|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;24</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL DAY TO HOUR</dd>
+</dl>
+</li>
+</ul>
+<a name="ofDaysHoursMinutes-long-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofDaysHoursMinutes</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofDaysHoursMinutes(long&nbsp;days,
+                                          int&nbsp;hours,
+                                          int&nbsp;minutes)</pre>
+<div class="block">Creates a new INTERVAL DAY TO MINUTE.
+
+ <p>
+ Non-zero arguments should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">days</code> - days, |days|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;24</dd>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;60</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL DAY TO MINUTE</dd>
+</dl>
+</li>
+</ul>
+<a name="ofDaysHoursMinutesSeconds-long-int-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofDaysHoursMinutesSeconds</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofDaysHoursMinutesSeconds(long&nbsp;days,
+                                                 int&nbsp;hours,
+                                                 int&nbsp;minutes,
+                                                 int&nbsp;seconds)</pre>
+<div class="block">Creates a new INTERVAL DAY TO SECOND.
+
+ <p>
+ Non-zero arguments should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">days</code> - days, |days|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;24</dd>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;60</dd>
+<dd><code class="notranslate">seconds</code> - seconds, |seconds|&lt;60</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL DAY TO SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofDaysHoursMinutesNanos-long-int-int-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofDaysHoursMinutesNanos</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofDaysHoursMinutesNanos(long&nbsp;days,
+                                               int&nbsp;hours,
+                                               int&nbsp;minutes,
+                                               long&nbsp;nanos)</pre>
+<div class="block">Creates a new INTERVAL DAY TO SECOND.
+
+ <p>
+ Non-zero arguments should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">days</code> - days, |days|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;24</dd>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;60</dd>
+<dd><code class="notranslate">nanos</code> - nanoseconds, |nanos|&lt;60,000,000,000</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL DAY TO SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofHoursMinutes-long-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofHoursMinutes</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofHoursMinutes(long&nbsp;hours,
+                                      int&nbsp;minutes)</pre>
+<div class="block">Creates a new INTERVAL HOUR TO MINUTE.
+
+ <p>
+ If both arguments are not equal to zero they should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;60</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL HOUR TO MINUTE</dd>
+</dl>
+</li>
+</ul>
+<a name="ofHoursMinutesSeconds-long-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofHoursMinutesSeconds</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofHoursMinutesSeconds(long&nbsp;hours,
+                                             int&nbsp;minutes,
+                                             int&nbsp;seconds)</pre>
+<div class="block">Creates a new INTERVAL HOUR TO SECOND.
+
+ <p>
+ Non-zero arguments should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;60</dd>
+<dd><code class="notranslate">seconds</code> - seconds, |seconds|&lt;60</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL HOUR TO SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofHoursMinutesNanos-long-int-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofHoursMinutesNanos</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofHoursMinutesNanos(long&nbsp;hours,
+                                           int&nbsp;minutes,
+                                           long&nbsp;nanos)</pre>
+<div class="block">Creates a new INTERVAL HOUR TO SECOND.
+
+ <p>
+ Non-zero arguments should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">hours</code> - hours, |hours|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;60</dd>
+<dd><code class="notranslate">nanos</code> - nanoseconds, |seconds|&lt;60,000,000,000</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL HOUR TO SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofMinutesSeconds-long-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofMinutesSeconds</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofMinutesSeconds(long&nbsp;minutes,
+                                        int&nbsp;seconds)</pre>
+<div class="block">Creates a new INTERVAL MINUTE TO SECOND.
+
+ <p>
+ If both arguments are not equal to zero they should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">seconds</code> - seconds, |seconds|&lt;60</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL MINUTE TO SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="ofMinutesNanos-long-long-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ofMinutesNanos</h4>
+<pre class="notranslate">public static&nbsp;<a href="../../../org/h2/api/Interval.html" title="class in org.h2.api">Interval</a>&nbsp;ofMinutesNanos(long&nbsp;minutes,
+                                      long&nbsp;nanos)</pre>
+<div class="block">Creates a new INTERVAL MINUTE TO SECOND.
+
+ <p>
+ If both arguments are not equal to zero they should have the same sign.
+ </p></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code class="notranslate">minutes</code> - minutes, |minutes|&lt;10<sup>18</sup></dd>
+<dd><code class="notranslate">nanos</code> - nanoseconds, |nanos|&lt;60,000,000,000</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>INTERVAL MINUTE TO SECOND</dd>
+</dl>
+</li>
+</ul>
+<a name="getQualifier--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getQualifier</h4>
+<pre class="notranslate">public&nbsp;<a href="../../../org/h2/api/IntervalQualifier.html" title="enum in org.h2.api">IntervalQualifier</a>&nbsp;getQualifier()</pre>
+<div class="block">Returns qualifier of this interval.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>qualifier</dd>
+</dl>
+</li>
+</ul>
+<a name="isNegative--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isNegative</h4>
+<pre class="notranslate">public&nbsp;boolean&nbsp;isNegative()</pre>
+<div class="block">Returns where the interval is negative.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>where the interval is negative</dd>
+</dl>
+</li>
+</ul>
+<a name="getLeading--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLeading</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getLeading()</pre>
+<div class="block">Returns value of leading field of this interval. For <code class="notranslate">SECOND</code>
  intervals returns integer part of seconds.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">value of leading field</div>
-</td></tr>
-<tr id="__23" onclick="return on(23)">
-<td class="return">long</td><td class="method">
-<a id="getMinutes" href="#getMinutes">getMinutes</a>()
-<div class="methodText">Returns minutes value, if any.</div>
-</td></tr>
-<tr onclick="return off(23)" class="detail" id="_23">
-<td class="return">long</td><td>
-<a id="getMinutes" href="#getMinutes">getMinutes</a>()
-<div class="methodText">Returns minutes value, if any.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">minutes, or 0</div>
-</td></tr>
-<tr id="__24" onclick="return on(24)">
-<td class="return">long</td><td class="method">
-<a id="getMonths" href="#getMonths">getMonths</a>()
-<div class="methodText">Returns months value, if any.</div>
-</td></tr>
-<tr onclick="return off(24)" class="detail" id="_24">
-<td class="return">long</td><td>
-<a id="getMonths" href="#getMonths">getMonths</a>()
-<div class="methodText">Returns months value, if any.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">months, or 0</div>
-</td></tr>
-<tr id="__25" onclick="return on(25)">
-<td class="return">long</td><td class="method">
-<a id="getNanosOfSecond" href="#getNanosOfSecond">getNanosOfSecond</a>()
-<div class="methodText">Returns value of fractional part of seconds (in nanoseconds), if any.</div>
-</td></tr>
-<tr onclick="return off(25)" class="detail" id="_25">
-<td class="return">long</td><td>
-<a id="getNanosOfSecond" href="#getNanosOfSecond">getNanosOfSecond</a>()
-<div class="methodText">Returns value of fractional part of seconds (in nanoseconds), if any.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">nanoseconds, or 0</div>
-</td></tr>
-<tr id="__26" onclick="return on(26)">
-<td class="return">IntervalQualifier</td><td class="method">
-<a id="getQualifier" href="#getQualifier">getQualifier</a>()
-<div class="methodText">Returns qualifier of this interval.</div>
-</td></tr>
-<tr onclick="return off(26)" class="detail" id="_26">
-<td class="return">IntervalQualifier</td><td>
-<a id="getQualifier" href="#getQualifier">getQualifier</a>()
-<div class="methodText">Returns qualifier of this interval.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">qualifier</div>
-</td></tr>
-<tr id="__27" onclick="return on(27)">
-<td class="return">long</td><td class="method">
-<a id="getRemaining" href="#getRemaining">getRemaining</a>()
-<div class="methodText">Returns combined value of remaining fields of this interval.</div>
-</td></tr>
-<tr onclick="return off(27)" class="detail" id="_27">
-<td class="return">long</td><td>
-<a id="getRemaining" href="#getRemaining">getRemaining</a>()
-<div class="methodText">Returns combined value of remaining fields of this interval. For
- {@code SECOND} intervals returns nanoseconds.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">combined value of remaining fields</div>
-</td></tr>
-<tr id="__28" onclick="return on(28)">
-<td class="return">long</td><td class="method">
-<a id="getSeconds" href="#getSeconds">getSeconds</a>()
-<div class="methodText">Returns value of integer part of seconds, if any.</div>
-</td></tr>
-<tr onclick="return off(28)" class="detail" id="_28">
-<td class="return">long</td><td>
-<a id="getSeconds" href="#getSeconds">getSeconds</a>()
-<div class="methodText">Returns value of integer part of seconds, if any.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">seconds, or 0</div>
-</td></tr>
-<tr id="__29" onclick="return on(29)">
-<td class="return">long</td><td class="method">
-<a id="getSecondsAndNanos" href="#getSecondsAndNanos">getSecondsAndNanos</a>()
-<div class="methodText">Returns seconds value measured in nanoseconds, if any.</div>
-</td></tr>
-<tr onclick="return off(29)" class="detail" id="_29">
-<td class="return">long</td><td>
-<a id="getSecondsAndNanos" href="#getSecondsAndNanos">getSecondsAndNanos</a>()
-<div class="methodText">Returns seconds value measured in nanoseconds, if any.
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>value of leading field</dd>
+</dl>
+</li>
+</ul>
+<a name="getRemaining--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRemaining</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getRemaining()</pre>
+<div class="block">Returns combined value of remaining fields of this interval. For
+ <code class="notranslate">SECOND</code> intervals returns nanoseconds.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>combined value of remaining fields</dd>
+</dl>
+</li>
+</ul>
+<a name="getYears--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getYears</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getYears()</pre>
+<div class="block">Returns years value, if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>years, or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="getMonths--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMonths</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getMonths()</pre>
+<div class="block">Returns months value, if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>months, or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="getDays--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDays</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getDays()</pre>
+<div class="block">Returns days value, if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>days, or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="getHours--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHours</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getHours()</pre>
+<div class="block">Returns hours value, if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>hours, or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="getMinutes--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMinutes</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getMinutes()</pre>
+<div class="block">Returns minutes value, if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>minutes, or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="getSeconds--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSeconds</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getSeconds()</pre>
+<div class="block">Returns value of integer part of seconds, if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>seconds, or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="getNanosOfSecond--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getNanosOfSecond</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getNanosOfSecond()</pre>
+<div class="block">Returns value of fractional part of seconds (in nanoseconds), if any.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>nanoseconds, or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="getSecondsAndNanos--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getSecondsAndNanos</h4>
+<pre class="notranslate">public&nbsp;long&nbsp;getSecondsAndNanos()</pre>
+<div class="block">Returns seconds value measured in nanoseconds, if any.
 
  <p>
  This method returns a long value that cannot fit all possible values of
  INTERVAL SECOND. For a very large intervals of this type use
- {@link #getSeconds()} and {@link #getNanosOfSecond()} instead. This
+ <a href="../../../org/h2/api/Interval.html#getSeconds--"><code class="notranslate">getSeconds()</code></a> and <a href="../../../org/h2/api/Interval.html#getNanosOfSecond--"><code class="notranslate">getNanosOfSecond()</code></a> instead. This
  method can be safely used for intervals of other day-time types.
  </p></div>
-<div class="itemTitle">Returns:</div>
-<div class="item">nanoseconds (including seconds), or 0</div>
-</td></tr>
-<tr id="__30" onclick="return on(30)">
-<td class="return">long</td><td class="method">
-<a id="getYears" href="#getYears">getYears</a>()
-<div class="methodText">Returns years value, if any.</div>
-</td></tr>
-<tr onclick="return off(30)" class="detail" id="_30">
-<td class="return">long</td><td>
-<a id="getYears" href="#getYears">getYears</a>()
-<div class="methodText">Returns years value, if any.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">years, or 0</div>
-</td></tr>
-<tr id="__31" onclick="return on(31)">
-<td class="return">int</td><td class="method">
-<a id="hashCode" href="#hashCode">hashCode</a>()
-</td></tr>
-<tr onclick="return off(31)" class="detail" id="_31">
-<td class="return">int</td><td>
-<a id="hashCode" href="#hashCode">hashCode</a>()
-<div class="methodText"></div>
-</td></tr>
-<tr id="__32" onclick="return on(32)">
-<td class="return">boolean</td><td class="method">
-<a id="isNegative" href="#isNegative">isNegative</a>()
-<div class="methodText">Returns where the interval is negative.</div>
-</td></tr>
-<tr onclick="return off(32)" class="detail" id="_32">
-<td class="return">boolean</td><td>
-<a id="isNegative" href="#isNegative">isNegative</a>()
-<div class="methodText">Returns where the interval is negative.</div>
-<div class="itemTitle">Returns:</div>
-<div class="item">where the interval is negative</div>
-</td></tr>
-<tr id="__33" onclick="return on(33)">
-<td class="return">String</td><td class="method">
-<a id="toString" href="#toString">toString</a>()
-</td></tr>
-<tr onclick="return off(33)" class="detail" id="_33">
-<td class="return">String</td><td>
-<a id="toString" href="#toString">toString</a>()
-<div class="methodText"></div>
-</td></tr>
-</table>
-</div></td></tr></table></body></html>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>nanoseconds (including seconds), or 0</dd>
+</dl>
+</li>
+</ul>
+<a name="hashCode--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>hashCode</h4>
+<pre class="notranslate">public&nbsp;int&nbsp;hashCode()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code class="notranslate">hashCode</code>&nbsp;in class&nbsp;<code class="notranslate">java.lang.Object</code></dd>
+</dl>
+</li>
+</ul>
+<a name="equals-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>equals</h4>
+<pre class="notranslate">public&nbsp;boolean&nbsp;equals(java.lang.Object&nbsp;obj)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code class="notranslate">equals</code>&nbsp;in class&nbsp;<code class="notranslate">java.lang.Object</code></dd>
+</dl>
+</li>
+</ul>
+<a name="toString--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>toString</h4>
+<pre class="notranslate">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code class="notranslate">toString</code>&nbsp;in class&nbsp;<code class="notranslate">java.lang.Object</code></dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- ========= END OF CLASS DATA ========= -->
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav"><a name="navbar.bottom">
+<!--   -->
+</a>
+<div class="skipNav"><a href="#skip.navbar.bottom" title="Skip navigation links">Skip navigation links</a></div>
+<a name="navbar.bottom.firstrow">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
+<li class="navBarCell1Rev">Class</li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li><a href="../../../org/h2/api/H2Type.html" title="class in org.h2.api"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/h2/api/IntervalQualifier.html" title="enum in org.h2.api"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+</ul>
+<ul class="navList">
+<li><a href="../../../index.html?org/h2/api/Interval.html" target="_top">Frames</a></li>
+<li><a href="Interval.html" target="_top">No&nbsp;Frames</a></li>
+</ul>
+<ul class="navList" id="allclasses_navbar_bottom">
+<li><a href="../../../allclasses-noframe.html">All&nbsp;Classes</a></li>
+</ul>
+<div>
+<script type="text/javascript"><!--
+  allClassesLink = document.getElementById("allclasses_navbar_bottom");
+  if(window==top) {
+    allClassesLink.style.display = "block";
+  }
+  else {
+    allClassesLink.style.display = "none";
+  }
+  //-->
+</script>
+</div>
+<div>
+<ul class="subNavList">
+<li>Summary:&nbsp;</li>
+<li>Nested&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.summary">Method</a></li>
+</ul>
+<ul class="subNavList">
+<li>Detail:&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li><a href="#method.detail">Method</a></li>
+</ul>
+</div>
+<a name="skip.navbar.bottom">
+<!--   -->
+</a></div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+</body>
+</html>

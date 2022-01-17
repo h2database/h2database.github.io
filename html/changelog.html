@@ -88,7 +88,7 @@ Change Log
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.0.206/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.1.210/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -118,6 +118,18 @@ Change Log
 
 <h2>Next Version (unreleased)</h2>
 <ul>
+<li>Nothing yet...
+</li>
+</ul>
+
+<h2>Version 2.1.210 (2022-01-17)</h2>
+<ul>
+<li><a href="https://github.com/h2database/h2database/pull/3381">PR #3381</a>: Add IDENTITY() and SCOPE_IDENTITY() to LEGACY mode
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3376">Issue #3376</a>: Data cannot be read after insert of clob data > MAX_LENGTH_INPLACE_LOB with data change delta table
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3377">PR #3377</a>: Add -webExternalNames setting and fix WebServer.getConnection()
+</li>
 <li><a href="https://github.com/h2database/h2database/pull/3367">PR #3367</a>: Use faster checks of dimension systems of geometries
 </li>
 <li><a href="https://github.com/h2database/h2database/pull/3369">PR #3369</a>: Added v2 changes in migration docs
@@ -1330,66 +1342,6 @@ that removes ambiguities
 <li><a href="https://github.com/h2database/h2database/pull/1817">PR #1817</a>: Assorted minor changes in documentation and other places
 </li>
 <li><a href="https://github.com/h2database/h2database/pull/1812">PR #1812</a>: An IllegalStateException that wraps EOFException is thrown when partial writes happens
-</li>
-</ul>
-
-<h2>Version 1.4.199 (2019-03-13)</h2>
-<ul>
-<li><a href="https://github.com/h2database/h2database/pull/1807">PR #1807</a>: Reduce code duplication and remove h2.mixedGeometries
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1806">PR #1806</a>: Improve SELECT FOR UPDATE documentation
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1804">PR #1804</a>: Lift limit of 10 characters on enum value (1.4.198 regression)
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1803">PR #1803</a>: Do not rely on index sorting in SELECT FOR UPDATE
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1800">Issue #1800</a>: Remove experimental status from window functions
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1799">PR #1799</a>: Fire triggers after row locking and remove some leftovers
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1798">PR #1798</a>: Reuse some string builders, remove StatementBuilder and other minor changes
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1795">Issue #1795</a>: 1.4.198 regression with batch updates and transactions
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1794">PR #1794</a>: Ask password in Shell in secure way and improve database creation information in tutorial
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1791">PR #1791</a>: Move commands to commands.html and other changes
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1774">Issue #1774</a>: H2 Browser configuration is unclear and fails on KUbuntu
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1790">PR #1790</a>: Do not convert standard TRIM function to non-standard functions
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1787">Issue #1787</a>: Non-standard MERGE throws LOCK_TIMEOUT_1 on violation of some constraints
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1784">PR #1784</a>: improve database not found error
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1740">Issue #1740</a>: Enhancement Request: h2 server: do not swallow exceptions
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1616">Issue #1616</a>: Metadata and scripts should be persisted with unconditionally quoted identifiers
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1779">PR #1779</a>: Improve isSimpleIdentifier() and enquoteIdentifier()
-</li>
-<li> <a href="https://github.com/h2database/h2database/pull/1776">PR #1776</a>: Improve DATABASE_TO_LOWER handling
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1771">Issue #1771</a>: NPE in Comparison.createIndexConditions
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1772">PR #1772</a>: Fix newlines in test scripts
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1762">Issue #1762</a>: NullPointerException in Parser. Introduced in 1.4.198
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1768">PR #1768</a>: Add more context-sensitive keywords
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1758">Issue #1758</a>: sequence restart issue with 1.4.198
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1759">Issue #1759</a>: SELECT &#8230; FOR UPDATE returns old data in 1.4.198
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1756">PR #1756</a>: Fix DISTINCT ON in presence of ORDER BY
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/1754">PR #1754</a>: Fix window functions in JOIN with ON condition
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1751">Issue #1751</a>: making it easier to open console and create local databases
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1750">Issue #1750</a>: JOIN t ON t.col IN (SELECT ...) throws AssertionError
 </li>
 </ul>
 

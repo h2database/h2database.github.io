@@ -89,7 +89,7 @@ Tutorial
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.0.206/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.1.210/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -886,6 +886,15 @@ add the following snippet to your web.xml file (between the
 &lt;/listener&gt;
 </pre>
 <p>
+If your servlet container is already Servlet 5-compatible, use the following
+snippet instead:
+</p>
+<pre class="notranslate">
+&lt;listener&gt;
+    &lt;listener-class&gt;org.h2.server.web.JakartaDbStarter&lt;/listener-class&gt;
+&lt;/listener&gt;
+</pre>
+<p>
 For details on how to access the database, see the file <code class="notranslate">DbStarter.java</code>.
 By default this tool opens an embedded connection
 using the database URL <code class="notranslate">jdbc:h2:~/test</code>,
@@ -968,6 +977,10 @@ add the following configuration to your <code class="notranslate">web.xml</code>
 </pre>
 <p>
 For details, see also <code class="notranslate">src/tools/WEB-INF/web.xml</code>.
+</p>
+<p>
+If your application is already Servlet 5-compatible, use the servlet class
+<code class="notranslate">org.h2.server.web.JakartaWebServlet</code> instead.
 </p>
 <p>
 To create a web application with just the H2 Console, run the following command:
