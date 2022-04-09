@@ -88,7 +88,7 @@ SQL Grammar
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.1.210/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.1.212/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -1214,18 +1214,18 @@ INTERVAL &#39;1-2&#39; YEAR TO MONTH</p>
 <h3 id="interval_year" class="notranslate" onclick="switchBnf(this)">INTERVAL YEAR</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>&#39; YEAR
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>&#39; YEAR [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">yearInt</a> &#39; YEAR</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">yearInt</a> &#39; YEAR</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>&#39; YEAR
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>&#39; YEAR [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL YEAR</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL YEAR</code> literal. If precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10&#39; YEAR</p>
@@ -1233,18 +1233,18 @@ INTERVAL &#39;10&#39; YEAR</p>
 <h3 id="interval_month" class="notranslate" onclick="switchBnf(this)">INTERVAL MONTH</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">monthInt</a>&#39; MONTH
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">monthInt</a>&#39; MONTH [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">monthInt</a> &#39; MONTH</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">monthInt</a> &#39; MONTH</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">monthInt</a>&#39; MONTH
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">monthInt</a>&#39; MONTH [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL MONTH</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL MONTH</code> literal. If precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10&#39; MONTH</p>
@@ -1252,18 +1252,18 @@ INTERVAL &#39;10&#39; MONTH</p>
 <h3 id="interval_day" class="notranslate" onclick="switchBnf(this)">INTERVAL DAY</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a>&#39; DAY
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a>&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> &#39; DAY</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> &#39; DAY</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a>&#39; DAY
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a>&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL DAY</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL DAY</code> literal. If precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10&#39; DAY</p>
@@ -1271,18 +1271,18 @@ INTERVAL &#39;10&#39; DAY</p>
 <h3 id="interval_hour" class="notranslate" onclick="switchBnf(this)">INTERVAL HOUR</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">hourInt</a>&#39; HOUR
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">hourInt</a>&#39; HOUR [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">hourInt</a> &#39; HOUR</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">hourInt</a> &#39; HOUR</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">hourInt</a>&#39; HOUR
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">hourInt</a>&#39; HOUR [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL HOUR</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL HOUR</code> literal. If precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10&#39; HOUR</p>
@@ -1290,18 +1290,18 @@ INTERVAL &#39;10&#39; HOUR</p>
 <h3 id="interval_minute" class="notranslate" onclick="switchBnf(this)">INTERVAL MINUTE</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">minuteInt</a>&#39; MINUTE
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">minuteInt</a>&#39; MINUTE [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">minuteInt</a> &#39; MINUTE</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">minuteInt</a> &#39; MINUTE</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">minuteInt</a>&#39; MINUTE
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">minuteInt</a>&#39; MINUTE [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL MINUTE</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL MINUTE</code> literal. If precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10&#39; MINUTE</p>
@@ -1309,18 +1309,20 @@ INTERVAL &#39;10&#39; MINUTE</p>
 <h3 id="interval_second" class="notranslate" onclick="switchBnf(this)">INTERVAL SECOND</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">secondInt</a>[.nnnnnnnnn]&#39; SECOND
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">secondInt</a>[.nnnnnnnnn]&#39;
+SECOND [ ( <a href="grammar.html#int">precisionInt</a> [, <a href="grammar.html#int">fractionalPrecisionInt</a> ] ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">secondInt</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39; SECOND</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">secondInt</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><code class="c">SECOND</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#int">fractionalPrecisionInt</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">secondInt</a>[.nnnnnnnnn]&#39; SECOND
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">secondInt</a>[.nnnnnnnnn]&#39;
+SECOND [ ( <a href="grammar.html#int">precisionInt</a> [, <a href="grammar.html#int">fractionalPrecisionInt</a> ] ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL SECOND</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL SECOND</code> literal. If precision is specified it should be from 1 to 18. If fractional seconds precision is specified it should be from 0 to 9.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10.123&#39; SECOND</p>
@@ -1328,18 +1330,18 @@ INTERVAL &#39;10.123&#39; SECOND</p>
 <h3 id="interval_year_to_month" class="notranslate" onclick="switchBnf(this)">INTERVAL YEAR TO MONTH</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>-<a href="grammar.html#int">monthInt</a>&#39; YEAR TO MONTH
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>-<a href="grammar.html#int">monthInt</a>&#39; YEAR [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO MONTH
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">yearInt</a> - <a href="grammar.html#int">monthInt</a> &#39; YEAR TO MONTH</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">yearInt</a> - <a href="grammar.html#int">monthInt</a> &#39; YEAR</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">TO MONTH</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>-<a href="grammar.html#int">monthInt</a>&#39; YEAR TO MONTH
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">yearInt</a>-<a href="grammar.html#int">monthInt</a>&#39; YEAR [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO MONTH
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL YEAR TO MONTH</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL YEAR TO MONTH</code> literal. If leading field precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;1-6&#39; YEAR TO MONTH</p>
@@ -1347,18 +1349,18 @@ INTERVAL &#39;1-6&#39; YEAR TO MONTH</p>
 <h3 id="interval_day_to_hour" class="notranslate" onclick="switchBnf(this)">INTERVAL DAY TO HOUR</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> <a href="grammar.html#int">hoursInt</a>&#39; DAY TO HOUR
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> <a href="grammar.html#int">hoursInt</a>&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO HOUR
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> <a href="grammar.html#int">hoursInt</a> &#39; DAY TO HOUR</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> <a href="grammar.html#int">hoursInt</a> &#39; DAY</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">TO HOUR</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> <a href="grammar.html#int">hoursInt</a>&#39; DAY TO HOUR
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> <a href="grammar.html#int">hoursInt</a>&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO HOUR
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL DAY TO HOUR</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL DAY TO HOUR</code> literal. If leading field precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10 11&#39; DAY TO HOUR</p>
@@ -1366,18 +1368,18 @@ INTERVAL &#39;10 11&#39; DAY TO HOUR</p>
 <h3 id="interval_day_to_minute" class="notranslate" onclick="switchBnf(this)">INTERVAL DAY TO MINUTE</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm&#39; DAY TO MINUTE
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO MINUTE
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> 12:00:00 &#39; DAY TO MINUTE</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> 12:00:00 &#39; DAY</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">TO MINUTE</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm&#39; DAY TO MINUTE
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO MINUTE
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL DAY TO MINUTE</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL DAY TO MINUTE</code> literal. If leading field precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10 11:12&#39; DAY TO MINUTE</p>
@@ -1385,18 +1387,20 @@ INTERVAL &#39;10 11:12&#39; DAY TO MINUTE</p>
 <h3 id="interval_day_to_second" class="notranslate" onclick="switchBnf(this)">INTERVAL DAY TO SECOND</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm:ss[.nnnnnnnnn]&#39; DAY TO SECOND
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm:ss[.nnnnnnnnn]&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+TO SECOND [ ( <a href="grammar.html#int">fractionalPrecisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> 12:00:00</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39; DAY TO SECOND</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#int">dayInt</a> 12:00:00</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39; DAY</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><code class="c">TO SECOND</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">fractionalPrecisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm:ss[.nnnnnnnnn]&#39; DAY TO SECOND
+INTERVAL [-|+] &#39;[-|+]<a href="grammar.html#int">dayInt</a> hh:mm:ss[.nnnnnnnnn]&#39; DAY [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+TO SECOND [ ( <a href="grammar.html#int">fractionalPrecisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL DAY TO SECOND</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL DAY TO SECOND</code> literal. If leading field precision is specified it should be from 1 to 18. If fractional seconds precision is specified it should be from 0 to 9.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10 11:12:13.123&#39; DAY TO SECOND</p>
@@ -1404,18 +1408,18 @@ INTERVAL &#39;10 11:12:13.123&#39; DAY TO SECOND</p>
 <h3 id="interval_hour_to_minute" class="notranslate" onclick="switchBnf(this)">INTERVAL HOUR TO MINUTE</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]hh:mm&#39; HOUR TO MINUTE
+INTERVAL [-|+] &#39;[-|+]hh:mm&#39; HOUR [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO MINUTE
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">12:00:00 &#39; HOUR TO MINUTE</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">12:00:00 &#39; HOUR</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">TO MINUTE</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]hh:mm&#39; HOUR TO MINUTE
+INTERVAL [-|+] &#39;[-|+]hh:mm&#39; HOUR [ ( <a href="grammar.html#int">precisionInt</a> ) ] TO MINUTE
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL HOUR TO MINUTE</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL HOUR TO MINUTE</code> literal. If leading field precision is specified it should be from 1 to 18.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10:11&#39; HOUR TO MINUTE</p>
@@ -1423,18 +1427,20 @@ INTERVAL &#39;10:11&#39; HOUR TO MINUTE</p>
 <h3 id="interval_hour_to_second" class="notranslate" onclick="switchBnf(this)">INTERVAL HOUR TO SECOND</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]hh:mm:ss[.nnnnnnnnn]&#39; HOUR TO SECOND
+INTERVAL [-|+] &#39;[-|+]hh:mm:ss[.nnnnnnnnn]&#39; HOUR [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+TO SECOND [ ( <a href="grammar.html#int">fractionalPrecisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">12:00:00</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39; HOUR TO SECOND</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">12:00:00</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39; HOUR</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><code class="c">TO SECOND</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">fractionalPrecisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]hh:mm:ss[.nnnnnnnnn]&#39; HOUR TO SECOND
+INTERVAL [-|+] &#39;[-|+]hh:mm:ss[.nnnnnnnnn]&#39; HOUR [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+TO SECOND [ ( <a href="grammar.html#int">fractionalPrecisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL HOUR TO SECOND</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL HOUR TO SECOND</code> literal. If leading field precision is specified it should be from 1 to 18. If fractional seconds precision is specified it should be from 0 to 9.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;10:11:12.123&#39; HOUR TO SECOND</p>
@@ -1442,18 +1448,20 @@ INTERVAL &#39;10:11:12.123&#39; HOUR TO SECOND</p>
 <h3 id="interval_minute_to_second" class="notranslate" onclick="switchBnf(this)">INTERVAL MINUTE TO SECOND</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTERVAL [-|+] &#39;[-|+]mm:ss[.nnnnnnnnn]&#39; MINUTE TO SECOND
+INTERVAL [-|+] &#39;[-|+]mm:ss[.nnnnnnnnn]&#39; MINUTE [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+TO SECOND [ ( <a href="grammar.html#int">fractionalPrecisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">12:00:00</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39; MINUTE TO SECOND</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INTERVAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39;</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">-</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">+</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">12:00:00</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">. 000000000</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">&#39; MINUTE</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><code class="c">TO SECOND</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">fractionalPrecisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTERVAL [-|+] &#39;[-|+]mm:ss[.nnnnnnnnn]&#39; MINUTE TO SECOND
+INTERVAL [-|+] &#39;[-|+]mm:ss[.nnnnnnnnn]&#39; MINUTE [ ( <a href="grammar.html#int">precisionInt</a> ) ]
+TO SECOND [ ( <a href="grammar.html#int">fractionalPrecisionInt</a> ) ]
 </pre>
 syntax-end -->
-<p>An <code class="notranslate">INTERVAL MINUTE TO SECOND</code> literal.</p>
+<p>An <code class="notranslate">INTERVAL MINUTE TO SECOND</code> literal. If leading field precision is specified it should be from 1 to 18. If fractional seconds precision is specified it should be from 0 to 9.</p>
 <p>Example:</p>
 <p class="notranslate">
 INTERVAL &#39;11:12.123&#39; MINUTE TO SECOND</p>

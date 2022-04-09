@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.1.210/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.1.212/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -2642,15 +2642,15 @@ syntax-end -->
 <h3 id="current_date" class="notranslate" onclick="switchBnf(this)">CURRENT_DATE</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-CURRENT_DATE | <span class="ruleCompat">{ CURDATE() | SYSDATE | TODAY }</span>
+CURRENT_DATE
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CURRENT_DATE</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURDATE ( )</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">SYSDATE</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">TODAY</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table>
+<code class="c">CURRENT_DATE</code>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-CURRENT_DATE | <span class="ruleCompat">{ CURDATE() | SYSDATE | TODAY }</span>
+CURRENT_DATE
 </pre>
 syntax-end -->
 <p>Returns the current date.</p><p>These functions return the same value within a transaction (default) or within a command depending on database mode.</p><p><a href="commands.html#set_time_zone"><code class="notranslate">SET TIME ZONE</code></a> command reevaluates the value for these functions using the same original <code class="notranslate">UTC</code> timestamp of transaction.</p>
@@ -2696,15 +2696,15 @@ syntax-end -->
 <h3 id="localtime" class="notranslate" onclick="switchBnf(this)">LOCALTIME</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-LOCALTIME [ (<a href="grammar.html#int">int</a>) ] | <span class="ruleCompat">CURTIME([ <a href="grammar.html#int">int</a> ])</span>
+LOCALTIME [ (<a href="grammar.html#int">int</a>) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOCALTIME</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">int</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURTIME (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#int">int</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOCALTIME</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">int</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-LOCALTIME [ (<a href="grammar.html#int">int</a>) ] | <span class="ruleCompat">CURTIME([ <a href="grammar.html#int">int</a> ])</span>
+LOCALTIME [ (<a href="grammar.html#int">int</a>) ]
 </pre>
 syntax-end -->
 <p>Returns the current time without time zone. If fractional seconds precision is specified it should be from 0 to 9, 0 is default. The specified value can be used only to limit precision of a result. The actual maximum available precision depends on operating system and <code class="notranslate">JVM</code> and can be 3 (milliseconds) or higher. Higher precision is not available before Java 9.</p><p>These functions return the same value within a transaction (default) or within a command depending on database mode.</p><p><a href="commands.html#set_time_zone"><code class="notranslate">SET TIME ZONE</code></a> command reevaluates the value for these functions using the same original <code class="notranslate">UTC</code> timestamp of transaction.</p>
@@ -2714,15 +2714,15 @@ syntax-end -->
 <h3 id="localtimestamp" class="notranslate" onclick="switchBnf(this)">LOCALTIMESTAMP</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-LOCALTIMESTAMP [ (<a href="grammar.html#int">int</a>) ] | <span class="ruleCompat">NOW( [ <a href="grammar.html#int">int</a> ] )</span>
+LOCALTIMESTAMP [ (<a href="grammar.html#int">int</a>) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOCALTIMESTAMP</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">int</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">NOW (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#int">int</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOCALTIMESTAMP</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">int</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-LOCALTIMESTAMP [ (<a href="grammar.html#int">int</a>) ] | <span class="ruleCompat">NOW( [ <a href="grammar.html#int">int</a> ] )</span>
+LOCALTIMESTAMP [ (<a href="grammar.html#int">int</a>) ]
 </pre>
 syntax-end -->
 <p>Returns the current timestamp without time zone. If fractional seconds precision is specified it should be from 0 to 9, 6 is default. The specified value can be used only to limit precision of a result. The actual maximum available precision depends on operating system and <code class="notranslate">JVM</code> and can be 3 (milliseconds) or higher. Higher precision is not available before Java 9.</p><p>The returned value has date and time without time zone information. If time zone has <code class="notranslate">DST</code> transitions the returned values are ambiguous during transition from <code class="notranslate">DST</code> to normal time. For absolute timestamps use the <a href="functions.html#current_timestamp"><code class="notranslate">CURRENT_TIMESTAMP</code></a> function and <a href="datatypes.html#timestamp_with_time_zone_type"><code class="notranslate">TIMESTAMP WITH TIME ZONE</code></a> data type.</p><p>These functions return the same value within a transaction (default) or within a command depending on database mode.</p><p><a href="commands.html#set_time_zone"><code class="notranslate">SET TIME ZONE</code></a> reevaluates the value for these functions using the same original <code class="notranslate">UTC</code> timestamp of transaction.</p>
