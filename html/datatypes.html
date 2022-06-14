@@ -88,7 +88,7 @@ Data Types
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.1.212/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.1.214/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -271,7 +271,7 @@ don't use it unless you need it for compatibility with other databases or old ve
 [ ( <a href="grammar.html#int">lengthInt</a> [CHARACTERS|OCTETS] ) ]
 </pre>
 syntax-end -->
-<p>A Unicode String of fixed length.</p><p>Length, if any, should be specified in characters, <code class="notranslate">CHARACTERS</code> and <code class="notranslate">OCTETS</code> units have no effect in H2. The allowed length is from 1 to 1048576 characters. If length is not specified, 1 character is used by default.</p><p>The whole text is kept in memory when using this data type. For variable-length strings use <a href="datatypes.html#character_varying_type"><code class="notranslate">CHARACTER VARYING</code></a> data type instead. For large text data <a href="datatypes.html#character_large_object_type"><code class="notranslate">CHARACTER LARGE OBJECT</code></a> should be used; see there for details.</p><p>Too short strings are right-padded with space characters. Too long strings are truncated by <code class="notranslate">CAST</code> specification and rejected by column assignment.</p><p>Two <code class="notranslate">CHARACTER</code> strings of different length are considered as equal if all additional characters in the longer string are space characters.</p><p>See also <a href="grammar.html#string">string</a> literal grammar. Mapped to <code class="notranslate">java.lang.String</code>.</p>
+<p>A Unicode String of fixed length.</p><p>Length, if any, should be specified in characters, <code class="notranslate">CHARACTERS</code> and <code class="notranslate">OCTETS</code> units have no effect in H2. The allowed length is from 1 to 1,000,000,000 characters. If length is not specified, 1 character is used by default.</p><p>The whole text is kept in memory when using this data type. For variable-length strings use <a href="datatypes.html#character_varying_type"><code class="notranslate">CHARACTER VARYING</code></a> data type instead. For large text data <a href="datatypes.html#character_large_object_type"><code class="notranslate">CHARACTER LARGE OBJECT</code></a> should be used; see there for details.</p><p>Too short strings are right-padded with space characters. Too long strings are truncated by <code class="notranslate">CAST</code> specification and rejected by column assignment.</p><p>Two <code class="notranslate">CHARACTER</code> strings of different length are considered as equal if all additional characters in the longer string are space characters.</p><p>See also <a href="grammar.html#string">string</a> literal grammar. Mapped to <code class="notranslate">java.lang.String</code>.</p>
 <p>Example:</p>
 <p class="notranslate">CHARACTER<br />CHAR(10)</p>
 
@@ -281,12 +281,11 @@ syntax-end -->
 { { CHARACTER | CHAR } VARYING
 | VARCHAR
 | { NATIONAL { CHARACTER | CHAR } | NCHAR } VARYING
-| <span class="ruleCompat">{ LONGVARCHAR | VARCHAR2 | NVARCHAR | NVARCHAR2 }</span>
 | <span class="ruleH2">{ VARCHAR_CASESENSITIVE }</span> }
 [ ( <a href="grammar.html#int">lengthInt</a> [CHARACTERS|OCTETS] ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CHARACTER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">VARYING</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">VARCHAR</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">NATIONAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CHARACTER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHAR</code></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NCHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">VARYING</code></td></tr></table></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">LONGVARCHAR</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">VARCHAR2</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">NVARCHAR</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NVARCHAR2</code></td><td class="le"></td></tr></table></div></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleH2"><code class="c">VARCHAR_CASESENSITIVE</code></div></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">lengthInt</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">CHARACTERS</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">OCTETS</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CHARACTER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">VARYING</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">VARCHAR</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">NATIONAL</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CHARACTER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHAR</code></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NCHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">VARYING</code></td></tr></table></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleH2"><code class="c">VARCHAR_CASESENSITIVE</code></div></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">lengthInt</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">CHARACTERS</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">OCTETS</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
@@ -294,12 +293,11 @@ syntax-end -->
 { { CHARACTER | CHAR } VARYING
 | VARCHAR
 | { NATIONAL { CHARACTER | CHAR } | NCHAR } VARYING
-| <span class="ruleCompat">{ LONGVARCHAR | VARCHAR2 | NVARCHAR | NVARCHAR2 }</span>
 | <span class="ruleH2">{ VARCHAR_CASESENSITIVE }</span> }
 [ ( <a href="grammar.html#int">lengthInt</a> [CHARACTERS|OCTETS] ) ]
 </pre>
 syntax-end -->
-<p>A Unicode String. Use two single quotes (&#39;&#39;) to create a quote.</p><p>The allowed length is from 1 to 1048576 characters. The length is a size constraint; only the actual data is persisted. Length, if any, should be specified in characters, <code class="notranslate">CHARACTERS</code> and <code class="notranslate">OCTETS</code> units have no effect in H2.</p><p>The whole text is loaded into memory when using this data type. For large text data <a href="datatypes.html#character_large_object_type"><code class="notranslate">CHARACTER LARGE OBJECT</code></a> should be used; see there for details.</p><p>See also <a href="grammar.html#string">string</a> literal grammar. Mapped to <code class="notranslate">java.lang.String</code>.</p>
+<p>A Unicode String. Use two single quotes (&#39;&#39;) to create a quote.</p><p>The allowed length is from 1 to 1,000,000,000 characters. The length is a size constraint; only the actual data is persisted. Length, if any, should be specified in characters, <code class="notranslate">CHARACTERS</code> and <code class="notranslate">OCTETS</code> units have no effect in H2.</p><p>The whole text is loaded into memory when using this data type. For large text data <a href="datatypes.html#character_large_object_type"><code class="notranslate">CHARACTER LARGE OBJECT</code></a> should be used; see there for details.</p><p>See also <a href="grammar.html#string">string</a> literal grammar. Mapped to <code class="notranslate">java.lang.String</code>.</p>
 <p>Example:</p>
 <p class="notranslate">CHARACTER VARYING(100)<br />VARCHAR(255)</p>
 
@@ -307,19 +305,17 @@ syntax-end -->
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
 { { CHARACTER | CHAR } LARGE OBJECT | CLOB
-| { NATIONAL CHARACTER | NCHAR } LARGE OBJECT | NCLOB
-| <span class="ruleCompat">{ TINYTEXT | TEXT | MEDIUMTEXT | LONGTEXT | NTEXT }</span> }
+| { NATIONAL CHARACTER | NCHAR } LARGE OBJECT | NCLOB }
 [ ( <a href="grammar.html#long">lengthLong</a> [K|M|G|T|P] [CHARACTERS|OCTETS]) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CHARACTER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">LARGE OBJECT</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">CLOB</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">NATIONAL CHARACTER</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NCHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">LARGE OBJECT</code></td></tr></table></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">NCLOB</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">TINYTEXT</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">TEXT</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">MEDIUMTEXT</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">LONGTEXT</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NTEXT</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#long">lengthLong</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">K</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">M</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">G</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">T</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">P</code></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">CHARACTERS</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">OCTETS</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CHARACTER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">LARGE OBJECT</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">CLOB</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">NATIONAL CHARACTER</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NCHAR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">LARGE OBJECT</code></td></tr></table></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NCLOB</code></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#long">lengthLong</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">K</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">M</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">G</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">T</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">P</code></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">CHARACTERS</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">OCTETS</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
 { { CHARACTER | CHAR } LARGE OBJECT | CLOB
-| { NATIONAL CHARACTER | NCHAR } LARGE OBJECT | NCLOB
-| <span class="ruleCompat">{ TINYTEXT | TEXT | MEDIUMTEXT | LONGTEXT | NTEXT }</span> }
+| { NATIONAL CHARACTER | NCHAR } LARGE OBJECT | NCLOB }
 [ ( <a href="grammar.html#long">lengthLong</a> [K|M|G|T|P] [CHARACTERS|OCTETS]) ]
 </pre>
 syntax-end -->
@@ -343,7 +339,7 @@ syntax-end -->
 [ ( <a href="grammar.html#int">lengthInt</a> [CHARACTERS|OCTETS] ) ]</span>
 </pre>
 syntax-end -->
-<p>Same as <code class="notranslate">VARCHAR</code>, but not case sensitive when comparing. Stored in mixed case.</p><p>The allowed length is from 1 to 1048576 characters. The length is a size constraint; only the actual data is persisted. Length, if any, should be specified in characters, <code class="notranslate">CHARACTERS</code> and <code class="notranslate">OCTETS</code> units have no effect in H2.</p><p>The whole text is loaded into memory when using this data type. For large text data <code class="notranslate">CLOB</code> should be used; see there for details.</p><p>See also <a href="grammar.html#string">string</a> literal grammar. Mapped to <code class="notranslate">java.lang.String</code>.</p>
+<p>Same as <code class="notranslate">VARCHAR</code>, but not case sensitive when comparing. Stored in mixed case.</p><p>The allowed length is from 1 to 1,000,000,000 characters. The length is a size constraint; only the actual data is persisted. Length, if any, should be specified in characters, <code class="notranslate">CHARACTERS</code> and <code class="notranslate">OCTETS</code> units have no effect in H2.</p><p>The whole text is loaded into memory when using this data type. For large text data <code class="notranslate">CLOB</code> should be used; see there for details.</p><p>See also <a href="grammar.html#string">string</a> literal grammar. Mapped to <code class="notranslate">java.lang.String</code>.</p>
 <p>Example:</p>
 <p class="notranslate">VARCHAR_IGNORECASE</p>
 
@@ -361,47 +357,43 @@ BINARY [ ( <a href="grammar.html#int">lengthInt</a> ) ]
 BINARY [ ( <a href="grammar.html#int">lengthInt</a> ) ]
 </pre>
 syntax-end -->
-<p>Represents a binary string (byte array) of fixed predefined length.</p><p>The allowed length is from 1 to 1048576 bytes. If length is not specified, 1 byte is used by default.</p><p>The whole binary string is kept in memory when using this data type. For variable-length binary strings use <a href="datatypes.html#binary_varying_type"><code class="notranslate">BINARY VARYING</code></a> data type instead. For large binary data <a href="datatypes.html#binary_large_object_type"><code class="notranslate">BINARY LARGE OBJECT</code></a> should be used; see there for details.</p><p>Too short binary string are right-padded with zero bytes. Too long binary strings are truncated by <code class="notranslate">CAST</code> specification and rejected by column assignment.</p><p>Binary strings of different length are considered as not equal to each other.</p><p>See also <a href="grammar.html#bytes">bytes</a> literal grammar. Mapped to byte[].</p>
+<p>Represents a binary string (byte array) of fixed predefined length.</p><p>The allowed length is from 1 to 1,000,000,000 bytes. If length is not specified, 1 byte is used by default.</p><p>The whole binary string is kept in memory when using this data type. For variable-length binary strings use <a href="datatypes.html#binary_varying_type"><code class="notranslate">BINARY VARYING</code></a> data type instead. For large binary data <a href="datatypes.html#binary_large_object_type"><code class="notranslate">BINARY LARGE OBJECT</code></a> should be used; see there for details.</p><p>Too short binary string are right-padded with zero bytes. Too long binary strings are truncated by <code class="notranslate">CAST</code> specification and rejected by column assignment.</p><p>Binary strings of different length are considered as not equal to each other.</p><p>See also <a href="grammar.html#bytes">bytes</a> literal grammar. Mapped to byte[].</p>
 <p>Example:</p>
 <p class="notranslate">BINARY<br />BINARY(1000)</p>
 
 <h2 id="binary_varying_type" class="notranslate" onclick="switchBnf(this)">BINARY VARYING</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-{ BINARY VARYING | VARBINARY
-| <span class="ruleCompat">{ LONGVARBINARY | RAW | BYTEA }</span> }
+{ BINARY VARYING | VARBINARY }
 [ ( <a href="grammar.html#int">lengthInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">BINARY VARYING</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">VARBINARY</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">LONGVARBINARY</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">RAW</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">BYTEA</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">lengthInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">BINARY VARYING</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">VARBINARY</code></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">lengthInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-{ BINARY VARYING | VARBINARY
-| <span class="ruleCompat">{ LONGVARBINARY | RAW | BYTEA }</span> }
+{ BINARY VARYING | VARBINARY }
 [ ( <a href="grammar.html#int">lengthInt</a> ) ]
 </pre>
 syntax-end -->
-<p>Represents a byte array.</p><p>The allowed length is from 1 to 1048576 bytes. The length is a size constraint; only the actual data is persisted.</p><p>The whole binary string is kept in memory when using this data type. For large binary data <a href="datatypes.html#binary_large_object_type"><code class="notranslate">BINARY LARGE OBJECT</code></a> should be used; see there for details.</p><p>See also <a href="grammar.html#bytes">bytes</a> literal grammar. Mapped to byte[].</p>
+<p>Represents a byte array.</p><p>The allowed length is from 1 to 1,000,000,000 bytes. The length is a size constraint; only the actual data is persisted.</p><p>The whole binary string is kept in memory when using this data type. For large binary data <a href="datatypes.html#binary_large_object_type"><code class="notranslate">BINARY LARGE OBJECT</code></a> should be used; see there for details.</p><p>See also <a href="grammar.html#bytes">bytes</a> literal grammar. Mapped to byte[].</p>
 <p>Example:</p>
 <p class="notranslate">BINARY VARYING(100)<br />VARBINARY(1000)</p>
 
 <h2 id="binary_large_object_type" class="notranslate" onclick="switchBnf(this)">BINARY LARGE OBJECT</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-{ BINARY LARGE OBJECT | BLOB
-| <span class="ruleCompat">{ TINYBLOB | MEDIUMBLOB | LONGBLOB | IMAGE }</span> }
+{ BINARY LARGE OBJECT | BLOB }
 [ ( <a href="grammar.html#long">lengthLong</a> [K|M|G|T|P]) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">BINARY LARGE OBJECT</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">BLOB</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">TINYBLOB</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">MEDIUMBLOB</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">LONGBLOB</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">IMAGE</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#long">lengthLong</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">K</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">M</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">G</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">T</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">P</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">BINARY LARGE OBJECT</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">BLOB</code></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#long">lengthLong</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">K</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">M</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">G</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">T</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">P</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-{ BINARY LARGE OBJECT | BLOB
-| <span class="ruleCompat">{ TINYBLOB | MEDIUMBLOB | LONGBLOB | IMAGE }</span> }
+{ BINARY LARGE OBJECT | BLOB }
 [ ( <a href="grammar.html#long">lengthLong</a> [K|M|G|T|P]) ]
 </pre>
 syntax-end -->
@@ -412,15 +404,15 @@ syntax-end -->
 <h2 id="boolean_type" class="notranslate" onclick="switchBnf(this)">BOOLEAN</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-BOOLEAN | <span class="ruleCompat">{ BIT | BOOL }</span>
+BOOLEAN
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">BOOLEAN</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">BIT</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">BOOL</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table>
+<code class="c">BOOLEAN</code>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-BOOLEAN | <span class="ruleCompat">{ BIT | BOOL }</span>
+BOOLEAN
 </pre>
 syntax-end -->
 <p>Possible values: <code class="notranslate">TRUE, FALSE</code>, and <code class="notranslate">UNKNOWN</code> (<code class="notranslate">NULL</code>).</p><p>See also <a href="grammar.html#boolean">boolean</a> literal grammar. Mapped to <code class="notranslate">java.lang.Boolean</code>.</p>
@@ -448,15 +440,15 @@ syntax-end -->
 <h2 id="smallint_type" class="notranslate" onclick="switchBnf(this)">SMALLINT</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-SMALLINT | <span class="ruleCompat">{ INT2 }</span>
+SMALLINT
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">SMALLINT</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><code class="c">INT2</code></div></td><td class="le"></td></tr></table>
+<code class="c">SMALLINT</code>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-SMALLINT | <span class="ruleCompat">{ INT2 }</span>
+SMALLINT
 </pre>
 syntax-end -->
 <p>Possible values: -32768 to 32767.</p><p>See also <a href="grammar.html#int">integer</a> literal grammar.</p><p>In <code class="notranslate">JDBC</code> this data type is mapped to <code class="notranslate">java.lang.Integer</code>. <code class="notranslate">java.lang.Short</code> is also supported.</p><p>In <code class="notranslate">org.h2.api.Aggregate, org.h2.api.AggregateFunction</code>, and <code class="notranslate">org.h2.api.Trigger</code> this data type is mapped to <code class="notranslate">java.lang.Short</code>.</p>
@@ -466,15 +458,15 @@ syntax-end -->
 <h2 id="integer_type" class="notranslate" onclick="switchBnf(this)">INTEGER</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-INTEGER | INT | <span class="ruleCompat">{ MEDIUMINT | INT4 | SIGNED }</span>
+INTEGER | INT
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">INTEGER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">INT</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">MEDIUMINT</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">INT4</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">SIGNED</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">INTEGER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">INT</code></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-INTEGER | INT | <span class="ruleCompat">{ MEDIUMINT | INT4 | SIGNED }</span>
+INTEGER | INT
 </pre>
 syntax-end -->
 <p>Possible values: -2147483648 to 2147483647.</p><p>See also <a href="grammar.html#int">integer</a> literal grammar. Mapped to <code class="notranslate">java.lang.Integer</code>.</p>
@@ -484,15 +476,15 @@ syntax-end -->
 <h2 id="bigint_type" class="notranslate" onclick="switchBnf(this)">BIGINT</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-BIGINT | <span class="ruleCompat">INT8</span>
+BIGINT
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">BIGINT</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><code class="c">INT8</code></div></td><td class="le"></td></tr></table>
+<code class="c">BIGINT</code>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-BIGINT | <span class="ruleCompat">INT8</span>
+BIGINT
 </pre>
 syntax-end -->
 <p>Possible values: -9223372036854775808 to 9223372036854775807.</p><p>See also <a href="grammar.html#long">long</a> literal grammar. Mapped to <code class="notranslate">java.lang.Long</code>.</p>
@@ -520,15 +512,15 @@ syntax-end -->
 <h2 id="real_type" class="notranslate" onclick="switchBnf(this)">REAL</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-REAL | FLOAT ( <a href="grammar.html#int">precisionInt</a> ) | <span class="ruleCompat">{ FLOAT4 }</span>
+REAL | FLOAT ( <a href="grammar.html#int">precisionInt</a> )
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">REAL</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">FLOAT ( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><code class="c">FLOAT4</code></div></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">REAL</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">FLOAT ( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-REAL | FLOAT ( <a href="grammar.html#int">precisionInt</a> ) | <span class="ruleCompat">{ FLOAT4 }</span>
+REAL | FLOAT ( <a href="grammar.html#int">precisionInt</a> )
 </pre>
 syntax-end -->
 <p>A single precision floating point number. Should not be used to represent currency values, because of rounding problems. Precision value for <code class="notranslate">FLOAT</code> type name should be from 1 to 24.</p><p>See also <a href="grammar.html#numeric">numeric</a> literal grammar. Mapped to <code class="notranslate">java.lang.Float</code>.</p>
@@ -538,15 +530,15 @@ syntax-end -->
 <h2 id="double_precision_type" class="notranslate" onclick="switchBnf(this)">DOUBLE PRECISION</h2>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-DOUBLE PRECISION | FLOAT [ ( <a href="grammar.html#int">precisionInt</a> ) ] | <span class="ruleCompat">{ DOUBLE | FLOAT8 }</span>
+DOUBLE PRECISION | FLOAT [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DOUBLE PRECISION</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">FLOAT</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">DOUBLE</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">FLOAT8</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DOUBLE PRECISION</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">FLOAT</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-DOUBLE PRECISION | FLOAT [ ( <a href="grammar.html#int">precisionInt</a> ) ] | <span class="ruleCompat">{ DOUBLE | FLOAT8 }</span>
+DOUBLE PRECISION | FLOAT [ ( <a href="grammar.html#int">precisionInt</a> ) ]
 </pre>
 syntax-end -->
 <p>A double precision floating point number. Should not be used to represent currency values, because of rounding problems. If precision value is specified for <code class="notranslate">FLOAT</code> type name, it should be from 25 to 53.</p><p>See also <a href="grammar.html#numeric">numeric</a> literal grammar. Mapped to <code class="notranslate">java.lang.Double</code>.</p>
@@ -629,19 +621,17 @@ syntax-end -->
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
 TIMESTAMP [ ( <a href="grammar.html#int">precisionInt</a> ) ] [ WITHOUT TIME ZONE ]
-| <span class="ruleCompat">{ DATETIME [ ( <a href="grammar.html#int">precisionInt</a> ) ] | SMALLDATETIME }</span>
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">TIMESTAMP</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">WITHOUT TIME ZONE</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DATETIME</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">SMALLDATETIME</code></td><td class="le"></td></tr></table></div></td><td class="le"></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TIMESTAMP</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#int">precisionInt</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">WITHOUT TIME ZONE</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
 TIMESTAMP [ ( <a href="grammar.html#int">precisionInt</a> ) ] [ WITHOUT TIME ZONE ]
-| <span class="ruleCompat">{ DATETIME [ ( <a href="grammar.html#int">precisionInt</a> ) ] | SMALLDATETIME }</span>
 </pre>
 syntax-end -->
-<p>The timestamp data type. The proleptic Gregorian calendar is used. If fractional seconds precision is specified it should be from 0 to 9, 6 is default. Fractional seconds precision of <code class="notranslate">SMALLDATETIME</code> is always 0 and cannot be specified.</p><p>This data type holds the local date and time without time zone information. It cannot distinguish timestamps near transitions from <code class="notranslate">DST</code> to normal time. For absolute timestamps use the <a href="datatypes.html#timestamp_with_time_zone_type"><code class="notranslate">TIMESTAMP WITH TIME ZONE</code></a> data type instead.</p><p>See also <a href="grammar.html#timestamp">timestamp</a> literal grammar.</p><p>In <code class="notranslate">JDBC</code> this data type is mapped to <code class="notranslate">java.sql.Timestamp</code> (<code class="notranslate">java.util.Date</code> may be used too). <code class="notranslate">java.time.LocalDateTime</code> is also supported and recommended.</p><p>In <code class="notranslate">org.h2.api.Aggregate, org.h2.api.AggregateFunction</code>, and <code class="notranslate">org.h2.api.Trigger</code> this data type is mapped to <code class="notranslate">java.time.LocalDateTime</code>.</p><p>If your time zone had <code class="notranslate">LMT</code> (local mean time) in the past and you use such old dates (depends on the time zone, usually 100 or more years ago), don&#39;t use <code class="notranslate">java.sql.Timestamp</code> and <code class="notranslate">java.util.Date</code> to read and write them.</p><p>If you deal with very old dates (before 1582-10-15) note that <code class="notranslate">java.sql.Timestamp</code> and <code class="notranslate">java.util.Date</code> use a mixed Julian/Gregorian calendar, <code class="notranslate">java.util.GregorianCalendar</code> can be configured to proleptic Gregorian with <code class="notranslate">setGregorianChange(new java.util.Date(Long.MIN_VALUE))</code> and used to read or write fields of timestamps.</p><p>Cast from higher fractional seconds precision to lower fractional seconds precision performs round half up.</p>
+<p>The timestamp data type. The proleptic Gregorian calendar is used. If fractional seconds precision is specified it should be from 0 to 9, 6 is default.</p><p>This data type holds the local date and time without time zone information. It cannot distinguish timestamps near transitions from <code class="notranslate">DST</code> to normal time. For absolute timestamps use the <a href="datatypes.html#timestamp_with_time_zone_type"><code class="notranslate">TIMESTAMP WITH TIME ZONE</code></a> data type instead.</p><p>See also <a href="grammar.html#timestamp">timestamp</a> literal grammar.</p><p>In <code class="notranslate">JDBC</code> this data type is mapped to <code class="notranslate">java.sql.Timestamp</code> (<code class="notranslate">java.util.Date</code> may be used too). <code class="notranslate">java.time.LocalDateTime</code> is also supported and recommended.</p><p>In <code class="notranslate">org.h2.api.Aggregate, org.h2.api.AggregateFunction</code>, and <code class="notranslate">org.h2.api.Trigger</code> this data type is mapped to <code class="notranslate">java.time.LocalDateTime</code>.</p><p>If your time zone had <code class="notranslate">LMT</code> (local mean time) in the past and you use such old dates (depends on the time zone, usually 100 or more years ago), don&#39;t use <code class="notranslate">java.sql.Timestamp</code> and <code class="notranslate">java.util.Date</code> to read and write them.</p><p>If you deal with very old dates (before 1582-10-15) note that <code class="notranslate">java.sql.Timestamp</code> and <code class="notranslate">java.util.Date</code> use a mixed Julian/Gregorian calendar, <code class="notranslate">java.util.GregorianCalendar</code> can be configured to proleptic Gregorian with <code class="notranslate">setGregorianChange(new java.util.Date(Long.MIN_VALUE))</code> and used to read or write fields of timestamps.</p><p>Cast from higher fractional seconds precision to lower fractional seconds precision performs round half up.</p>
 <p>Example:</p>
 <p class="notranslate">TIMESTAMP<br />TIMESTAMP(9)</p>
 
@@ -705,7 +695,7 @@ syntax-end -->
 <span class="ruleH2">{ JAVA_OBJECT | OBJECT | OTHER }</span> [ ( <a href="grammar.html#int">lengthInt</a> ) ]
 </pre>
 syntax-end -->
-<p>This type allows storing serialized Java objects. Internally, a byte array with serialized form is used. The allowed length is from 1 (useful only with custom serializer) to 1048576 bytes. The length is a size constraint; only the actual data is persisted.</p><p>Serialization and deserialization is done on the client side only with two exclusions described below. Deserialization is only done when <code class="notranslate">getObject</code> is called. Java operations cannot be executed inside the database engine for security reasons. Use <code class="notranslate">PreparedStatement.setObject</code> with <code class="notranslate">Types.JAVA_OBJECT</code> or <code class="notranslate">H2Type.JAVA_OBJECT</code> as a third argument to store values.</p><p>If Java method alias has <code class="notranslate">Object</code> parameter(s), values are deserialized during invocation of this method on the server side.</p><p>If a <a href="advanced.html#linked_tables">linked table</a> has a column with <code class="notranslate">Types.JAVA_OBJECT JDBC</code> data type and its database is not an another H2, Java objects need to be serialized and deserialized during interaction between H2 and database that owns the table on the server side of H2.</p><p>This data type needs special attention in secure environments.</p><p>Mapped to <code class="notranslate">java.lang.Object</code> (or any subclass).</p>
+<p>This type allows storing serialized Java objects. Internally, a byte array with serialized form is used. The allowed length is from 1 (useful only with custom serializer) to 1,000,000,000 bytes. The length is a size constraint; only the actual data is persisted.</p><p>Serialization and deserialization is done on the client side only with two exclusions described below. Deserialization is only done when <code class="notranslate">getObject</code> is called. Java operations cannot be executed inside the database engine for security reasons. Use <code class="notranslate">PreparedStatement.setObject</code> with <code class="notranslate">Types.JAVA_OBJECT</code> or <code class="notranslate">H2Type.JAVA_OBJECT</code> as a third argument to store values.</p><p>If Java method alias has <code class="notranslate">Object</code> parameter(s), values are deserialized during invocation of this method on the server side.</p><p>If a <a href="advanced.html#linked_tables">linked table</a> has a column with <code class="notranslate">Types.JAVA_OBJECT JDBC</code> data type and its database is not an another H2, Java objects need to be serialized and deserialized during interaction between H2 and database that owns the table on the server side of H2.</p><p>This data type needs special attention in secure environments.</p><p>Mapped to <code class="notranslate">java.lang.Object</code> (or any subclass).</p>
 <p>Example:</p>
 <p class="notranslate">JAVA_OBJECT<br />JAVA_OBJECT(10000)</p>
 
@@ -723,7 +713,7 @@ syntax-end -->
 <span class="ruleH2">ENUM (<a href="grammar.html#string">string</a> [, ... ])</span>
 </pre>
 syntax-end -->
-<p>A type with enumerated values. Mapped to <code class="notranslate">java.lang.String</code>.</p><p>Duplicate and empty values are not permitted. The maximum allowed length of value is 1048576 characters. The maximum number of values is 65536.</p>
+<p>A type with enumerated values. Mapped to <code class="notranslate">java.lang.String</code>.</p><p>Duplicate and empty values are not permitted. The maximum number of values is 65536. The maximum allowed length of complete data type definition with all values is 1,000,000,000 characters.</p>
 <p>Example:</p>
 <p class="notranslate">ENUM(&#39;clubs&#39;, &#39;diamonds&#39;, &#39;hearts&#39;, &#39;spades&#39;)</p>
 
@@ -759,7 +749,7 @@ syntax-end -->
 [, <a href="grammar.html#int">sridInt</a>] )]</span>
 </pre>
 syntax-end -->
-<p>A spatial geometry type. If additional constraints are not specified this type accepts all supported types of geometries. A constraint with required geometry type and dimension system can be set by specifying name of the type and dimension system. A whitespace between them is optional. 2D dimension system does not have a name and assumed if only a geometry type name is specified. <code class="notranslate">POINT</code> means 2D point, <code class="notranslate">POINT</code> Z or <code class="notranslate">POINTZ</code> means 3D point. <code class="notranslate">GEOMETRY</code> constraint means no restrictions on type or dimension system of geometry. A constraint with required spatial reference system identifier (<code class="notranslate">SRID</code>) can be set by specifying this identifier.</p><p>Mapped to <code class="notranslate">org.locationtech.jts.geom.Geometry</code> if <code class="notranslate">JTS</code> library is in classpath and to <code class="notranslate">java.lang.String</code> otherwise. May be represented in textual format using the <code class="notranslate">WKT</code> (well-known text) or <code class="notranslate">EWKT</code> (extended well-known text) format. Values are stored internally in <code class="notranslate">EWKB</code> (extended well-known binary) format, the maximum allowed length is 1048576 bytes. Only a subset of <code class="notranslate">EWKB</code> and <code class="notranslate">EWKT</code> features is supported. Supported objects are <code class="notranslate">POINT, LINESTRING, POLYGON, MULTIPOINT, MULTILINESTRING, MULTIPOLYGON</code>, and <code class="notranslate">GEOMETRYCOLLECTION</code>. Supported dimension systems are 2D (<code class="notranslate">XY</code>), Z (<code class="notranslate">XYZ</code>), M (<code class="notranslate">XYM</code>), and <code class="notranslate">ZM</code> (<code class="notranslate">XYZM</code>). <code class="notranslate">SRID</code> (spatial reference system identifier) is supported.</p><p>Use a quoted string containing a <code class="notranslate">WKT</code>/<code class="notranslate">EWKT</code> formatted string or <code class="notranslate">PreparedStatement.setObject()</code> to store values, and <code class="notranslate">ResultSet.getObject(..)</code> or <code class="notranslate">ResultSet.getString(..)</code> to retrieve the values.</p>
+<p>A spatial geometry type. If additional constraints are not specified this type accepts all supported types of geometries. A constraint with required geometry type and dimension system can be set by specifying name of the type and dimension system. A whitespace between them is optional. 2D dimension system does not have a name and assumed if only a geometry type name is specified. <code class="notranslate">POINT</code> means 2D point, <code class="notranslate">POINT</code> Z or <code class="notranslate">POINTZ</code> means 3D point. <code class="notranslate">GEOMETRY</code> constraint means no restrictions on type or dimension system of geometry. A constraint with required spatial reference system identifier (<code class="notranslate">SRID</code>) can be set by specifying this identifier.</p><p>Mapped to <code class="notranslate">org.locationtech.jts.geom.Geometry</code> if <code class="notranslate">JTS</code> library is in classpath and to <code class="notranslate">java.lang.String</code> otherwise. May be represented in textual format using the <code class="notranslate">WKT</code> (well-known text) or <code class="notranslate">EWKT</code> (extended well-known text) format. Values are stored internally in <code class="notranslate">EWKB</code> (extended well-known binary) format, the maximum allowed length is 1,000,000,000 bytes. Only a subset of <code class="notranslate">EWKB</code> and <code class="notranslate">EWKT</code> features is supported. Supported objects are <code class="notranslate">POINT, LINESTRING, POLYGON, MULTIPOINT, MULTILINESTRING, MULTIPOLYGON</code>, and <code class="notranslate">GEOMETRYCOLLECTION</code>. Supported dimension systems are 2D (<code class="notranslate">XY</code>), Z (<code class="notranslate">XYZ</code>), M (<code class="notranslate">XYM</code>), and <code class="notranslate">ZM</code> (<code class="notranslate">XYZM</code>). <code class="notranslate">SRID</code> (spatial reference system identifier) is supported.</p><p>Use a quoted string containing a <code class="notranslate">WKT</code>/<code class="notranslate">EWKT</code> formatted string or <code class="notranslate">PreparedStatement.setObject()</code> to store values, and <code class="notranslate">ResultSet.getObject(..)</code> or <code class="notranslate">ResultSet.getString(..)</code> to retrieve the values.</p>
 <p>Example:</p>
 <p class="notranslate">GEOMETRY<br />GEOMETRY(POINT)<br />GEOMETRY(POINT Z)<br />GEOMETRY(POINT Z, 4326)<br />GEOMETRY(GEOMETRY, 4326)</p>
 
@@ -777,7 +767,7 @@ syntax-end -->
 <span class="ruleH2">JSON [(<a href="grammar.html#int">lengthInt</a>)]</span>
 </pre>
 syntax-end -->
-<p>A <code class="notranslate">RFC</code> 8259-compliant <code class="notranslate">JSON</code> text.</p><p>See also <a href="grammar.html#json">json</a> literal grammar. Mapped to <code class="notranslate">byte[]</code>. The allowed length is from 1 to 1048576 bytes. The length is a size constraint; only the actual data is persisted.</p><p>To set a <code class="notranslate">JSON</code> value with <code class="notranslate">java.lang.String</code> in a PreparedStatement use a <code class="notranslate">FORMAT JSON</code> data format (<code class="notranslate">INSERT INTO TEST(ID, DATA) VALUES (?, ? FORMAT JSON)</code>). Without the data format <code class="notranslate">VARCHAR</code> values are converted to a <code class="notranslate">JSON</code> string values.</p><p>Order of object members is preserved as is. Duplicate object member names are allowed.</p>
+<p>A <code class="notranslate">RFC</code> 8259-compliant <code class="notranslate">JSON</code> text.</p><p>See also <a href="grammar.html#json">json</a> literal grammar. Mapped to <code class="notranslate">byte[]</code>. The allowed length is from 1 to 1,000,000,000 bytes. The length is a size constraint; only the actual data is persisted.</p><p>To set a <code class="notranslate">JSON</code> value with <code class="notranslate">java.lang.String</code> in a PreparedStatement use a <code class="notranslate">FORMAT JSON</code> data format (<code class="notranslate">INSERT INTO TEST(ID, DATA) VALUES (?, ? FORMAT JSON)</code>). Without the data format <code class="notranslate">VARCHAR</code> values are converted to a <code class="notranslate">JSON</code> string values.</p><p>Order of object members is preserved as is. Duplicate object member names are allowed.</p>
 <p>Example:</p>
 <p class="notranslate">JSON</p>
 

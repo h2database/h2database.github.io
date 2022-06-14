@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.1.212/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.1.214/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -206,8 +206,6 @@ Functions
 
     <a href="#round" >ROUND</a><br />
 
-    <a href="#roundmagic" >ROUNDMAGIC</a><br />
-
     <a href="#secure_rand" >SECURE_RAND</a><br />
 
     <a href="#sign" >SIGN</a><br />
@@ -319,8 +317,6 @@ syntax-end -->
                 <a href="#random_uuid" >RANDOM_UUID</a><br />
             
                 <a href="#round" >ROUND</a><br />
-            
-                <a href="#roundmagic" >ROUNDMAGIC</a><br />
             
                 <a href="#secure_rand" >SECURE_RAND</a><br />
             
@@ -1691,24 +1687,6 @@ syntax-end -->
 <p>Example:</p>
 <p class="notranslate">ROUND(N, 2)</p>
 
-<h3 id="roundmagic" class="notranslate" onclick="switchBnf(this)">ROUNDMAGIC</h3>
-<!-- railroad-start -->
-<pre name="bnf" style="display: none">
-<span class="ruleH2">ROUNDMAGIC(<a href="grammar.html#numeric">numeric</a>)</span>
-</pre>
-<div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ROUNDMAGIC ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table></div>
-</div>
-<!-- railroad-end -->
-<!-- syntax-start
-<pre class="notranslate">
-<span class="ruleH2">ROUNDMAGIC(<a href="grammar.html#numeric">numeric</a>)</span>
-</pre>
-syntax-end -->
-<p>This function rounds numbers in a good way, but it is slow. It has a special handling for numbers around 0. Only numbers smaller or equal +/-1000000000000 are supported. The value is converted to a String internally, and then the last 4 characters are checked. &#39;000x&#39; becomes &#39;0000&#39; and &#39;999x&#39; becomes &#39;999999&#39;, which is rounded automatically. This method returns a double.</p>
-<p>Example:</p>
-<p class="notranslate">ROUNDMAGIC(N/3*3)</p>
-
 <h3 id="secure_rand" class="notranslate" onclick="switchBnf(this)">SECURE_RAND</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
@@ -2206,36 +2184,36 @@ syntax-end -->
 <h3 id="ltrim" class="notranslate" onclick="switchBnf(this)">LTRIM</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleCompat">LTRIM(<a href="grammar.html#string">string</a>)</span>
+<span class="ruleCompat">LTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
 </pre>
 <div name="railroad">
-<div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LTRIM ( <a href="grammar.html#string">string</a> )</code></td></tr></table></div>
+<div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LTRIM ( <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">characterToTrimString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleCompat">LTRIM(<a href="grammar.html#string">string</a>)</span>
+<span class="ruleCompat">LTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
 </pre>
 syntax-end -->
-<p>Removes all leading spaces from a string.</p><p>This function is deprecated, use <a href="functions.html#trim"><code class="notranslate">TRIM</code></a> instead of it.</p>
+<p>Removes all leading spaces or other specified characters from a string.</p><p>This function is deprecated, use <a href="functions.html#trim"><code class="notranslate">TRIM</code></a> instead of it.</p>
 <p>Example:</p>
 <p class="notranslate">LTRIM(NAME)</p>
 
 <h3 id="rtrim" class="notranslate" onclick="switchBnf(this)">RTRIM</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleCompat">RTRIM(<a href="grammar.html#string">string</a>)</span>
+<span class="ruleCompat">RTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
 </pre>
 <div name="railroad">
-<div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">RTRIM ( <a href="grammar.html#string">string</a> )</code></td></tr></table></div>
+<div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">RTRIM ( <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">characterToTrimString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleCompat">RTRIM(<a href="grammar.html#string">string</a>)</span>
+<span class="ruleCompat">RTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
 </pre>
 syntax-end -->
-<p>Removes all trailing spaces from a string.</p><p>This function is deprecated, use <a href="functions.html#trim"><code class="notranslate">TRIM</code></a> instead of it.</p>
+<p>Removes all trailing spaces or other specified characters from a string.</p><p>This function is deprecated, use <a href="functions.html#trim"><code class="notranslate">TRIM</code></a> instead of it.</p>
 <p>Example:</p>
 <p class="notranslate">RTRIM(NAME)</p>
 
