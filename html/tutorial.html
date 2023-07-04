@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2022 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -89,7 +89,7 @@ Tutorial
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.1.214/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.2.220/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -540,7 +540,9 @@ Supported settings are:
 <ul><li><code class="notranslate">webAllowOthers</code>: allow other computers to connect.
 </li><li><code class="notranslate">webPort</code>: the port of the H2 Console
 </li><li><code class="notranslate">webSSL</code>: use encrypted TLS (HTTPS) connections.
-</li><li><code class="notranslate">webAdminPassword</code>: password to access preferences and tools of H2 Console.
+</li><li><code class="notranslate">webAdminPassword</code>: hash of password to access preferences and tools of H2 Console,
+use <code class="notranslate">org.h2.server.web.WebServer.encodeAdminPassword(String)</code> to generate a hash for your password.
+Always use long complex passwords, especially when access from other hosts is enabled.
 </li></ul>
 <p>
 In addition to those settings, the properties of the last recently used connection

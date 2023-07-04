@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2022 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.1.214/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.2.220/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -384,6 +384,8 @@ syntax-end -->
 
     <a href="#rtrim" >RTRIM</a><br />
 
+    <a href="#btrim" >BTRIM</a><br />
+
     <a href="#trim" >TRIM</a><br />
 
     <a href="#regexp_replace" >REGEXP_REPLACE</a><br />
@@ -461,9 +463,9 @@ syntax-end -->
                 <a href="#upper" >UPPER</a><br />
             
                 <a href="#left" >LEFT</a><br />
-                    </td><td class="index">
             
                 <a href="#right" >RIGHT</a><br />
+                    </td><td class="index">
             
                 <a href="#locate" >LOCATE</a><br />
             
@@ -474,6 +476,8 @@ syntax-end -->
                 <a href="#ltrim" >LTRIM</a><br />
             
                 <a href="#rtrim" >RTRIM</a><br />
+            
+                <a href="#btrim" >BTRIM</a><br />
             
                 <a href="#trim" >TRIM</a><br />
             
@@ -490,9 +494,9 @@ syntax-end -->
                 <a href="#soundex" >SOUNDEX</a><br />
             
                 <a href="#space" >SPACE</a><br />
-                    </td><td class="index">
             
                 <a href="#stringdecode" >STRINGDECODE</a><br />
+                    </td><td class="index">
             
                 <a href="#stringencode" >STRINGENCODE</a><br />
             
@@ -543,6 +547,8 @@ syntax-end -->
     <a href="#datediff" >DATEDIFF</a><br />
 
     <a href="#date_trunc" >DATE_TRUNC</a><br />
+
+    <a href="#last_day" >LAST_DAY</a><br />
 
     <a href="#dayname" >DAYNAME</a><br />
 
@@ -602,8 +608,10 @@ syntax-end -->
             
                 <a href="#date_trunc" >DATE_TRUNC</a><br />
             
-                <a href="#dayname" >DAYNAME</a><br />
+                <a href="#last_day" >LAST_DAY</a><br />
                     </td><td class="index">
+            
+                <a href="#dayname" >DAYNAME</a><br />
             
                 <a href="#day_of_month" >DAY_OF_MONTH</a><br />
             
@@ -620,9 +628,9 @@ syntax-end -->
                 <a href="#hour" >HOUR</a><br />
             
                 <a href="#minute" >MINUTE</a><br />
+                    </td><td class="index">
             
                 <a href="#month" >MONTH</a><br />
-                    </td><td class="index">
             
                 <a href="#monthname" >MONTHNAME</a><br />
             
@@ -2148,15 +2156,15 @@ syntax-end -->
 <h3 id="lpad" class="notranslate" onclick="switchBnf(this)">LPAD</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">LPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])</span>
+LPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
 </pre>
 <div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LPAD ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">paddingString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LPAD ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">paddingString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">LPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])</span>
+LPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
 </pre>
 syntax-end -->
 <p>Left pad the string to the specified length. If the length is shorter than the string, it will be truncated at the end. If the padding string is not set, spaces will be used.</p>
@@ -2166,15 +2174,15 @@ syntax-end -->
 <h3 id="rpad" class="notranslate" onclick="switchBnf(this)">RPAD</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">RPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])</span>
+RPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
 </pre>
 <div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">RPAD ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">paddingString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RPAD ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">paddingString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">RPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])</span>
+RPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
 </pre>
 syntax-end -->
 <p>Right pad the string to the specified length. If the length is shorter than the string, it will be truncated. If the padding string is not set, spaces will be used.</p>
@@ -2184,56 +2192,74 @@ syntax-end -->
 <h3 id="ltrim" class="notranslate" onclick="switchBnf(this)">LTRIM</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleCompat">LTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
+LTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">charactersToTrimString</a>])
 </pre>
 <div name="railroad">
-<div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LTRIM ( <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">characterToTrimString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LTRIM ( <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">charactersToTrimString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleCompat">LTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
+LTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">charactersToTrimString</a>])
 </pre>
 syntax-end -->
-<p>Removes all leading spaces or other specified characters from a string.</p><p>This function is deprecated, use <a href="functions.html#trim"><code class="notranslate">TRIM</code></a> instead of it.</p>
+<p>Removes all leading spaces or other specified characters from a string, multiple characters can be specified.</p>
 <p>Example:</p>
-<p class="notranslate">LTRIM(NAME)</p>
+<p class="notranslate">LTRIM(NAME)<br />LTRIM(NAME, &#39; _~&#39;);</p>
 
 <h3 id="rtrim" class="notranslate" onclick="switchBnf(this)">RTRIM</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleCompat">RTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
+RTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">charactersToTrimString</a>])
 </pre>
 <div name="railroad">
-<div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">RTRIM ( <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">characterToTrimString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RTRIM ( <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">charactersToTrimString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleCompat">RTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">characterToTrimString</a>])</span>
+RTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">charactersToTrimString</a>])
 </pre>
 syntax-end -->
-<p>Removes all trailing spaces or other specified characters from a string.</p><p>This function is deprecated, use <a href="functions.html#trim"><code class="notranslate">TRIM</code></a> instead of it.</p>
+<p>Removes all trailing spaces or other specified characters from a string, multiple characters can be specified.</p>
 <p>Example:</p>
-<p class="notranslate">RTRIM(NAME)</p>
+<p class="notranslate">RTRIM(NAME)<br />RTRIM(NAME, &#39; _~&#39;);</p>
+
+<h3 id="btrim" class="notranslate" onclick="switchBnf(this)">BTRIM</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+BTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">charactersToTrimString</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">BTRIM ( <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">charactersToTrimString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+BTRIM(<a href="grammar.html#string">string</a> [, <a href="grammar.html#string">charactersToTrimString</a>])
+</pre>
+syntax-end -->
+<p>Removes all leading and trailing spaces or other specified characters from a string, multiple characters can be specified.</p>
+<p>Example:</p>
+<p class="notranslate">BTRIM(NAME)<br />BTRIM(NAME, &#39; _~&#39;);</p>
 
 <h3 id="trim" class="notranslate" onclick="switchBnf(this)">TRIM</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-TRIM ( [ [ LEADING | TRAILING | BOTH ] [ <a href="grammar.html#string">string</a> ] FROM ] <a href="grammar.html#string">string</a> )
+TRIM ( [ [ LEADING | TRAILING | BOTH ] [ <a href="grammar.html#string">characterToTrimString</a> ] FROM ] <a href="grammar.html#string">string</a> )
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TRIM (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">LEADING</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">TRAILING</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">BOTH</code></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#string">string</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">FROM</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#string">string</a> )</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TRIM (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">LEADING</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">TRAILING</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">BOTH</code></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#string">characterToTrimString</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">FROM</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#string">string</a> )</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-TRIM ( [ [ LEADING | TRAILING | BOTH ] [ <a href="grammar.html#string">string</a> ] FROM ] <a href="grammar.html#string">string</a> )
+TRIM ( [ [ LEADING | TRAILING | BOTH ] [ <a href="grammar.html#string">characterToTrimString</a> ] FROM ] <a href="grammar.html#string">string</a> )
 </pre>
 syntax-end -->
-<p>Removes all leading spaces, trailing spaces, or spaces at both ends, from a string. Other characters can be removed as well.</p>
+<p>Removes all leading spaces, trailing spaces, or spaces at both ends from a string. If character to trim is specified, these characters are removed instead of spaces, only one character can be specified. To trim multiple different characters use <a href="functions.html#ltrim"><code class="notranslate">LTRIM</code></a>, <a href="functions.html#rtrim"><code class="notranslate">RTRIM</code></a>, or <a href="functions.html#btrim"><code class="notranslate">BTRIM</code></a>.</p><p>If neither <code class="notranslate">LEADING, TRAILING</code>, nor <code class="notranslate">BOTH</code> are specified, <code class="notranslate">BOTH</code> is implicit.</p>
 <p>Example:</p>
-<p class="notranslate">TRIM(BOTH &#39;_&#39; FROM NAME)</p>
+<p class="notranslate">TRIM(NAME)<br />TRIM(LEADING FROM NAME)<br />TRIM(BOTH &#39;_&#39; FROM NAME)</p>
 
 <h3 id="regexp_replace" class="notranslate" onclick="switchBnf(this)">REGEXP_REPLACE</h3>
 <!-- railroad-start -->
@@ -2339,7 +2365,7 @@ syntax-end -->
 <span class="ruleH2">SOUNDEX(<a href="grammar.html#string">string</a>)</span>
 </pre>
 syntax-end -->
-<p>Returns a four character code representing the sound of a string. This method returns a string, or null if parameter is null. See <a href="https://en.wikipedia.org/wiki/Soundex">https://en.wikipedia.org/wiki/Soundex</a> for more information.</p>
+<p>Returns a four character upper-case code representing the sound of a string as pronounced in English. This method returns a string, or null if parameter is null. See <a href="https://en.wikipedia.org/wiki/Soundex">https://en.wikipedia.org/wiki/Soundex</a> for more information.</p>
 <p>Example:</p>
 <p class="notranslate">SOUNDEX(NAME)</p>
 
@@ -2746,7 +2772,7 @@ syntax-end -->
 <h3 id="date_trunc" class="notranslate" onclick="switchBnf(this)">DATE_TRUNC</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">DATE_TRUNC (<a href="grammar.html#datetime_field">datetimeField</a>, <a href="grammar.html#date_and_time">dateAndTime</a>)</span>
+<span class="ruleH2">DATE_TRUNC(<a href="grammar.html#datetime_field">datetimeField</a>, <a href="grammar.html#date_and_time">dateAndTime</a>)</span>
 </pre>
 <div name="railroad">
 <div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DATE_TRUNC ( <a href="grammar.html#datetime_field">datetimeField</a> , <a href="grammar.html#date_and_time">dateAndTime</a> )</code></td></tr></table></div>
@@ -2754,12 +2780,30 @@ syntax-end -->
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">DATE_TRUNC (<a href="grammar.html#datetime_field">datetimeField</a>, <a href="grammar.html#date_and_time">dateAndTime</a>)</span>
+<span class="ruleH2">DATE_TRUNC(<a href="grammar.html#datetime_field">datetimeField</a>, <a href="grammar.html#date_and_time">dateAndTime</a>)</span>
 </pre>
 syntax-end -->
 <p>Truncates the specified date-time value to the specified field.</p>
 <p>Example:</p>
 <p class="notranslate">DATE_TRUNC(DAY, TIMESTAMP &#39;2010-01-03 10:40:00&#39;);</p>
+
+<h3 id="last_day" class="notranslate" onclick="switchBnf(this)">LAST_DAY</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+<span class="ruleH2">LAST_DAY(<a href="grammar.html#date">date</a> | <a href="grammar.html#timestamp">timestamp</a> | <a href="grammar.html#timestamp_with_time_zone">timestampWithTimeZone</a> | <a href="grammar.html#string">string</a>)</span>
+</pre>
+<div name="railroad">
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LAST_DAY ( <a href="grammar.html#date">date</a></code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c"><a href="grammar.html#timestamp">timestamp</a></code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c"><a href="grammar.html#timestamp_with_time_zone">timestampWithTimeZone</a></code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c"><a href="grammar.html#string">string</a> )</code></td></tr></table></td><td class="le"></td></tr></table></div>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+<span class="ruleH2">LAST_DAY(<a href="grammar.html#date">date</a> | <a href="grammar.html#timestamp">timestamp</a> | <a href="grammar.html#timestamp_with_time_zone">timestampWithTimeZone</a> | <a href="grammar.html#string">string</a>)</span>
+</pre>
+syntax-end -->
+<p>Returns the last day of the month that contains the specified date-time value. This function returns a date.</p>
+<p>Example:</p>
+<p class="notranslate">LAST_DAY(DAY, DATE &#39;2020-02-05&#39;);</p>
 
 <h3 id="dayname" class="notranslate" onclick="switchBnf(this)">DAYNAME</h3>
 <!-- railroad-start -->
@@ -2885,7 +2929,7 @@ syntax-end -->
 [ , <a href="grammar.html#string">localeString</a> [ , <a href="grammar.html#string">timeZoneString</a> ] ] )</span>
 </pre>
 syntax-end -->
-<p>Formats a date, time or timestamp as a string. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.time.format.DateTimeFormatter</code>.</p><p>If timeZoneString is specified, it is used in formatted string if formatString has time zone. If <code class="notranslate">TIMESTAMP WITH TIME ZONE</code> is passed and timeZoneString is specified, the timestamp is converted to the specified time zone and its <code class="notranslate">UTC</code> value is preserved.</p><p>This method returns a string.</p>
+<p>Formats a date, time or timestamp as a string. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.time.format.DateTimeFormatter</code>. Allowed format characters depend on data type of passed date/time value.</p><p>If timeZoneString is specified, it is used in formatted string if formatString has time zone. For <code class="notranslate">TIME</code> and <code class="notranslate">TIME WITH TIME ZONE</code> values the specified time zone must have a fixed offset.</p><p>If <code class="notranslate">TIME WITH TIME ZONE</code> is passed and timeZoneString is specified, the time is converted to the specified time zone offset and its <code class="notranslate">UTC</code> value is preserved. If <code class="notranslate">TIMESTAMP WITH TIME ZONE</code> is passed and timeZoneString is specified, the timestamp is converted to the specified time zone and its <code class="notranslate">UTC</code> value is preserved.</p><p>This method returns a string.</p><p>See also <a href="grammar.html#cast_specification">cast specification</a>.</p>
 <p>Example:</p>
 <p class="notranslate">CALL FORMATDATETIME(TIMESTAMP &#39;2001-02-03 04:05:06&#39;,<br />&nbsp;&nbsp;&nbsp;&nbsp;&#39;EEE, d MMM yyyy HH:mm:ss z&#39;, &#39;en&#39;, &#39;GMT&#39;)</p>
 
@@ -2977,7 +3021,7 @@ syntax-end -->
 [, <a href="grammar.html#string">localeString</a> [, <a href="grammar.html#string">timeZoneString</a>]])</span>
 </pre>
 syntax-end -->
-<p>Parses a string and returns a <code class="notranslate">TIMESTAMP WITH TIME ZONE</code> value. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.time.format.DateTimeFormatter</code>.</p><p>If timeZoneString is specified, it is used as default.</p>
+<p>Parses a string and returns a <code class="notranslate">TIMESTAMP WITH TIME ZONE</code> value. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code class="notranslate">java.time.format.DateTimeFormatter</code>.</p><p>If timeZoneString is specified, it is used as default.</p><p>See also <a href="grammar.html#cast_specification">cast specification</a>.</p>
 <p>Example:</p>
 <p class="notranslate">CALL PARSEDATETIME(&#39;Sat, 3 Feb 2001 03:05:06 GMT&#39;,<br />&nbsp;&nbsp;&nbsp;&nbsp;&#39;EEE, d MMM yyyy HH:mm:ss z&#39;, &#39;en&#39;, &#39;GMT&#39;)</p>
 
@@ -3141,9 +3185,9 @@ syntax-end -->
 { CARDINALITY | <span class="ruleCompat">{ ARRAY_LENGTH }</span> } (<a href="grammar.html#expression">arrayExpression</a>)
 </pre>
 syntax-end -->
-<p>Returns the length of an array. Returns <code class="notranslate">NULL</code> if the specified array is <code class="notranslate">NULL</code>.</p>
+<p>Returns the length of an array or <code class="notranslate">JSON</code> array. Returns <code class="notranslate">NULL</code> if the specified array is <code class="notranslate">NULL</code>.</p>
 <p>Example:</p>
-<p class="notranslate">CALL CARDINALITY(ARRAY[&#39;Hello&#39;, &#39;World&#39;])</p>
+<p class="notranslate">CALL CARDINALITY(ARRAY[&#39;Hello&#39;, &#39;World&#39;])<br />CALL CARDINALITY(JSON &#39;[1, 2, 3]&#39;)</p>
 
 <h3 id="array_contains" class="notranslate" onclick="switchBnf(this)">ARRAY_CONTAINS</h3>
 <!-- railroad-start -->
@@ -3610,15 +3654,15 @@ syntax-end -->
 <h3 id="greatest" class="notranslate" onclick="switchBnf(this)">GREATEST</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])</span>
+GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
 </pre>
 <div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">GREATEST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">GREATEST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])</span>
+GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
 </pre>
 syntax-end -->
 <p>Returns the largest value that is not <code class="notranslate">NULL</code>, or <code class="notranslate">NULL</code> if all values are <code class="notranslate">NULL</code>.</p>
@@ -3628,15 +3672,15 @@ syntax-end -->
 <h3 id="least" class="notranslate" onclick="switchBnf(this)">LEAST</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])</span>
+LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
 </pre>
 <div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LEAST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LEAST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])</span>
+LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
 </pre>
 syntax-end -->
 <p>Returns the smallest value that is not <code class="notranslate">NULL</code>, or <code class="notranslate">NULL</code> if all values are <code class="notranslate">NULL</code>.</p>
@@ -4064,20 +4108,20 @@ syntax-end -->
 <h3 id="unnest" class="notranslate" onclick="switchBnf(this)">UNNEST</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-UNNEST(<a href="grammar.html#array">array</a>, [,...]) [WITH ORDINALITY]
+UNNEST(<a href="grammar.html#expression">arrayExpression</a>, [,...]) [WITH ORDINALITY]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">UNNEST ( <a href="grammar.html#array">array</a> ,</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">WITH ORDINALITY</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">UNNEST ( <a href="grammar.html#expression">arrayExpression</a> ,</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">WITH ORDINALITY</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-UNNEST(<a href="grammar.html#array">array</a>, [,...]) [WITH ORDINALITY]
+UNNEST(<a href="grammar.html#expression">arrayExpression</a>, [,...]) [WITH ORDINALITY]
 </pre>
 syntax-end -->
 <p>Returns the result set. Number of columns is equal to number of arguments, plus one additional column with row number if <code class="notranslate">WITH ORDINALITY</code> is specified. Number of rows is equal to length of longest specified array. If multiple arguments are specified and they have different length, cells with missing values will contain null values.</p>
 <p>Example:</p>
-<p class="notranslate">SELECT * FROM UNNEST(ARRAY[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]);</p>
+<p class="notranslate">SELECT * FROM UNNEST(ARRAY[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]);<br />SELECT * FROM UNNEST(JSON &#39;[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]&#39;);</p>
 
 <!--[if lte IE 7]><script language="javascript">switchBnf(null);</script><![endif]-->
 

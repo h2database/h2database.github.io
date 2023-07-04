@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2022 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Aggregate Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.1.214/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.2.220/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -142,6 +142,8 @@ Aggregate Functions
 
     <a href="#var_samp" >VAR_SAMP</a><br />
 
+    <a href="#any_value" >ANY_VALUE</a><br />
+
     <a href="#bit_and_agg" >BIT_AND_AGG</a><br />
 
     <a href="#bit_or_agg" >BIT_OR_AGG</a><br />
@@ -173,9 +175,9 @@ syntax-end -->
                 <a href="#every" >EVERY</a><br />
             
                 <a href="#any" >ANY</a><br />
-                    </td><td class="index">
             
                 <a href="#count" >COUNT</a><br />
+                    </td><td class="index">
             
                 <a href="#stddev_pop" >STDDEV_POP</a><br />
             
@@ -185,10 +187,12 @@ syntax-end -->
             
                 <a href="#var_samp" >VAR_SAMP</a><br />
             
+                <a href="#any_value" >ANY_VALUE</a><br />
+            
                 <a href="#bit_and_agg" >BIT_AND_AGG</a><br />
-                    </td><td class="index">
             
                 <a href="#bit_or_agg" >BIT_OR_AGG</a><br />
+                    </td><td class="index">
             
                 <a href="#bit_xor_agg" >BIT_XOR_AGG</a><br />
             
@@ -608,6 +612,26 @@ syntax-end -->
 <p>The sample variance (square of the sample standard deviation). This method returns a double. If less than two rows are selected, the result is <code class="notranslate">NULL</code>. Aggregates are only allowed in select statements.</p>
 <p>Example:</p>
 <p class="notranslate">VAR_SAMP(X)</p>
+
+<h3 id="any_value" class="notranslate" onclick="switchBnf(this)">ANY_VALUE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ANY_VALUE( <span class="ruleH2">[ DISTINCT|ALL ]</span> <a href="grammar.html#value">value</a> )
+[FILTER (WHERE <a href="grammar.html#expression">expression</a>)] [OVER <a href="grammar.html#window_name_or_specification">windowNameOrSpecification</a>]
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ANY_VALUE (</code></td><td class="d"><div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">DISTINCT</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">ALL</code></td><td class="le"></td></tr></table></div></td><td class="d"><code class="c"><a href="grammar.html#value">value</a> )</code></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">FILTER ( WHERE <a href="grammar.html#expression">expression</a> )</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">OVER <a href="grammar.html#window_name_or_specification">windowNameOrSpecification</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+ANY_VALUE( <span class="ruleH2">[ DISTINCT|ALL ]</span> <a href="grammar.html#value">value</a> )
+[FILTER (WHERE <a href="grammar.html#expression">expression</a>)] [OVER <a href="grammar.html#window_name_or_specification">windowNameOrSpecification</a>]
+</pre>
+syntax-end -->
+<p>Returns any non-<code class="notranslate">NULL</code> value from aggregated values. If no rows are selected, the result is <code class="notranslate">NULL</code>. This function uses the same pseudo random generator as <a href="functions.html#rand"><code class="notranslate">RAND</code>()</a> function.</p><p>If <code class="notranslate">DISTINCT</code> is specified, each distinct value will be returned with approximately the same probability as other distinct values. If it isn&#39;t specified, more frequent values will be returned with higher probability than less frequent.</p><p>Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">ANY_VALUE(X)</p>
 
 <h3 id="bit_and_agg" class="notranslate" onclick="switchBnf(this)">BIT_AND_AGG</h3>
 <!-- railroad-start -->
