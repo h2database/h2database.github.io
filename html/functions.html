@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.220/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.2.222/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -3654,36 +3654,36 @@ syntax-end -->
 <h3 id="greatest" class="notranslate" onclick="switchBnf(this)">GREATEST</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...]) <span class="ruleH2">[{RESPECT|IGNORE} NULLS]</span>
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">GREATEST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">GREATEST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td><td class="d"><div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">RESPECT</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">IGNORE</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">NULLS</code></td></tr></table></td><td class="le"></td></tr></table></div></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...]) <span class="ruleH2">[{RESPECT|IGNORE} NULLS]</span>
 </pre>
 syntax-end -->
-<p>Returns the largest value that is not <code class="notranslate">NULL</code>, or <code class="notranslate">NULL</code> if all values are <code class="notranslate">NULL</code>.</p>
+<p>Returns the largest value or <code class="notranslate">NULL</code> if any value is <code class="notranslate">NULL</code> or the largest value cannot be determined. For example, <code class="notranslate">ROW</code> (<code class="notranslate">NULL</code>, 1) is neither equal to nor smaller than nor larger than <code class="notranslate">ROW</code> (1, 1). If <code class="notranslate">IGNORE NULLS</code> is specified, <code class="notranslate">NULL</code> values are ignored.</p>
 <p>Example:</p>
 <p class="notranslate">CALL GREATEST(1, 2, 3);</p>
 
 <h3 id="least" class="notranslate" onclick="switchBnf(this)">LEAST</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...]) <span class="ruleH2">[{RESPECT|IGNORE} NULLS]</span>
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LEAST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LEAST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td><td class="d"><div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">RESPECT</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">IGNORE</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">NULLS</code></td></tr></table></td><td class="le"></td></tr></table></div></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...]) <span class="ruleH2">[{RESPECT|IGNORE} NULLS]</span>
 </pre>
 syntax-end -->
-<p>Returns the smallest value that is not <code class="notranslate">NULL</code>, or <code class="notranslate">NULL</code> if all values are <code class="notranslate">NULL</code>.</p>
+<p>Returns the smallest value or <code class="notranslate">NULL</code> if any value is <code class="notranslate">NULL</code> or the smallest value cannot be determined. For example, <code class="notranslate">ROW</code> (<code class="notranslate">NULL</code>, 1) is neither equal to nor smaller than nor larger than <code class="notranslate">ROW</code> (1, 1). If <code class="notranslate">IGNORE NULLS</code> is specified, <code class="notranslate">NULL</code> values are ignored.</p>
 <p>Example:</p>
 <p class="notranslate">CALL LEAST(1, 2, 3);</p>
 

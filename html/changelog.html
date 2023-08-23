@@ -88,7 +88,7 @@ Change Log
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.220/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.2.222/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -118,7 +118,39 @@ Change Log
 
 <h2>Next Version (unreleased)</h2>
 <ul>
-<li>Nothing yet...
+<li>Nothing yet
+</li>
+</ul>
+
+<h2>Version 2.2.222 (2023-08-22)</h2>
+<ul>
+<li>Fixed race condition in MVStore causing database corruption &quot;File corrupted in chunk ###&quot;
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3868">Issue #3868</a>: INFORMATION_SCHEMA.SESSIONS.ISOLATION_LEVEL returns isolation level of the current session in all rows
+</li>
+<li>RP #3865: Add possibility to enable virtual worker threads in TCP, Web, and PG servers on Java 21+
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3864">PR #3864</a>: Improve performance of TCP client driver when it is used from virtual threads
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/2665">Issue #2665</a>: Parser shouldn't suggest compatibility syntax elements on parsing error
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3089">Issue #3089</a>: GREATEST and LEAST aren't fully compliant with the SQL Standard
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3861">PR #3861</a>: Improve SET EXCLUSIVE 2 and use stable time source for timeout exceptions
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3859">PR #3859</a>: Fix conversion of PK columns to identity columns
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3855">Issue #3855</a>: StackOverflowError when using TRACE_LEVEL_SYSTEM_OUT=4
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3854">PR #3854</a>: Fix issues with newer JVMs
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3851">PR #3851</a>: Remove lift configuration
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3847">PR #3847</a>: Fix the NullPointerException caused by accessing 'user' after the session has been closed
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3846">PR #3846</a>: Make DB_CLOSE_ON_EXIT safer
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3842">PR #3842</a>: Adds support of quotedNulls in CSV handling
 </li>
 </ul>
 

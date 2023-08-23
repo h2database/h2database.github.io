@@ -88,7 +88,7 @@ Features
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.220/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.2.222/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -646,7 +646,7 @@ It is possible to set the value in the database URL: <code class="notranslate">j
 <h3 id="do_not_close_on_exit">Don't Close a Database when the VM Exits</h3>
 <p>
 By default, a database is closed when the last connection is closed. However, if it is never closed,
-the database is closed when the virtual machine exits normally, using a shutdown hook.
+a persistent database is closed when the virtual machine exits normally, using a shutdown hook.
 In some situations, the database should not be closed in this case, for example because the
 database is still used at virtual machine shutdown (to store the shutdown process in the database for example).
 For those cases, the automatic closing of the database can be disabled in the database URL.
@@ -657,6 +657,10 @@ The database URL to disable database closing on exit is:
 <pre class="notranslate">
 String url = "jdbc:h2:~/test;DB_CLOSE_ON_EXIT=FALSE";
 </pre>
+<b>Warning:</b> when database closing on exit is disabled, an application <b>must</b> execute the
+<a href="commands.html#shutdown">SHUTDOWN</a> command by itself in its own shutdown hook
+after completion of all operations with database to avoid data loss
+and should not try to establish new connections to database after that.
 
 <h2 id="execute_sql_on_connection">Execute SQL on Connection</h2>
 <p>
@@ -980,6 +984,7 @@ It means a NULL value may be specified for this column in INSERT command and it 
 </li><li>Attempt to reference a non-unique set of columns from a referential constraint
 will create an UNIQUE constraint on them automatically.
 </li><li>Unsafe comparison operators between numeric and boolean values are allowed.
+</li><li>GREATEST and LEAST ignore NULL values by default.
 </li><li>IDENTITY() and SCOPE_IDENTITY() are supported, but both are implemented like SCOPE_IDENTITY()
 </li><li>SYSDATE, SYSTIMESTAMP, and TODAY are supported.
 </li></ul>
@@ -1043,6 +1048,7 @@ Do not change value of DATABASE_TO_LOWER and CASE_INSENSITIVE_IDENTIFIERS after 
 </li><li>Identifiers may be quoted using square brackets as in <code class="notranslate">[Test]</code>.
 </li><li>For unique indexes, <code class="notranslate">NULL</code> is distinct.
     That means only one row with <code class="notranslate">NULL</code> in one of the columns is allowed.
+</li><li>GREATEST and LEAST ignore NULL values by default.
 </li><li>Text can be concatenated using '+'.
 </li><li>Arguments of LOG() function are swapped.
 </li><li>MONEY data type is treated like NUMERIC(19, 4) data type. SMALLMONEY data type is treated like NUMERIC(10, 4)
@@ -1177,6 +1183,7 @@ Do not change value of DATABASE_TO_LOWER after creation of database.
     digits are not be truncated, but the value is rounded.
 </li><li>The system columns <code class="notranslate">ctid</code> and
     <code class="notranslate">oid</code> are supported.
+</li><li>GREATEST and LEAST ignore NULL values by default.
 </li><li>LOG(x) is base 10 in this mode.
 </li><li>REGEXP_REPLACE():
     <ul>
