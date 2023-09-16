@@ -30,6 +30,13 @@
     <mailing-list rdf:resource="https://groups.google.com/g/h2-database"/>
 <release>
     <Version>
+        <name>H2 2.2.224</name>
+        <created>2023-09-17</created>
+        <revision>2.2.224</revision>
+    </Version>
+</release>
+<release>
+    <Version>
         <name>H2 2.2.222</name>
         <created>2023-08-22</created>
         <revision>2.2.222</revision>

@@ -6,7 +6,22 @@
         <name>Thomas Mueller</name>
     </author>
     <link rel="self" href="https://h2database.com/html/newsfeed-atom.xml"/>
-    <updated>2023-08-22T23:05:22Z</updated>
+    <updated>2023-09-16T18:03:17Z</updated>
+    <entry>
+        <title type="text">New version available: 2.2.224 (2023-09-17)</title>
+        <link rel="alternate" type="text/html" href="https://h2database.com/"/>
+        <id>https://h2database.com//159</id>
+        <updated>2023-09-17T12:00:00Z</updated>
+        <content type="html">
+            <![CDATA[A new version of H2 is available for
+            <a href="https://h2database.com">download</a>.
+            (You may have to click 'Refresh').
+            <br />
+            For details, see the
+            <a href="https://h2database.com/html/changelog.html">change log</a>.
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title type="text">New version available: 2.2.222 (2023-08-22)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
