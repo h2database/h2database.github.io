@@ -1357,7 +1357,7 @@ The result contains the columns <code class="notranslate">SCHEMA</code> (the sch
 <code class="notranslate">KEYS</code> (an array of objects).
 To join a table, use a join as in:
 <code class="notranslate">SELECT T.* FROM FT_SEARCH_DATA('Hello', 0, 0) FT, TEST T
-WHERE FT.TABLE='TEST' AND T.ID=FT.KEYS[0];</code>
+WHERE FT."TABLE"='TEST' AND T.ID=FT.KEYS[1];</code>
 </p>
 <p>
 You can also call the index from within a Java application:
@@ -1417,7 +1417,7 @@ The result contains the columns <code class="notranslate">SCHEMA</code> (the sch
 <code class="notranslate">COLUMNS</code> (an array of column names),
 and <code class="notranslate">KEYS</code> (an array of objects). To join a table, use a join as in:
 <code class="notranslate">SELECT T.* FROM FTL_SEARCH_DATA('Hello', 0, 0) FT, TEST T
-WHERE FT.TABLE='TEST' AND T.ID=FT.KEYS[0];</code>
+WHERE FT."TABLE"='TEST' AND T.ID=FT.KEYS[1];</code>
 </p>
 <p>
 You can also call the index from within a Java application:
