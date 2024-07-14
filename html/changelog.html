@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Change Log
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.224/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.3.230/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -122,6 +122,88 @@ Change Log
 </li>
 </ul>
 
+<h2>Version 2.3.230 (2024-07-15)</h2>
+<ul>
+<li><a href="https://github.com/h2database/h2database/issues/2752">Issue #2752</a>: Fix for "double mark" error at database backup opening
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4052">Issue #4052</a>: Allow 0 as a valid chunk id
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4012">Issue #4012</a>: Fix "Chunk not found" database corruption by ensure proper prologue/epilogue for every SQL statement in JDBC ";" - separated list
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3960">Issue #3960</a>: Fix NPE in page rewrite
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3909">Issue #3909</a>: Reduce resource consumption of too aggressive disk space housekeeping
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/701">Issue #701</a>: An available index is never used for ordering, when the requested order is DESC
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4036">Issue #4036</a>: NULLS NOT DISTINCT constraint changed after column dropped
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4033">Issue #4033</a>: Wrong array produced when using ARRAY_AGG() on UNNEST(ARRAY[CAST(? AS INT)]) expression
+in a PreparedStatement
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3909">Issue #3909</a>: Maintenance taking too much resources since 2.2.222
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4010">Issue #4010</a>: org.h2.jdbc.JdbcConnection.getTypeMap() returns null
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4007">PR #4007</a>: Update pom.xml related to CVE-2024-1597
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3907">Issue #3907</a>: MvStoreTool unable to Repair() or Rollback() [2.1.214]
+</li>
+<li>RP #3997: Server-side batch execution for prepared statements
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3106">Issue #3106</a>: Trailing commas in SELECT are accepted by the parser
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3992">PR #3992</a>: Add IPv6 support to H2 Console
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3966">Issue #3966</a>: Unable to insert null into a JSON column
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3554">Issue #3554</a>: Regression in 2.1.214 when joining 2 recursive CTE containing bind values
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3989">PR #3989</a>: Refactor CTE-related code and reduce recompilations
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3987">Issue #3987</a>: Allow empty &lt;with column list&gt;
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/822">Issue #822</a>: WITH clauses' column aliases are not maintained correctly when selecting from CTE from within a derived
+table
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/910">Issue #910</a>: Common Table Expressions (CTE) inside WITH should have their own identifier scope
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3981">Issue #3981</a>: Unexpected result when using trigonometric functions
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3983">Issue #3983</a>: INVISIBLE columns should be ignored in INSERT statement without explicit column list
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3960">Issue #3960</a>: NullPointerException when executing batch insert
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3972">Issue #3972</a>: Constraints of local temporary tables aren't listed in INFORMATION_SCHEMA
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3973">PR #3973</a>: Fix Tool.showUsage() for GUIConsole
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3968">Issue #3968</a>: Add possibility to get index size on disk
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3909">Issue #3909</a>: Maintenance taking too much resources since 2.2.222
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3950">Issue #3950</a>: JdbcSQLIntegrityConstraintViolationException: Unique index or primary key violation
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3947">PR #3947</a>: Compound index search fix
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3940">Issue #3940</a>: Wrong estimation of a query execution cost with spatial index
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3931">Issue #3931</a>: MVStoreTool -dump throws a NullPointerException or returns binary data
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3910">Issue #3910</a>: Small error in the tutorial regarding full text search
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3915">PR #3915</a>: Improving search by compound indexes
+</li>
+<li>RP #3893: Fixed unit test is support en_GB locale
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/2834">Issue #2834</a>: MERGE INTO fails with an error "Timeout trying to lock table"
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3883">Issue #3883</a>: Performance regression in 2.2.222
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3879">PR #3879</a>: Require Java 11
+</li>
+</ul>
+
 <h2>Version 2.2.224 (2023-09-17)</h2>
 <ul>
 <li><a href="https://github.com/h2database/h2database/issues/3883">Issue #3883</a> Performance regression in 2.2.222
@@ -131,6 +213,8 @@ Change Log
 <h2>Version 2.2.222 (2023-08-22)</h2>
 <ul>
 <li>Fixed race condition in MVStore causing database corruption &quot;File corrupted in chunk ###&quot;
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/3873">PR #3873</a>: ToC cache is effectively not used after the first shutdown
 </li>
 <li><a href="https://github.com/h2database/h2database/issues/3868">Issue #3868</a>: INFORMATION_SCHEMA.SESSIONS.ISOLATION_LEVEL returns isolation level of the current session in all rows
 </li>

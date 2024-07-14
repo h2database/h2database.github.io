@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.224/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.3.230/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -700,6 +700,14 @@ syntax-end -->
 
     <a href="#db_object_sql" >DB_OBJECT_SQL</a><br />
 
+    <a href="#db_object_size" >DB_OBJECT_SIZE</a><br />
+
+    <a href="#db_object_total_size" >DB_OBJECT_TOTAL_SIZE</a><br />
+
+    <a href="#db_object_approximate_size" >DB_OBJECT_APPROXIMATE_SIZE</a><br />
+
+    <a href="#db_object_approximate_total_size" >DB_OBJECT_APPROXIMATE_TOTAL_SIZE</a><br />
+
     <a href="#decode" >DECODE</a><br />
 
     <a href="#disk_space_used" >DISK_SPACE_USED</a><br />
@@ -787,9 +795,9 @@ syntax-end -->
                 <a href="#currval" >CURRVAL</a><br />
             
                 <a href="#csvwrite" >CSVWRITE</a><br />
-                    </td><td class="index">
             
                 <a href="#current_schema" >CURRENT_SCHEMA</a><br />
+                    </td><td class="index">
             
                 <a href="#current_catalog" >CURRENT_CATALOG</a><br />
             
@@ -800,6 +808,14 @@ syntax-end -->
                 <a href="#db_object_id" >DB_OBJECT_ID</a><br />
             
                 <a href="#db_object_sql" >DB_OBJECT_SQL</a><br />
+            
+                <a href="#db_object_size" >DB_OBJECT_SIZE</a><br />
+            
+                <a href="#db_object_total_size" >DB_OBJECT_TOTAL_SIZE</a><br />
+            
+                <a href="#db_object_approximate_size" >DB_OBJECT_APPROXIMATE_SIZE</a><br />
+            
+                <a href="#db_object_approximate_total_size" >DB_OBJECT_APPROXIMATE_TOTAL_SIZE</a><br />
             
                 <a href="#decode" >DECODE</a><br />
             
@@ -816,11 +832,11 @@ syntax-end -->
                 <a href="#greatest" >GREATEST</a><br />
             
                 <a href="#least" >LEAST</a><br />
+                    </td><td class="index">
             
                 <a href="#lock_mode" >LOCK_MODE</a><br />
             
                 <a href="#lock_timeout" >LOCK_TIMEOUT</a><br />
-                    </td><td class="index">
             
                 <a href="#memory_free" >MEMORY_FREE</a><br />
             
@@ -953,7 +969,7 @@ ACOS(<a href="grammar.html#numeric">numeric</a>)
 ACOS(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the arc cosine. See also Java <code class="notranslate">Math.acos</code>. This method returns a double.</p>
+<p>Calculate the arc cosine.</p><p>Argument must be between -1 and 1 inclusive.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">ACOS(D)</p>
 
@@ -971,7 +987,7 @@ ASIN(<a href="grammar.html#numeric">numeric</a>)
 ASIN(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the arc sine. See also Java <code class="notranslate">Math.asin</code>. This method returns a double.</p>
+<p>Calculate the arc sine.</p><p>Argument must be between -1 and 1 inclusive.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">ASIN(D)</p>
 
@@ -989,7 +1005,7 @@ ATAN(<a href="grammar.html#numeric">numeric</a>)
 ATAN(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the arc tangent. See also Java <code class="notranslate">Math.atan</code>. This method returns a double.</p>
+<p>Calculate the arc tangent.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">ATAN(D)</p>
 
@@ -1007,7 +1023,7 @@ COS(<a href="grammar.html#numeric">numeric</a>)
 COS(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the trigonometric cosine. See also Java <code class="notranslate">Math.cos</code>. This method returns a double.</p>
+<p>Calculate the trigonometric cosine.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">COS(ANGLE)</p>
 
@@ -1025,7 +1041,7 @@ COSH(<a href="grammar.html#numeric">numeric</a>)
 COSH(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the hyperbolic cosine. See also Java <code class="notranslate">Math.cosh</code>. This method returns a double.</p>
+<p>Calculate the hyperbolic cosine.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">COSH(X)</p>
 
@@ -1043,7 +1059,7 @@ syntax-end -->
 <span class="ruleH2">COT(<a href="grammar.html#numeric">numeric</a>)</span>
 </pre>
 syntax-end -->
-<p>Calculate the trigonometric cotangent (<code class="notranslate">1/TAN(ANGLE)</code>). See also Java <code class="notranslate">Math.*</code> functions. This method returns a double.</p>
+<p>Calculate the trigonometric cotangent (<code class="notranslate">1/TAN(ANGLE)</code>).</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">COT(ANGLE)</p>
 
@@ -1061,7 +1077,7 @@ SIN(<a href="grammar.html#numeric">numeric</a>)
 SIN(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the trigonometric sine. See also Java <code class="notranslate">Math.sin</code>. This method returns a double.</p>
+<p>Calculate the trigonometric sine.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">SIN(ANGLE)</p>
 
@@ -1079,7 +1095,7 @@ SINH(<a href="grammar.html#numeric">numeric</a>)
 SINH(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the hyperbolic sine. See also Java <code class="notranslate">Math.sinh</code>. This method returns a double.</p>
+<p>Calculate the hyperbolic sine.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">SINH(ANGLE)</p>
 
@@ -1097,7 +1113,7 @@ TAN(<a href="grammar.html#numeric">numeric</a>)
 TAN(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the trigonometric tangent. See also Java <code class="notranslate">Math.tan</code>. This method returns a double.</p>
+<p>Calculate the trigonometric tangent.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">TAN(ANGLE)</p>
 
@@ -1115,7 +1131,7 @@ TANH(<a href="grammar.html#numeric">numeric</a>)
 TANH(<a href="grammar.html#numeric">numeric</a>)
 </pre>
 syntax-end -->
-<p>Calculate the hyperbolic tangent. See also Java <code class="notranslate">Math.tanh</code>. This method returns a double.</p>
+<p>Calculate the hyperbolic tangent.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">TANH(X)</p>
 
@@ -1133,7 +1149,7 @@ syntax-end -->
 <span class="ruleH2">ATAN2(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a>)</span>
 </pre>
 syntax-end -->
-<p>Calculate the angle when converting the rectangular coordinates to polar coordinates. See also Java <code class="notranslate">Math.atan2</code>. This method returns a double.</p>
+<p>Calculate the angle when converting the rectangular coordinates to polar coordinates.</p><p>This function returns a double precision value.</p>
 <p>Example:</p>
 <p class="notranslate">ATAN2(X, Y)</p>
 
@@ -3543,6 +3559,78 @@ syntax-end -->
 <p>Example:</p>
 <p class="notranslate">CALL DB_OBJECT_SQL(&#39;ROLE&#39;, &#39;MANAGER&#39;);<br />CALL DB_OBJECT_SQL(&#39;TABLE&#39;, &#39;PUBLIC&#39;, &#39;MY_TABLE&#39;);</p>
 
+<h3 id="db_object_size" class="notranslate" onclick="switchBnf(this)">DB_OBJECT_SIZE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+<span class="ruleH2">DB_OBJECT_SIZE({&#39;INDEX&#39;|&#39;TABLE&#39;}, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+<div name="railroad">
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DB_OBJECT_SIZE (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">&#39; INDEX &#39;</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">&#39; TABLE &#39;</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">, <a href="grammar.html#string">schemaNameString</a> , <a href="grammar.html#string">objectNameString</a> )</code></td></tr></table></div>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+<span class="ruleH2">DB_OBJECT_SIZE({&#39;INDEX&#39;|&#39;TABLE&#39;}, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+syntax-end -->
+<p>Returns the approximate amount of space used by the specified table (excluding its indexes) or index. Only size of version used by the current transaction is estimated. Size of large <code class="notranslate">LOBs</code> currently is not included into estimation. This function may be expensive since it has to load every page in the table or index. Use <a href="functions.html#db_object_approximate_size"><code class="notranslate">DB_OBJECT_APPROXIMATE_SIZE</code></a> for a faster coarse approximation.</p>
+<p>Example:</p>
+<p class="notranslate">CALL DB_OBJECT_SIZE(&#39;TABLE&#39;, &#39;PUBLIC&#39;, &#39;MY_TABLE&#39;);</p>
+
+<h3 id="db_object_total_size" class="notranslate" onclick="switchBnf(this)">DB_OBJECT_TOTAL_SIZE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+<span class="ruleH2">DB_OBJECT_TOTAL_SIZE(&#39;TABLE&#39;, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+<div name="railroad">
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DB_OBJECT_TOTAL_SIZE ( &#39; TABLE &#39; , <a href="grammar.html#string">schemaNameString</a> , <a href="grammar.html#string">objectNameString</a> )</code></td></tr></table></div>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+<span class="ruleH2">DB_OBJECT_TOTAL_SIZE(&#39;TABLE&#39;, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+syntax-end -->
+<p>Returns the approximate amount of space used by the specified table and all its indexes. Only size of version used by the current transaction is estimated. Size of large <code class="notranslate">LOBs</code> currently is not included into estimation. This function may be expensive since it has to load every page in the table and its indexes. Use <a href="functions.html#db_object_approximate_total_size"><code class="notranslate">DB_OBJECT_APPROXIMATE_TOTAL_SIZE</code></a> for a faster coarse approximation.</p>
+<p>Example:</p>
+<p class="notranslate">CALL DB_OBJECT_TOTAL_SIZE(&#39;TABLE&#39;, &#39;PUBLIC&#39;, &#39;MY_TABLE&#39;);</p>
+
+<h3 id="db_object_approximate_size" class="notranslate" onclick="switchBnf(this)">DB_OBJECT_APPROXIMATE_SIZE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+<span class="ruleH2">DB_OBJECT_APPROXIMATE_SIZE({&#39;INDEX&#39;|&#39;TABLE&#39;}, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+<div name="railroad">
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DB_OBJECT_APPROXIMATE_SIZE (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">&#39; INDEX &#39;</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">&#39; TABLE &#39;</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">, <a href="grammar.html#string">schemaNameString</a> , <a href="grammar.html#string">objectNameString</a> )</code></td></tr></table></div>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+<span class="ruleH2">DB_OBJECT_APPROXIMATE_SIZE({&#39;INDEX&#39;|&#39;TABLE&#39;}, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+syntax-end -->
+<p>Returns the coarse approximate amount of space used by the specified table (excluding its indexes) or index. Only size of version used by the current transaction is estimated. Size of large <code class="notranslate">LOBs</code> currently is not included into estimation.</p>
+<p>Example:</p>
+<p class="notranslate">CALL DB_OBJECT_APPROXIMATE_SIZE(&#39;TABLE&#39;, &#39;PUBLIC&#39;, &#39;MY_TABLE&#39;);</p>
+
+<h3 id="db_object_approximate_total_size" class="notranslate" onclick="switchBnf(this)">DB_OBJECT_APPROXIMATE_TOTAL_SIZE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+<span class="ruleH2">DB_OBJECT_APPROXIMATE_TOTAL_SIZE(&#39;TABLE&#39;, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+<div name="railroad">
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DB_OBJECT_APPROXIMATE_TOTAL_SIZE ( &#39; TABLE &#39; , <a href="grammar.html#string">schemaNameString</a> , <a href="grammar.html#string">objectNameString</a> )</code></td></tr></table></div>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+<span class="ruleH2">DB_OBJECT_APPROXIMATE_TOTAL_SIZE(&#39;TABLE&#39;, <a href="grammar.html#string">schemaNameString</a>, <a href="grammar.html#string">objectNameString</a>)</span>
+</pre>
+syntax-end -->
+<p>Returns the coarse approximate amount of space used by the specified table and all its indexes. Only size of version used by the current transaction is estimated. Size of large <code class="notranslate">LOBs</code> currently is not included into estimation.</p>
+<p>Example:</p>
+<p class="notranslate">CALL DB_OBJECT_APPROXIMATE_TOTAL_SIZE(&#39;TABLE&#39;, &#39;PUBLIC&#39;, &#39;MY_TABLE&#39;);</p>
+
 <h3 id="decode" class="notranslate" onclick="switchBnf(this)">DECODE</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
@@ -3564,18 +3652,18 @@ syntax-end -->
 <h3 id="disk_space_used" class="notranslate" onclick="switchBnf(this)">DISK_SPACE_USED</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">DISK_SPACE_USED(<a href="grammar.html#string">tableNameString</a>)</span>
+<span class="ruleCompat">DISK_SPACE_USED(<a href="grammar.html#string">tableNameString</a>)</span>
 </pre>
 <div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DISK_SPACE_USED ( <a href="grammar.html#string">tableNameString</a> )</code></td></tr></table></div>
+<div class="ruleCompat"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">DISK_SPACE_USED ( <a href="grammar.html#string">tableNameString</a> )</code></td></tr></table></div>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">DISK_SPACE_USED(<a href="grammar.html#string">tableNameString</a>)</span>
+<span class="ruleCompat">DISK_SPACE_USED(<a href="grammar.html#string">tableNameString</a>)</span>
 </pre>
 syntax-end -->
-<p>Returns the approximate amount of space used by the table specified. Does not currently take into account indexes or <code class="notranslate">LOB</code>&#39;s. This function may be expensive since it has to load every page in the table.</p>
+<p>Returns the approximate amount of space used by the table specified. Only size of version used by the current transaction is estimated. Does not currently take into account indexes or <code class="notranslate">LOB</code>&#39;s. This function may be expensive since it has to load every page in the table. This function is deprecated, use <a href="functions.html#db_object_size"><code class="notranslate">DB_OBJECT_SIZE</code></a> instead of it.</p>
 <p>Example:</p>
 <p class="notranslate">CALL DISK_SPACE_USED(&#39;my_table&#39;);</p>
 

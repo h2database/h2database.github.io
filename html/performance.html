@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -89,7 +89,7 @@ Performance
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.224/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.3.230/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -829,6 +829,17 @@ For queries of the form <code class="notranslate">SELECT DISTINCT CUSTOMER_ID FR
 </p><p>
 For queries of the form <code class="notranslate">SELECT * FROM TEST ORDER BY ID</code>, the query plan includes the line
 <code class="notranslate">/* index sorted */</code> to indicate there is no separate sorting required.
+<code class="notranslate">/* index sorted: 2 of 3 columns */</code> indicates that only some columns are sorted with an index.
+An additional sorting is still required, but queries with the FETCH (TOP, LIMIT) clause
+may still stop their execution earlier.
+An index on <code class="notranslate">(A ASC, B ASC)</code> columns can be used for <code class="notranslate">ORDER BY A</code>, <code class="notranslate">ORDER BY A DESC</code>,
+<code class="notranslate">ORDER BY A, B</code> or <code class="notranslate">ORDER BY A DESC, B DESC</code>.
+With <code class="notranslate">ORDER BY A, B DESC</code> this index can only be used for ordering on the column <code class="notranslate">A</code>.
+If columns are nullable, order of nulls is also important. Index on <code class="notranslate">(A ASC NULLS FIRST)</code> cannot be used for
+<code class="notranslate">ORDER BY A ASC NULLS LAST</code>, but can be used for <code class="notranslate">ORDER BY A ASC NULLS FIRST</code> or
+<code class="notranslate">ORDER BY A DESC NULLS LAST</code>.
+When neither <code class="notranslate">NULLS FIRST</code> nor <code class="notranslate">NULLS LAST</code> is specified, a default is used, this default
+is controlled by <a href="commands.html#set_default_null_ordering"><code class="notranslate">DEFAULT_NULL_ORDERING</code></a> setting.
 </p><p>
 For queries of the form <code class="notranslate">SELECT * FROM TEST GROUP BY ID ORDER BY ID</code>, the query plan includes the line
 <code class="notranslate">/* group sorted */</code> to indicate there is no separate sorting required.

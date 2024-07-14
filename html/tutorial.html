@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -89,7 +89,7 @@ Tutorial
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.224/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.3.230/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -1357,7 +1357,7 @@ The result contains the columns <code class="notranslate">SCHEMA</code> (the sch
 <code class="notranslate">KEYS</code> (an array of objects).
 To join a table, use a join as in:
 <code class="notranslate">SELECT T.* FROM FT_SEARCH_DATA('Hello', 0, 0) FT, TEST T
-WHERE FT.TABLE='TEST' AND T.ID=FT.KEYS[0];</code>
+WHERE FT."TABLE"='TEST' AND T.ID=FT."KEYS"[1];</code>
 </p>
 <p>
 You can also call the index from within a Java application:
@@ -1370,7 +1370,7 @@ org.h2.fulltext.FullText.searchData(conn, text, limit, offset);
 <h3>Using the Apache Lucene Fulltext Search</h3>
 <p>
 To use the Apache Lucene full text search, you need the Lucene library in the classpath.
-Apache Lucene 8.5.2 or binary compatible version is required.
+Apache Lucene 9.7.0 or binary compatible version is required.
 How to do that depends on the application; if you use the H2 Console, you can add the Lucene
 jar file to the environment variables <code class="notranslate">H2DRIVERS</code> or
 <code class="notranslate">CLASSPATH</code>.
@@ -1417,7 +1417,7 @@ The result contains the columns <code class="notranslate">SCHEMA</code> (the sch
 <code class="notranslate">COLUMNS</code> (an array of column names),
 and <code class="notranslate">KEYS</code> (an array of objects). To join a table, use a join as in:
 <code class="notranslate">SELECT T.* FROM FTL_SEARCH_DATA('Hello', 0, 0) FT, TEST T
-WHERE FT.TABLE='TEST' AND T.ID=FT.KEYS[0];</code>
+WHERE FT."TABLE"='TEST' AND T.ID=FT."KEYS"[1];</code>
 </p>
 <p>
 You can also call the index from within a Java application:

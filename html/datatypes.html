@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2023 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Data Types
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.2.224/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.3.230/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -767,7 +767,7 @@ syntax-end -->
 <span class="ruleH2">JSON [(<a href="grammar.html#int">lengthInt</a>)]</span>
 </pre>
 syntax-end -->
-<p>A <code class="notranslate">RFC</code> 8259-compliant <code class="notranslate">JSON</code> text.</p><p>See also <a href="grammar.html#json">json</a> literal grammar. Mapped to <code class="notranslate">byte[]</code>. The allowed length is from 1 to 1,000,000,000 bytes. The length is a size constraint; only the actual data is persisted.</p><p>To set a <code class="notranslate">JSON</code> value with <code class="notranslate">java.lang.String</code> in a PreparedStatement use a <code class="notranslate">FORMAT JSON</code> data format (<code class="notranslate">INSERT INTO TEST(ID, DATA) VALUES (?, ? FORMAT JSON)</code>). Without the data format <code class="notranslate">VARCHAR</code> values are converted to a <code class="notranslate">JSON</code> string values.</p><p>Order of object members is preserved as is. Duplicate object member names are allowed.</p>
+<p>A <code class="notranslate">RFC</code> 8259-compliant <code class="notranslate">JSON</code> text.</p><p>See also <a href="grammar.html#json">json</a> literal grammar. Mapped to <code class="notranslate">byte[]</code>. The allowed length is from 1 to 1,000,000,000 bytes. The length is a size constraint; only the actual data is persisted.</p><p>To set a <code class="notranslate">JSON</code> value with <code class="notranslate">java.lang.String</code> in a PreparedStatement use a <code class="notranslate">FORMAT JSON</code> data format (<code class="notranslate">INSERT INTO TEST(ID, DATA) VALUES (?, ? FORMAT JSON)</code>) or use <code class="notranslate">setObject(parameter, jsonText, H2Type.JSON)</code> instead of <code class="notranslate">setString()</code>.</p><p>Without the data format <code class="notranslate">VARCHAR</code> values are converted to <code class="notranslate">JSON</code> string values.</p><p>SQL/<code class="notranslate">JSON</code> null value <code class="notranslate">JSON &#39;null&#39;</code> is distinct from the SQL null value <code class="notranslate">NULL</code>.</p><p>Order of object members is preserved as is. Duplicate object member names are allowed.</p>
 <p>Example:</p>
 <p class="notranslate">JSON</p>
 
