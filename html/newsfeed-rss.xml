@@ -5,8 +5,13 @@
         <link>https://h2database.com/</link>
         <description>H2 Database Engine</description>
         <language>en-us</language>
-        <pubDate>Sun, 14 Jul 2024 15:48:03 GMT</pubDate>
-        <lastBuildDate>Sun, 14 Jul 2024 15:48:03 GMT</lastBuildDate>
+        <pubDate>Sat, 10 Aug 2024 17:04:58 GMT</pubDate>
+        <lastBuildDate>Sat, 10 Aug 2024 17:04:58 GMT</lastBuildDate>
+        <item>
+            <title>New version available: 2.3.232 (2024-08-11)</title>
+            <link>https://h2database.com/</link>
+            <description><![CDATA[New version available: 2.3.232 (2024-08-11)]]></description>
+        </item>
         <item>
             <title>New version available: 2.3.230 (2024-07-15)</title>
             <link>https://h2database.com/</link>
@@ -81,11 +86,6 @@
             <title>New version available: 1.4.196 (2017-06-10)</title>
             <link>https://h2database.com/</link>
             <description><![CDATA[New version available: 1.4.196 (2017-06-10)]]></description>
-        </item>
-        <item>
-            <title>New version available: 1.4.195 (2017-04-23)</title>
-            <link>https://h2database.com/</link>
-            <description><![CDATA[New version available: 1.4.195 (2017-04-23)]]></description>
         </item>
     </channel>
 </rss>

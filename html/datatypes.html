@@ -88,7 +88,7 @@ Data Types
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.3.230/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.3.232/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -785,7 +785,7 @@ syntax-end -->
 <span class="ruleH2">UUID</span>
 </pre>
 syntax-end -->
-<p>Universally unique identifier. This is a 128 bit value. To store values, use <code class="notranslate">PreparedStatement.setBytes, setString</code>, or <code class="notranslate">setObject(uuid)</code> (where <code class="notranslate">uuid</code> is a <code class="notranslate">java.util.UUID</code>). <code class="notranslate">ResultSet.getObject</code> will return a <code class="notranslate">java.util.UUID</code>.</p><p>Please note that using an index on randomly generated data will result on poor performance once there are millions of rows in a table. The reason is that the cache behavior is very bad with randomly distributed data. This is a problem for any database system.</p><p>For details, see the documentation of <code class="notranslate">java.util.UUID</code>.</p>
+<p><code class="notranslate">RFC</code> 9562-compliant universally unique identifier. This is a 128 bit value. To store values, use <code class="notranslate">PreparedStatement.setBytes, setString</code>, or <code class="notranslate">setObject(uuid)</code> (where <code class="notranslate">uuid</code> is a <code class="notranslate">java.util.UUID</code>). <code class="notranslate">ResultSet.getObject</code> will return a <code class="notranslate">java.util.UUID</code>.</p><p>Please note that using an index on randomly generated data will result on poor performance once there are millions of rows in a table. The reason is that the cache behavior is very bad with randomly distributed data. This is a problem for any database system. To avoid this problem use <code class="notranslate">UUID</code> version 7 values.</p><p>For details, see the documentation of <code class="notranslate">java.util.UUID</code>.</p>
 <p>Example:</p>
 <p class="notranslate">UUID</p>
 

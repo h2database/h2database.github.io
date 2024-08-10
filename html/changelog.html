@@ -88,7 +88,7 @@ Change Log
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.3.230/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.3.232/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -122,8 +122,32 @@ Change Log
 </li>
 </ul>
 
+<h2>Version 2.3.232 (2024-08-11)</h2>
+<ul>
+<li><a href="https://github.com/h2database/h2database/issues/4005">Issue #4005</a>: Add optional version to RANDOM_UUID function and generator of version 7 in addition to existing version 4
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3945">Issue #3945</a>: Column not found in correlated subquery, when referencing outer column from LEFT JOIN .. ON clause
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4097">Issue #4097</a>: StackOverflowException when using multiple SELECT statements in one query (2.3.230)
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3982">Issue #3982</a>: Potential issue when using ROUND
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/3894">Issue #3894</a>: Race condition causing stale data in query last result cache
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4075">Issue #4075</a>: infinite loop in compact
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4091">Issue #4091</a>: Wrong case with linked table to postgresql
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4088">Issue #4088</a>: BadGrammarException when the same alias is used within two different CTEs
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4079">Issue #4079</a>: [2.3.230] Regression in ORDER BY ... DESC on dates
+</li>
+</ul>
+
 <h2>Version 2.3.230 (2024-07-15)</h2>
 <ul>
+<li><a href="https://github.com/h2database/h2database/issues/4091">Issue #4091</a>: Wrong case with linked table to postgresql
+</li>
 <li><a href="https://github.com/h2database/h2database/issues/2752">Issue #2752</a>: Fix for "double mark" error at database backup opening
 </li>
 <li><a href="https://github.com/h2database/h2database/issues/4052">Issue #4052</a>: Allow 0 as a valid chunk id
@@ -535,63 +559,6 @@ Then error occurred.
 </li>
 </ul>
 
-<h2>Version 2.0.204 (2021-12-21)</h2>
-<ul>
-<li><a href="https://github.com/h2database/h2database/issues/3291">Issue #3291</a>: Add Legacy and Strict modes
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3287">Issue #3287</a>: SELECT statement works on 1.4.200 but fails on 2.0.202 with "Column XYZ must be in the GROUP BY list"
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3284">PR #3284</a>: Remove unused UNDO_LOG setting
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3251">Issue #3251</a>: Table with GEOMETRY column can't have a TriggerAdapter-based trigger any more
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3281">PR #3281</a>: DateTimeFormatter-based FORMATDATETIME and PARSEDATETIME and other changes
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3246">Issue #3246</a>: Spatial predicates with comparison are broken in MySQL compatibility mode
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3270">Issue #3270</a>: org.h2.jdbc.JdbcSQLFeatureNotSupportedException: Feature not supported: "Unsafe comparison or cast"
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3268">Issue #3268</a> / <a href="https://github.com/h2database/h2database/pull/3275">PR #3275</a>: Add TO_DATE and TO_TIMESTAMP to PostgreSQL compatibility mode
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3274">PR #3274</a>: Remove some dead code and unused params
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3266">Issue #3266</a>: Oracle compatibility NUMBER without precision and scale should have variable scale
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3263">Issue #3263</a>: Unable to store BigDecimal with negative scale in NUMERIC(19,6) column
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3261">PR #3261</a>: Small optimization for MIN and MAX
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3258">Issue #3258</a> / <a href="https://github.com/h2database/h2database/pull/3259">PR #3259</a>: Prevent incorrect optimization of COUNT(*) and other changes
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3255">PR #3255</a>: Throw proper exception when type of argument isn't known
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3249">Issue #3249</a>: Multi-column assignment with subquery throws exception when subquery doesn't return any rows
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3248">PR #3248</a>: Remove redundant uniqueness check, correct version in pom
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3247">PR #3247</a>: Avoid AIOBE exception in TestCrashAPI and in Transaction
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3241">Issue #3241</a>: ResultSetMetaData::getColumnTypeName should produce the correct ARRAY type
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3204">Issue #3204</a>: H2 Tools Web Console: Unicode 32
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3227">Issue #3227</a>: Regression when referencing outer joined column from correlated subquery
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3237">Issue #3237</a>: Can no longer cast CHAR(n) to BOOLEAN with n > 1
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3235">Issue #3235</a>: Regression in IN predicate with empty in list
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3236">Issue #3236</a>: NullPointerException in DatabaseMetaData::getIndexInfo when querying the info for views
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3233">Issue #3233</a>: General error when using NULL predicate on _ROWID_ column
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3223">Issue #3223</a>: TRUNC(v, p) with negative precisions no longer works
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3221">Issue #3221</a>: NullPointerException when creating domain
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3186">Issue #3186</a>: ResultSetMetaData.getSchemaName() returns empty string for aliased columns
-</li>
-</ul>
 
 
 <!-- [close] { -->
