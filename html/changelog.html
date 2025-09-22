@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2025 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Change Log
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.3.232/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.4.240/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -118,7 +118,73 @@ Change Log
 
 <h2>Next Version (unreleased)</h2>
 <ul>
-<li>Nothing yet
+    <li>nothing here yet</li>
+</ul>
+
+<h2>Version 2.4.240 (2025-09-22)</h2>
+<ul>
+<li><a href="https://github.com/h2database/h2database/pull/4273">PR #4273</a>: SHUTDOWN COMPACT: parallel map copy (&frac14; cores default, override with h2.compactThreads)
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4258">PR #4258</a>: Fix compaction of encrypted databases
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4263">Issue #4263</a>: Documentation: SET TRUNCATE_LARGE_LENGTH is broken
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4208">Issue #4208</a>: Lost update when attempting to atomically increment a value using SELECT FOR UPDATE
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4133">PR #4133</a>: DROP SYNONYM isn't dropping the synonym right away
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4256">PR #4256</a>: Support KANZI and BZIP2 in RunScript
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4254">PR #4254</a>: feat: direct recovery into a compressed SQL file using pipes
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4247">Issue #4247</a>: Compaction causes missing chunks and data loss
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4217">Issue #4217</a>: JdbcPreparedStatement ignores query fetch size
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4225">Issue #4225</a>: Incompatibility in FullTextLucene with Lucene version 10.x onward
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4198">Issue #4198</a>: NullPointerException when running MERGE statement with correlated subquery in ON clause
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4191">Issue #4191</a>: Recover JSON column fail
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4184">PR #4184</a>: Code cleanup
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4182">PR #4182</a>: GCD, LCM, GCD_AGG, and LCM_AGG functions
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4178">Issue #4178</a>: SELECT MIN/MAX(_ROWID_) can be optimized
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4179">Issue #4179</a>: Support for SQL Server DATETIMEOFFSET data type
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4177">PR #4177</a>: Code cleanup around Table.getConstraints()/getIndexes()
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4021">Issue #4021</a>: h2 does not correctly report the name of a violated unique constraint
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4168">PR #4168</a>: simplify Store#close
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4161">Issue #4161</a>: h2 uses wrong index
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4159">Issue #4159</a>: Consider storing NO ACTION in the INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS columns
+when this is the declaration
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4152">Issue #4152</a>: NPE in convertToTimestampTimeZone on timestamp comparison
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4150">PR #4150</a>: fix:Fix some errors in the javadoc
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4149">PR #4149</a>: fix:Possible overflow issues with CacheLongKeyLIRS.getMisses()
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4144">Issue #4144</a>: [2.3.232] Regression in ORDER BY ... DESC with WHERE ... IN and OR clauses
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4139">Issue #4139</a>: Oracle compatibility mode: unexpected Column alias is not specified exception in CTE
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4136">Issue #4136</a>: ArrayIndexOutOfBoundsException with compound index
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4124">Issue #4124</a>: java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because "[0]" is null
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4116">Issue #4116</a>: Optimizer chooses wrong execution plan in some cases when index-sorted optimization is possible
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4114">Issue #4114</a>: Regression when using CAST expressions in ROW IN predicates
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4111">Issue #4111</a>: ALTER TYPE name ADD VALUE new_enum_value is not supported
 </li>
 </ul>
 
@@ -548,14 +614,6 @@ Then error occurred.
 <li><a href="https://github.com/h2database/h2database/pull/3299">PR #3299</a>: Remove useless StringBuilder.toString() call
 </li>
 <li><a href="https://github.com/h2database/h2database/pull/3298">PR #3298</a>: Delete unused sqlTypes array
-</li>
-</ul>
-
-<h2>Version 2.0.206 (2022-01-04)</h2>
-<ul>
-<li><a href="https://github.com/h2database/h2database/issues/3322">Issue #3322</a>: Create linked table fails when the table contains a Geometry with a data type specified
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3297">Issue #3297</a>: Unexpected GROUP BY results with indexed IGNORECASE column
 </li>
 </ul>
 

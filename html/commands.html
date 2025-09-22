@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2025 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Commands
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.3.232/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.4.240/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -305,6 +305,8 @@ syntax-end -->
     <a href="#refresh_materialized_view">REFRESH MATERIALIZED VIEW</a><br />
 
     <a href="#truncate_table">TRUNCATE TABLE</a><br />
+
+    <a href="#alter_type">ALTER TYPE</a><br />
 </p>
 syntax-end -->
 <!-- railroad-start -->
@@ -419,6 +421,8 @@ syntax-end -->
                 <a href="#refresh_materialized_view" >REFRESH MATERIALIZED VIEW</a><br />
             
                 <a href="#truncate_table" >TRUNCATE TABLE</a><br />
+            
+                <a href="#alter_type" >ALTER TYPE</a><br />
                     </td>
     </tr>
 </table>
@@ -2207,15 +2211,15 @@ DROP MATERIALIZED VIEW TEST_VIEW</p>
 <h3 id="refresh_materialized_view" class="notranslate" onclick="switchBnf(this)">REFRESH MATERIALIZED VIEW</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">REFRESH MATERIALIZED VIEW [ IF EXISTS ] [<a href="grammar.html#name">schemaName</a>.]<a href="grammar.html#name">viewName</a></span>
+<span class="ruleH2">REFRESH MATERIALIZED VIEW [<a href="grammar.html#name">schemaName</a>.]<a href="grammar.html#name">viewName</a></span>
 </pre>
 <div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">REFRESH MATERIALIZED VIEW</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">IF EXISTS</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c"><a href="grammar.html#name">schemaName</a> .</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#name">viewName</a></code></td></tr></table></div>
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">REFRESH MATERIALIZED VIEW</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c"><a href="grammar.html#name">schemaName</a> .</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#name">viewName</a></code></td></tr></table></div>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">REFRESH MATERIALIZED VIEW [ IF EXISTS ] [<a href="grammar.html#name">schemaName</a>.]<a href="grammar.html#name">viewName</a></span>
+<span class="ruleH2">REFRESH MATERIALIZED VIEW [<a href="grammar.html#name">schemaName</a>.]<a href="grammar.html#name">viewName</a></span>
 </pre>
 syntax-end -->
 <p>Recreates an existing materialized view. Schema owner rights are required to execute this command. This command commits an open transaction in this connection.</p>
@@ -2241,6 +2245,25 @@ syntax-end -->
 <p>Example:</p>
 <p class="notranslate">
 TRUNCATE TABLE TEST</p>
+
+<h3 id="alter_type" class="notranslate" onclick="switchBnf(this)">ALTER TYPE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ALTER TYPE <span class="ruleH2">[<a href="grammar.html#name">schemaName</a>.]</span><a href="grammar.html#name">enumName</a> ADD VALUE <a href="grammar.html#string">string</a>
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ALTER TYPE</code></td><td class="d"><div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c"><a href="grammar.html#name">schemaName</a> .</code></td></tr></table></td><td class="le"></td></tr></table></div></td><td class="d"><code class="c"><a href="grammar.html#name">enumName</a> ADD VALUE <a href="grammar.html#string">string</a></code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+ALTER TYPE <span class="ruleH2">[<a href="grammar.html#name">schemaName</a>.]</span><a href="grammar.html#name">enumName</a> ADD VALUE <a href="grammar.html#string">string</a>
+</pre>
+syntax-end -->
+<p>Adds new value to enum.</p><p>Duplicate and empty values are not permitted. The maximum number of values is 65536. The maximum allowed length of complete data type definition with all values is 1,000,000,000 characters.</p>
+<p>Example:</p>
+<p class="notranslate">
+ALTER TYPE card_suit ADD VALUE &#39;clubs&#39;</p>
 
 <h2>Commands (Other)</h2>
 
@@ -2734,15 +2757,15 @@ SET DB_CLOSE_DELAY -1</p>
 <h3 id="set_default_lock_timeout" class="notranslate" onclick="switchBnf(this)">SET DEFAULT_LOCK_TIMEOUT</h3>
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
-<span class="ruleH2">SET DEFAULT LOCK_TIMEOUT <a href="grammar.html#int">int</a></span>
+<span class="ruleH2">SET DEFAULT_LOCK_TIMEOUT <a href="grammar.html#int">int</a></span>
 </pre>
 <div name="railroad">
-<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">SET DEFAULT LOCK_TIMEOUT <a href="grammar.html#int">int</a></code></td></tr></table></div>
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">SET DEFAULT_LOCK_TIMEOUT <a href="grammar.html#int">int</a></code></td></tr></table></div>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
-<span class="ruleH2">SET DEFAULT LOCK_TIMEOUT <a href="grammar.html#int">int</a></span>
+<span class="ruleH2">SET DEFAULT_LOCK_TIMEOUT <a href="grammar.html#int">int</a></span>
 </pre>
 syntax-end -->
 <p>Sets the default lock timeout (in milliseconds) in this database that is used for the new sessions. The default value for this setting is 1000 (one second).</p><p>Admin rights are required to execute this command, as it affects all connections. This command commits an open transaction in this connection. This setting is persistent.</p>
@@ -3355,10 +3378,10 @@ SET TRACE_MAX_FILE_SIZE 10</p>
 <span class="ruleH2">SET TRUNCATE_LARGE_LENGTH { TRUE | FALSE }</span>
 </pre>
 syntax-end -->
-<p>If <code class="notranslate">TRUE</code> is specified, the <code class="notranslate">CHARACTER, CHARACTER VARYING, VARCHAR_IGNORECASE, BINARY</code>,</p>
+<p>If <code class="notranslate">TRUE</code> is specified, the <code class="notranslate">CHARACTER, CHARACTER VARYING, VARCHAR_IGNORECASE, BINARY, BINARY_VARYING, JAVA_OBJECT</code> and <code class="notranslate">JSON</code> data types with too large length will be treated as these data types with maximum allowed length instead. By default, or if <code class="notranslate">FALSE</code> is specified, such definitions throw an exception. This setting can be used for compatibility with definitions from older versions of H2.</p><p>This setting can be appended to the database URL: <code class="notranslate">jdbc:h2:./test;TRUNCATE_LARGE_LENGTH=TRUE</code></p>
 <p>Example:</p>
 <p class="notranslate">
-BINARY_VARYING&quot;</p>
+SET TRUNCATE_LARGE_LENGTH TRUE</p>
 
 <h3 id="set_variable_binary" class="notranslate" onclick="switchBnf(this)">SET VARIABLE_BINARY</h3>
 <!-- railroad-start -->

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2025 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ SQL Grammar
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.3.232/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.4.240/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -520,6 +520,8 @@ syntax-end -->
 
     <a href="#references_specification" >References Specification</a><br />
 
+    <a href="#referential_triggered_action" >Referential Triggered Action</a><br />
+
     <a href="#referential_action" >Referential Action</a><br />
 
     <a href="#script_compression_encryption" >Script Compression Encryption</a><br />
@@ -691,6 +693,8 @@ syntax-end -->
             
                 <a href="#references_specification" >References Specification</a><br />
                     </td><td class="index">
+            
+                <a href="#referential_triggered_action" >Referential Triggered Action</a><br />
             
                 <a href="#referential_action" >Referential Action</a><br />
             
@@ -3117,21 +3121,41 @@ syntax-end -->
 <!-- railroad-start -->
 <pre name="bnf" style="display: none">
 REFERENCES [ <a href="grammar.html#name">refTableName</a> ] [ ( <a href="grammar.html#name">refColumnName</a> [,...] ) ]
-[ ON DELETE <a href="grammar.html#referential_action">referentialAction</a> ] [ ON UPDATE <a href="grammar.html#referential_action">referentialAction</a> ]
+[ <a href="grammar.html#referential_triggered_action">referentialTriggeredAction</a> ]
 </pre>
 <div name="railroad">
-<table class="railroad"><tr class="railroad"><td class="d"><code class="c">REFERENCES</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#name">refTableName</a></code></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#name">refColumnName</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ON DELETE <a href="grammar.html#referential_action">referentialAction</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ON UPDATE <a href="grammar.html#referential_action">referentialAction</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table>
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">REFERENCES</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#name">refTableName</a></code></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( <a href="grammar.html#name">refColumnName</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#referential_triggered_action">referentialTriggeredAction</a></code></td><td class="le"></td></tr></table>
 </div>
 <!-- railroad-end -->
 <!-- syntax-start
 <pre class="notranslate">
 REFERENCES [ <a href="grammar.html#name">refTableName</a> ] [ ( <a href="grammar.html#name">refColumnName</a> [,...] ) ]
-[ ON DELETE <a href="grammar.html#referential_action">referentialAction</a> ] [ ON UPDATE <a href="grammar.html#referential_action">referentialAction</a> ]
+[ <a href="grammar.html#referential_triggered_action">referentialTriggeredAction</a> ]
 </pre>
 syntax-end -->
-<p>Defines a referential specification of a referential constraint. If the table name is not specified, then the same table is referenced. <code class="notranslate">RESTRICT</code> is the default action. If the referenced columns are not specified, then the primary key columns are used. Referential constraint requires an existing unique or primary key constraint on referenced columns, this constraint must include all referenced columns in any order and must not include any other columns. Some tables may not be referenced, such as metadata tables.</p>
+<p>Defines a referential specification of a referential constraint. If the table name is not specified, then the same table is referenced. <code class="notranslate">NO ACTION</code> is the default action, but currently it works like stricter <code class="notranslate">RESTRICT</code>. If the referenced columns are not specified, then the primary key columns are used. Referential constraint requires an existing unique or primary key constraint on referenced columns, this constraint must include all referenced columns in any order and must not include any other columns. Some tables may not be referenced, such as metadata tables.</p>
 <p>Example:</p>
 <p class="notranslate">REFERENCES TEST(ID)</p>
+
+<h3 id="referential_triggered_action" class="notranslate" onclick="switchBnf(this)">Referential Triggered Action</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ON UPDATE <a href="grammar.html#referential_action">referentialAction</a> [ ON DELETE <a href="grammar.html#referential_action">referentialAction</a> ]
+| ON DELETE <a href="grammar.html#referential_action">referentialAction</a> [ ON UPDATE <a href="grammar.html#referential_action">referentialAction</a> ]
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ON UPDATE <a href="grammar.html#referential_action">referentialAction</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ON DELETE <a href="grammar.html#referential_action">referentialAction</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ON DELETE <a href="grammar.html#referential_action">referentialAction</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ON UPDATE <a href="grammar.html#referential_action">referentialAction</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+ON UPDATE <a href="grammar.html#referential_action">referentialAction</a> [ ON DELETE <a href="grammar.html#referential_action">referentialAction</a> ]
+| ON DELETE <a href="grammar.html#referential_action">referentialAction</a> [ ON UPDATE <a href="grammar.html#referential_action">referentialAction</a> ]
+</pre>
+syntax-end -->
+<p>Referential actions triggered during unique key updates and row deletions in the referenced table.</p>
+<p>Example:</p>
+<p class="notranslate">ON UPDATE CASCADE ON DELETE CASCADE</p>
 
 <h3 id="referential_action" class="notranslate" onclick="switchBnf(this)">Referential Action</h3>
 <!-- railroad-start -->
@@ -3147,7 +3171,7 @@ CASCADE | RESTRICT | NO ACTION | SET { DEFAULT | NULL }
 CASCADE | RESTRICT | NO ACTION | SET { DEFAULT | NULL }
 </pre>
 syntax-end -->
-<p>The action <code class="notranslate">CASCADE</code> will cause conflicting rows in the referencing (child) table to be deleted or updated. <code class="notranslate">RESTRICT</code> is the default action. As this database does not support deferred checking, <code class="notranslate">RESTRICT</code> and <code class="notranslate">NO ACTION</code> will both throw an exception if the constraint is violated. The action <code class="notranslate">SET DEFAULT</code> will set the column in the referencing (child) table to the default value, while <code class="notranslate">SET NULL</code> will set it to <code class="notranslate">NULL</code>.</p>
+<p>The action <code class="notranslate">CASCADE</code> will cause conflicting rows in the referencing (child) table to be deleted or updated. <code class="notranslate">NO ACTION</code> is the default action, but because this database does not support deferred checking, <code class="notranslate">RESTRICT</code> and <code class="notranslate">NO ACTION</code> will both throw an exception immediately if the constraint is violated. The action <code class="notranslate">SET DEFAULT</code> will set the column in the referencing (child) table to the default value, while <code class="notranslate">SET NULL</code> will set it to <code class="notranslate">NULL</code>.</p>
 <p>Example:</p>
 <p class="notranslate">CASCADE<br />SET NULL</p>
 

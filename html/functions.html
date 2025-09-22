@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2025 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.3.232/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.4.240/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -223,6 +223,10 @@ Functions
     <a href="#expand" >EXPAND</a><br />
 
     <a href="#zero" >ZERO</a><br />
+
+    <a href="#gcd" >GCD</a><br />
+
+    <a href="#lcm" >LCM</a><br />
 </p>
 syntax-end -->
 <!-- railroad-start -->
@@ -335,6 +339,10 @@ syntax-end -->
                 <a href="#expand" >EXPAND</a><br />
             
                 <a href="#zero" >ZERO</a><br />
+            
+                <a href="#gcd" >GCD</a><br />
+            
+                <a href="#lcm" >LCM</a><br />
                     </td>
     </tr>
 </table>
@@ -1874,6 +1882,42 @@ syntax-end -->
 <p>Returns the value 0. This function can be used even if numeric literals are disabled.</p>
 <p>Example:</p>
 <p class="notranslate">ZERO()</p>
+
+<h3 id="gcd" class="notranslate" onclick="switchBnf(this)">GCD</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+<span class="ruleH2">GCD(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a> [,...])</span>
+</pre>
+<div name="railroad">
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">GCD ( <a href="grammar.html#numeric">numeric</a> , <a href="grammar.html#numeric">numeric</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+<span class="ruleH2">GCD(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a> [,...])</span>
+</pre>
+syntax-end -->
+<p>Returns the greatest common divisor of specified arguments. Arguments must have <code class="notranslate">TINYINT, SMALLINT, INTEGER, BIGINT</code>, or <code class="notranslate">NUMERIC</code> data type with scale 0. This function returns result of <code class="notranslate">NUMERIC</code> data type with scale 0.</p><p>For aggregate function see <a href="functions-aggregate.html#gcd_agg"><code class="notranslate">GCD_AGG</code></a>.</p>
+<p>Example:</p>
+<p class="notranslate">GCD(A, B)</p>
+
+<h3 id="lcm" class="notranslate" onclick="switchBnf(this)">LCM</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+<span class="ruleH2">LCM(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a> [,...])</span>
+</pre>
+<div name="railroad">
+<div class="ruleH2"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">LCM ( <a href="grammar.html#numeric">numeric</a> , <a href="grammar.html#numeric">numeric</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></div>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre class="notranslate">
+<span class="ruleH2">LCM(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a> [,...])</span>
+</pre>
+syntax-end -->
+<p>Returns the least common multiple of specified arguments. Arguments must have <code class="notranslate">TINYINT, SMALLINT, INTEGER, BIGINT</code>, or <code class="notranslate">NUMERIC</code> data type with scale 0. This function returns result of <code class="notranslate">NUMERIC</code> data type with scale 0.</p><p>For aggregate function see <a href="functions-aggregate.html#lcm_agg"><code class="notranslate">LCM_AGG</code></a>.</p>
+<p>Example:</p>
+<p class="notranslate">LCM(A, B)</p>
 
 <h2>String Functions</h2>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2024 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2025 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Features
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.3.232/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.4.240/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -972,6 +972,7 @@ This mode doesn't provide full compatibility with H2 1.X.
 </li><li>IDENTITY can be used as a data type.
 </li><li>MS SQL Server-style IDENTITY clause is supported.
 </li><li>Legacy SERIAL and BIGSERIAL data types are supported.
+</li><li>SMALLDATETIME, DATETIME, and DATETIME2 data types are treated like TIMESTAMP data type.
 </li><li>AUTO_INCREMENT clause can be used instead of GENERATED { ALWAYS | BY DEFAULT } AS IDENTITY.
 </li><li>If a value for identity column was specified in an INSERT command
 the base value of sequence generator of this column is updated if current value of generator was smaller
@@ -1051,6 +1052,8 @@ Do not change value of DATABASE_TO_LOWER and CASE_INSENSITIVE_IDENTIFIERS after 
 </li><li>GREATEST and LEAST ignore NULL values by default.
 </li><li>Text can be concatenated using '+'.
 </li><li>Arguments of LOG() function are swapped.
+</li><li>SMALLDATETIME, DATETIME, and DATETIME2 data types are treated like TIMESTAMP data type.
+    DATETIMEOFFSET data type is treated like TIMESTAMP WITH TIME ZONE data type.
 </li><li>MONEY data type is treated like NUMERIC(19, 4) data type. SMALLMONEY data type is treated like NUMERIC(10, 4)
     data type.
 </li><li><code class="notranslate">IDENTITY</code> can be used for automatic id generation on column level.
@@ -1091,6 +1094,7 @@ inserted.
 </li><li>NULL value works like DEFAULT value is assignments to identity columns.
 </li><li>LIMIT / OFFSET clauses are supported.
 </li><li>AUTO_INCREMENT clause can be used.
+</li><li>DATETIME data type is treated like TIMESTAMP data type.
 </li><li>YEAR data type is treated like SMALLINT data type.
 </li><li>GROUP BY clause can contain 1-based positions of expressions from the SELECT list.
 </li><li>Unsafe comparison operators between numeric and boolean values are allowed.
@@ -1133,6 +1137,7 @@ inserted.
 and create a unique constraint automatically if such constraint doesn't exist.
 </li><li>LIMIT / OFFSET clauses are supported.
 </li><li>AUTO_INCREMENT clause can be used.
+</li><li>DATETIME data type is treated like TIMESTAMP data type.
 </li><li>YEAR data type is treated like SMALLINT data type.
 </li><li>GROUP BY clause can contain 1-based positions of expressions from the SELECT list.
 </li><li>Unsafe comparison operators between numeric and boolean values are allowed.
