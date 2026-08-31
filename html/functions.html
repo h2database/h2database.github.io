@@ -88,7 +88,7 @@ Functions
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.4.240/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.5.250/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -3869,7 +3869,7 @@ syntax-end -->
 <span class="ruleH2">MEMORY_FREE()</span>
 </pre>
 syntax-end -->
-<p>Returns the free memory in KB (where 1024 bytes is a KB). This method returns a long. The garbage is run before returning the value. Admin rights are required to execute this command.</p>
+<p>Returns the free memory in KB (where 1024 bytes is a KB). This method returns a long. The garbage collector is run before returning the value. Admin rights are required to execute this command.</p>
 <p>Example:</p>
 <p class="notranslate">MEMORY_FREE()</p>
 
@@ -3887,7 +3887,7 @@ syntax-end -->
 <span class="ruleH2">MEMORY_USED()</span>
 </pre>
 syntax-end -->
-<p>Returns the used memory in KB (where 1024 bytes is a KB). This method returns a long. The garbage is run before returning the value. Admin rights are required to execute this command.</p>
+<p>Returns the used memory in KB (where 1024 bytes is a KB). This method returns a long. The garbage collector is run before returning the value. Admin rights are required to execute this command.</p>
 <p>Example:</p>
 <p class="notranslate">MEMORY_USED()</p>
 

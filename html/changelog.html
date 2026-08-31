@@ -88,7 +88,7 @@ Change Log
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.4.240/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.5.250/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -118,7 +118,45 @@ Change Log
 
 <h2>Next Version (unreleased)</h2>
 <ul>
-    <li>nothing here yet</li>
+<li>nothing here yet</li>
+</ul>
+
+<h2>Version 2.5.250 (2026-08-29)</h2>
+<ul>
+<li><a href="https://github.com/h2database/h2database/issues/4345">Issue #4345</a>: Comment on View Column is not persisted and not exported to database dump (with SCRIPT TO)
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4363">PR #4363</a>: Fixed: Server should be stopped every time db init fails
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4374">PR #4374</a>: Fixed: Data race causing spurious "Position 0" during chunk rewriting
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4353">Issue #4353</a>: Wrong composite index being chosen
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4359">PR #4359</a>: Fixed casting issue: skipped Index Condition Pushdown optimization for lossy conversions
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4352">Issue #4352</a>: Fix race between metatable generation and transaction closure
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4321">Issue #4321</a>: Fix SCRIPT tool COLUMNS option placement
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4343">PR #4343</a>: Stop on panic exception to prevent store corruption
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4340">PR #4340</a>: Eliminate concurrent access to MVStore.versions
+</li>
+<li><a href="https://github.com/h2database/h2database/pull/4317">PR #4317</a>: Fix case for ChunkNotFound. MVStore performance improvements.
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4302">Issue #4302</a>: org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Check constraint invalid
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4293">Issue #4293</a>: Data Race in org.h2.mvstore.tx.TransactionStore.registerTransaction
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4299">Issue #4299</a>: READ_COMMITTED isolation level sometimes doesn't see uncommitted changes from the same transaction 2.4.240
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4048">Issue #4048</a>: Assertion error in shrinkStoreIfPossible
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4304">Issue #4304</a>: DROP SCHEMA &amp; DROP ALL OBJECTS is broken if a materialized view is present in the schema
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4297">Issue #4297</a>: fix race in VersionedBitSet
+</li>
+<li><a href="https://github.com/h2database/h2database/issues/4286">Issue #4286</a>: faulty assertion caused failure in SHUTDOWN COMPACT
+</li>
 </ul>
 
 <h2>Version 2.4.240 (2025-09-22)</h2>
