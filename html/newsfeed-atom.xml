@@ -6,7 +6,22 @@
         <name>Thomas Mueller</name>
     </author>
     <link rel="self" href="https://h2database.com/html/newsfeed-atom.xml"/>
-    <updated>2026-08-29T16:31:37Z</updated>
+    <updated>2026-09-23T19:24:31Z</updated>
+    <entry>
+        <title type="text">New version available: 2.5.252 (2026-09-23)</title>
+        <link rel="alternate" type="text/html" href="https://h2database.com/"/>
+        <id>https://h2database.com//164</id>
+        <updated>2026-09-23T12:00:00Z</updated>
+        <content type="html">
+            <![CDATA[A new version of H2 is available for
+            <a href="https://h2database.com">download</a>.
+            (You may have to click 'Refresh').
+            <br />
+            For details, see the
+            <a href="https://h2database.com/html/changelog.html">change log</a>.
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title type="text">New version available: 2.5.250 (2026-08-29)</title>
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
@@ -222,21 +237,6 @@
         <link rel="alternate" type="text/html" href="https://h2database.com/"/>
         <id>https://h2database.com//149</id>
         <updated>2019-03-13T12:00:00Z</updated>
-        <content type="html">
-            <![CDATA[A new version of H2 is available for
-            <a href="https://h2database.com">download</a>.
-            (You may have to click 'Refresh').
-            <br />
-            For details, see the
-            <a href="https://h2database.com/html/changelog.html">change log</a>.
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="text">New version available: 1.4.198 (2019-02-22)</title>
-        <link rel="alternate" type="text/html" href="https://h2database.com/"/>
-        <id>https://h2database.com//148</id>
-        <updated>2019-02-22T12:00:00Z</updated>
         <content type="html">
             <![CDATA[A new version of H2 is available for
             <a href="https://h2database.com">download</a>.

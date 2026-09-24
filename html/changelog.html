@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
-Copyright 2004-2025 H2 Group. Multiple-Licensed under the MPL 2.0,
+Copyright 2004-2026 H2 Group. Multiple-Licensed under the MPL 2.0,
 and the EPL 1.0 (https://h2database.com/html/license.html).
 Initial Developer: H2 Group
 -->
@@ -88,7 +88,7 @@ Change Log
 <a href="grammar.html">SQL Grammar</a><br />
 <a href="systemtables.html">System Tables</a><br />
 <a href="../javadoc/index.html">Javadoc</a><br />
-<a href="https://github.com/h2database/h2database/releases/download/version-2.5.250/h2.pdf">PDF (2 MB)</a><br />
+<a href="https://github.com/h2database/h2database/releases/download/version-2.5.252/h2.pdf">PDF (2 MB)</a><br />
 <br />
 <b>Support</b><br />
 <a href="faq.html">FAQ</a><br />
@@ -118,7 +118,27 @@ Change Log
 
 <h2>Next Version (unreleased)</h2>
 <ul>
-<li>nothing here yet</li>
+    <li>nothing here yet</li>
+</ul>
+
+<h2>Version 2.5.252 (2026-09-23)</h2>
+<ul>
+    <li><a href="https://github.com/h2database/h2database/issues/4376">Issue #4376</a>: Reading INFORMATION_SCHEMA.COLUMNS fails with a NPE while any materialized view exists</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4380">Issue #4380</a>: creating a MATERIALIZED VIEW makes a persistent database permanently unopenable</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4395">Issue #4395</a>: disallow constraints between temporary and permanent tables</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4405">Issue #4405</a>: SecureFileStore.readFully() may skip decryption</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4414">Issue #4414</a>: TestScript fails in functions/numeric/log.sql on AArch64</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4407">Issue #4407</a>: Csv - properly write NULL marker (escape)</li>
+    <li><a href="https://github.com/h2database/h2database/pull/4412">PR #4412</a>: Security - Lack of deserialization filter</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4409">Issue #4409</a>: Prohibit use of session variables in FETCH and OFFSET for view definition</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4406">Issue #4406</a>: Fix handling of session-time-zone expressions in views</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4394">Issue #4394</a>: StringIndexOutOfBoundsException thrown by TO_CHAR function</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4241">Issue #4241</a>: LENGTH(), CHAR_LENGTH(), and CHARACTER_LENGTH() now return the number of bytes instead of the number of characters in a decoded string for binary values</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4396">Issue #4396</a>: Repeated ORDER BY expression corrupts a disk-backed result</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4391">Issue #4391</a>: Restore notification of waiting transactions on a rollback</li>
+    <li><a href="https://github.com/h2database/h2database/issues/4387">Issue #4387</a>: "Double mark" corruption on reopen after SHUTDOWN</li>
+    <li><a href="https://github.com/h2database/h2database/pull/4386">PR #4386</a>: MVStore - Empty commit as the last one before store closure (H2 is not affected)</li>
+    <li><a href="https://github.com/h2database/h2database/pull/4381">PR #4381</a>: Security - URL injection issue</li>
 </ul>
 
 <h2>Version 2.5.250 (2026-08-29)</h2>
@@ -596,65 +616,6 @@ Then error occurred.
 <li><a href="https://github.com/h2database/h2database/pull/3382">PR #3382</a>: Use secure parser in H2AuthConfigXml to avoid future reports
 </li>
 </ul>
-
-<h2>Version 2.1.210 (2022-01-17)</h2>
-<ul>
-<li><a href="https://github.com/h2database/h2database/pull/3381">PR #3381</a>: Add IDENTITY() and SCOPE_IDENTITY() to LEGACY mode
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3376">Issue #3376</a>: Data cannot be read after insert of clob data > MAX_LENGTH_INPLACE_LOB with data change delta table
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3377">PR #3377</a>: Add -webExternalNames setting and fix WebServer.getConnection()
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3367">PR #3367</a>: Use faster checks of dimension systems of geometries
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3369">PR #3369</a>: Added v2 changes in migration docs
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3361">Issue #3361</a>: MemoryEstimator.estimateMemory() can return negative size
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3362">PR #3362</a>: Use BufferedReader instead of BufferedInputStream to avoid Illegal seek exception
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3353">Issue #3353</a>: Wrong rownum() scope for DML with change delta table
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3352">PR #3352</a>: make Javadoc happier
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3344">Issue #3344</a>: Changelog could link to github issue
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3340">Issue #3340</a>: JDBC index type seems wrong
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3336">Issue #3336</a>: FT_INIT error when mode=MySQL
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3334">Issue #3334</a>: Regression with CREATE ALIAS - Parameter "#2" is not set
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3321">Issue #3321</a>: Insert Primary Key after import CSV Data does not work
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3323">PR #3323</a>: Tokenize SQL before parsing and preserve tokens for recompilation
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3320">PR #3320</a>: Add Servlet 5-compatible servlet for H2 Console
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/918">Issue #918</a>: Parser fails recognising set operations in correlated subqueries
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/2050">Issue #2050</a>: PostgreSQL with recursive fail with union in the final query
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3316">PR #3316</a>: Update copyright years
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3315">PR #3315</a>: Never put read locks into lockSharedSessions and other minor changes
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/492">Issue #492</a>: H2 does not correctly parse &lt;parenthesized joined table&gt;
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/3311">Issue #3311</a>: Parser creates wrong join graph in some cases and uses wrong tables for column mapping
-</li>
-<li>FORCE_JOIN_ORDER setting is removed
-</li>
-<li><a href="https://github.com/h2database/h2database/issues/1983">Issue #1983</a>: Official build script is not compatible with Java 13
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3305">PR #3305</a>: Add UNIQUE(VALUE) and remove some non-standard keywords
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3299">PR #3299</a>: Remove useless StringBuilder.toString() call
-</li>
-<li><a href="https://github.com/h2database/h2database/pull/3298">PR #3298</a>: Delete unused sqlTypes array
-</li>
-</ul>
-
 
 
 <!-- [close] { -->
